@@ -13,15 +13,17 @@ package crazyconnectfour;
 public class playMatrix {
     int options[];
     int matrix[][];
+   
     
-    int checkshot(int coordinates[]) {
-        System.out.println("This method checks for hits and misses");
+    int addToken(int columnnumber, int playernumber) {
+        System.out.println("This method allows a token to be added to a collumn");
         return 1;
     }
-    int placeShip(int shiptype, int shipid, int position[]){
-        System.out.println("This method places a ship in a matrix");
+    int checkForFour(){
+        System.out.println("This method checkes the matrix for four or more in a row");
         return 1;
     }
+    int removeMatch
     
    
 }

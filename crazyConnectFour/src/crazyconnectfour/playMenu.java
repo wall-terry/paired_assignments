@@ -14,8 +14,9 @@ public class playMenu {
     int scores[];
     int options[];
     int playlevel;
+    
     int displayMenu(){
-        System.out.println("This will cause a menu playMenu object to be displayed");
+        System.out.println("This will cause a playMenu object to be displayed");
         return 1;
     }
     int enterSelections(int options[]){

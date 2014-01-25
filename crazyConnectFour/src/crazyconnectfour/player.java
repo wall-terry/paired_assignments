@@ -12,10 +12,12 @@ package crazyconnectfour;
  */
 public class player {
     String playerid;
+    int playernumber;
+    int remainingtokens;
     int score;
     
-    int makeShot(){
-        System.out.println("This Allows a player to enter and make a shot");
+    int placeToken(){
+        System.out.println("This Allows a player to add a token to the Matrix");
         return 1;
     }
     
