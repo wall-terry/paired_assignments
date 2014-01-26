@@ -10,20 +10,20 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
-public class playMatrix {
+public class PlayMatrix {
     int options[];
     int matrix[][];
    
     
-    int addToken(int columnnumber, int playernumber) {
+    public void addToken(int columnnumber, int playernumber) {
         System.out.println("This method allows a token to be added to a collumn");
-        return 1;
+        
     }
-    int checkForFour(){
+    public void checkForFour(){
         System.out.println("This method checkes the matrix for four or more in a row");
-        return 1;
-    }
-    int removeMatch
+           }
+    public void removeAndCascade(){
     
-   
+        System.out.println("This method cascades the tiles if matches are found");
+    }
 }
