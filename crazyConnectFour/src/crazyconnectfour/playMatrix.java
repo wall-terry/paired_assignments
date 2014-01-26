@@ -10,7 +10,7 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
-public class PlayMatrix {
+public class playMatrix {
     int options[];
     int matrix[][];
    

@@ -10,7 +10,7 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
-public class Player {
+public class player {
     String playerid;
     int playernumber;
     int remainingtokens;

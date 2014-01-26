@@ -10,7 +10,7 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
-public class PlayMenu {
+public class playMenu {
     int scores[];
     int options[];
     int playlevel;
