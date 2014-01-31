@@ -22,10 +22,38 @@ public class CrazyConnectFour {
             + "disappear and result in a similar cascade which will continue until no more combinations of four or more \n"
             + "are created.";
     
+    
+    
+       
     public static void main(String[] args) {
+        boolean result;
+        String Outmessage;
+        ScoreBoard runningScore = new ScoreBoard();
+       
         CrazyConnectFour playTheGame = new CrazyConnectFour();
+        
+        
+        runningScore.scoreArray[] = {0,0};
+        
         playTheGame.getName();
         playTheGame.displayHelp();
+        
+        result = runningScore.addScore(4, 1);
+        if (result){
+            Outmessage = "Score update was successful";
+            System.out.println(Outmessage);
+        }
+        result = runningScore.addScore(5, 0);
+        if (result){
+            Outmessage = "Score update was successful";
+            System.out.println(Outmessage);
+        }
+        result = runningScore.addScore(8, 1);
+        if (result){
+            Outmessage = "Score update was successful";
+            System.out.println(Outmessage);
+        }
+        
     }
     
     public void getName(){
