@@ -25,6 +25,7 @@ public class CrazyConnectFour {
     
     
        
+    
     public static void main(String[] args) {
         boolean result;
         String Outmessage;
@@ -33,7 +34,8 @@ public class CrazyConnectFour {
         CrazyConnectFour playTheGame = new CrazyConnectFour();
         
         
-        runningScore.scoreArray[] = {0,0};
+        runningScore.scoreArray[0] = 0;
+        runningScore.scoreArray[1] = 0;
         
         playTheGame.getName();
         playTheGame.displayHelp();

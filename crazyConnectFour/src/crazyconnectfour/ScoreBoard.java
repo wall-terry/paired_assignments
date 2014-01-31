@@ -30,18 +30,18 @@ package crazyconnectfour;
  */
 public class ScoreBoard  {
     
-        int scoreArray[];
+    int scoreArray[] = new int[2];
     
     boolean addScore(int newScore, int playerNumber ){
     
         boolean success = false;
-        int temp = 0;
-        int tempTimesTen = 0;
+        int temp;
+        int tempTimesTen;
         String OutMessage;
         
         if (newScore > 0){
             temp = newScore + scoreArray[playerNumber];
-            tempTimesTen *= 10;  // Just for the sake of the assignment
+            tempTimesTen = temp * 10;  // Just for the sake of the assignment
             scoreArray[playerNumber] = tempTimesTen / 10;
             OutMessage = "Player \"one\" has a score of " + scoreArray[0] + "\n Player two has score of " + scoreArray[1] +"\n";
             System.out.println(OutMessage);
