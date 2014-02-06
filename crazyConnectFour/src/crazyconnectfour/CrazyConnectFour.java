@@ -29,7 +29,7 @@ public class CrazyConnectFour {
     public static void main(String[] args) {
         boolean result;
         String Outmessage;
-        ScoreBoard runningScore = new ScoreBoard();
+         ScoreBoard runningScore = new ScoreBoard();
        
         CrazyConnectFour playTheGame = new CrazyConnectFour();
         
