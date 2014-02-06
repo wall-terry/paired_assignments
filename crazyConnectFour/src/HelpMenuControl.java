@@ -51,10 +51,10 @@ public class HelpMenuControl {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-                 "\tThe objective of the game is to be the first player to mark three "
-                + "\n\tsquares vertically, horizontally or diagonally. Each player takes "
-                + "\n\tturns placing their marker in one of the locations on the "
-                + "\n\tboard. The first player to get \"three-in-a-row\" is the winner."
+                 "\tThe objective of the game is to be the first player to get four tokens in a row "
+                + "\n\t vertically, horizontally or diagonally. Each player takes "
+                + "\n\tturns placing their token in one of the columns on the "
+                + "\n\ttop of the board. The first player to get \"four-in-a-row\" is the winner."
                 ); 
         displayHelpBorder();
     }
@@ -63,7 +63,7 @@ public class HelpMenuControl {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-                "\tA real player manually takes their turn by placing their mark "
+                "\tA real player manually takes their turn by placing their token "
                 + "\n\tin an unused location on the board."
                 ); 
         displayHelpBorder();
@@ -84,7 +84,7 @@ public class HelpMenuControl {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-               "\tA location on the board where a player can place their marker"
+               "\tA location on the board where a player can place their token"
                 ); 
         displayHelpBorder();
     }
@@ -95,7 +95,7 @@ public class HelpMenuControl {
         System.out.println( 
                "\tA symbol that \"marks\" the locations in the board that are occupied "
                 + "by a player. "
-                + "\n\tThe default markers are \"X\" and \"O\"."
+                + "\n\tThe default token is  \"Red\" and \"Black\"."
                 ); 
         displayHelpBorder();
     }
