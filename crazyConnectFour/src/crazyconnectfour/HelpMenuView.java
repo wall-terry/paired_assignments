@@ -39,7 +39,7 @@ public class HelpMenuView  {
         {"Q", "Quit Help"}        
     };
     
-    private HelpMenuControl helpMenuControl = new HelpMenuControl();
+    private final HelpMenuControl HelpMenuControl = new HelpMenuControl();
     
     public HelpMenuView() {
         
@@ -60,28 +60,28 @@ public class HelpMenuView  {
             
             switch (command) {
                 case "B":
-                    this.helpMenuControl.displayBoardHelp();
+                    this.HelpMenuControl.displayBoardHelp();
                     break;
                 case "C":
-                    this.helpMenuControl.displayComputerPlayerHelp();
+                    this.HelpMenuControl.displayComputerPlayerHelp();
                     break;
                 case "G":
-                    this.helpMenuControl.displayGameHelp();
+                    this.HelpMenuControl.displayGameHelp();
                     break;                  
                 case "L":
-                    this.helpMenuControl.displayColumnHelp();
+                    this.HelpMenuControl.displayColumnHelp();
                     break;
                 case "M":
-                    this.helpMenuControl.displayTokenHelp();
+                    this.HelpMenuControl.displayTokenHelp();
                     break;
                  case "R":
-                    this.helpMenuControl.displayRealPlayerHelp();
+                    this.HelpMenuControl.displayRealPlayerHelp();
                     break; 
                 case "Q": 
                     break;
                 default: 
                     new CrazyConnectFour().displayError("Invalid command. Please enter a valid command.");
-                    continue;
+                        continue;
             }
         } while (!command.equals("Q"));  
         
@@ -92,3 +92,11 @@ public class HelpMenuView  {
     public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tEnter the letter associated with one of the following commands:");
+
+        for (int i = 0; i < HelpMenuView.menuItems.length; i++) {
+            System.out.println("\t   " + menuItems[i][0] + "\t" + menuItems[i][1]);
+        }
+        System.out.println("\t===============================================================\n");
+    }
+}
+
