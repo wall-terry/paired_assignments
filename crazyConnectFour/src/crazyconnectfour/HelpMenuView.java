@@ -23,11 +23,72 @@
  */
 
 package crazyconnectfour;
+import java.util.Scanner;
 
-/**
- *
- * @author dccoatney
- */
-public class HelpMenuView {
+
+
+public class HelpMenuView  {
+        
+    private final static String[][] menuItems = {
+        {"B", "The board"},
+        {"C", "A computer player"}, 
+        {"G", "Crazy Connect Four"},
+        {"L", "A coulumn"},
+        {"M", "A token"},
+        {"R", "A regular player"},        
+        {"Q", "Quit Help"}        
+    };
     
-}
+    private HelpMenuControl helpMenuControl = new HelpMenuControl();
+    
+    public HelpMenuView() {
+        
+    } 
+    
+    public void getInput() {       
+              
+        String command;
+        Scanner inFile = new Scanner(System.in);
+        
+        do {
+            
+            this.display(); // display the menu
+            
+         
+            command = inFile.nextLine();
+            command = command.trim().toUpperCase();
+            
+            switch (command) {
+                case "B":
+                    this.helpMenuControl.displayBoardHelp();
+                    break;
+                case "C":
+                    this.helpMenuControl.displayComputerPlayerHelp();
+                    break;
+                case "G":
+                    this.helpMenuControl.displayGameHelp();
+                    break;                  
+                case "L":
+                    this.helpMenuControl.displayColumnHelp();
+                    break;
+                case "M":
+                    this.helpMenuControl.displayTokenHelp();
+                    break;
+                 case "R":
+                    this.helpMenuControl.displayRealPlayerHelp();
+                    break; 
+                case "Q": 
+                    break;
+                default: 
+                    new CrazyConnectFour().displayError("Invalid command. Please enter a valid command.");
+                    continue;
+            }
+        } while (!command.equals("Q"));  
+        
+         return;
+    }
+
+        // displays the help menu
+    public final void display() {
+        System.out.println("\n\t===============================================================");
+        System.out.println("\tEnter the letter associated with one of the following commands:");
