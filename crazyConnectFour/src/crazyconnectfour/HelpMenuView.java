@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 
+
 package crazyconnectfour;
 import java.util.Scanner;
 
