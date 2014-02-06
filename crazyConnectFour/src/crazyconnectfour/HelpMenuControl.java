@@ -1,3 +1,5 @@
+package crazyconnectfour;
+
 /*
  * The MIT License
  *
