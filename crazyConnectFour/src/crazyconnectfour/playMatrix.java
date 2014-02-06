@@ -16,7 +16,7 @@ public class playMatrix {
    
     
     public void addToken(int columnnumber, int playernumber) {
-        System.out.println("This method allows a token to be added to a collumn");
+        System.out.println("This method allows a token to be added to a column");
         
     }
     public void checkForFour(){
