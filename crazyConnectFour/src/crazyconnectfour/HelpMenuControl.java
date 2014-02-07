@@ -40,9 +40,9 @@ class HelpMenuControl {
         System.out.println();
         this.displayHelpBorder();             
         System.out.println( 
-                "\tThe game board for CrazyConnectFour. The default board consists of 8 columns that can be stacked 8 positions high "
-                + "\n\t. Players place their tokens in one of the 8 columns and it drops to the lowest empty position"
-                + "\n\ton the board in an effort to win the game. The goal is to 4 tokens in a row horizontally, vertically or diagonally");
+                "\t The game board for CrazyConnectFour. The default board consists of 8 columns that can be stacked 8 positions"
+                + "\n\t high. Players place their tokens in one of the 8 columns and it drops to the lowest empty position"
+                + "\n\t on the board in an effort to get 4 tokens in a row horizontally, vertically or diagonally");
 
  
         displayHelpBorder();
@@ -53,10 +53,17 @@ class HelpMenuControl {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-                 "\tThe objective of the game is to be the first player to get four tokens in a row "
+                 "\t The objective of the game is to get four tokens in a row "
                 + "\n\t vertically, horizontally or diagonally. Each player takes "
-                + "\n\tturns placing their token in one of the columns on the "
-                + "\n\ttop of the board. The first player to get \"four-in-a-row\" is the winner."
+                + "\n\t turns placing their token in one of the columns on the "
+                + "\n\t top of the board. When a player gets four tokens in a row"
+                + "\n\t the tokens disappear and the tokens above will slide down to"
+                + "\n\t to fill the empty spaces.  This may result in additional "
+                + "\n\t combinations of 4 or more in a row which will also disappear"
+                + "\n\t creating a cascade effect until no more combinations of four"
+                + "\n\t are created. Points are scored for each token that disappears"
+                + "\n\t and play continues until all the tokens are gone or no more"
+                + "\n\t plays can be made."
                 ); 
         displayHelpBorder();
     }
@@ -65,8 +72,9 @@ class HelpMenuControl {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-                "\tA real player manually takes their turn by placing their token "
-                + "\n\tin an unused location on the board."
+                "\t A real player manually takes their turn by placing their token "
+                + "\n\t in an unused location on the board. This becomes a two player"
+                + "\n\t version of the game with each player taking their turn."
                 ); 
         displayHelpBorder();
     }
@@ -76,8 +84,8 @@ class HelpMenuControl {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-                "\tA computer based player automatically takes its turn "
-                + "\n\timmediatly after a real player in a single player game."
+                "\t A computer based player automatically takes its turn "
+                + "\n\t immediatly after a real player in a single player game."
                 ); 
         displayHelpBorder();
     }
@@ -86,7 +94,8 @@ class HelpMenuControl {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-               "\tA location on the board where a player can place their token"
+               "\t A Column on the board where a player can place their token and"
+                + "\n\t it will drop to the lowest unoccupied space."
                 ); 
         displayHelpBorder();
     }
@@ -95,9 +104,8 @@ class HelpMenuControl {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-               "\tA symbol that \"marks\" the locations in the board that are occupied "
-                + "by a player. "
-                + "\n\tThe default token is  \"Red\" and \"Black\"."
+               "\t A symbol that \"marks\" the locations in the board that are occupied "
+                + "\n\t by a player. The default token are  \"Red\" and \"Black\"."
                 ); 
         displayHelpBorder();
     }
