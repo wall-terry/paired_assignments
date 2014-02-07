@@ -22,6 +22,9 @@
  * THE SOFTWARE.
  */
 
+/* author Crystal Coatney
+
+*/
 package crazyconnectfour;
 
 
