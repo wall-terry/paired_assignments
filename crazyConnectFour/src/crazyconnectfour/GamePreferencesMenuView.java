@@ -22,10 +22,6 @@
  * THE SOFTWARE.
  */
 
-/**
- *
- * @author dccoatney
- */
 
 package crazyconnectfour;
 
@@ -34,18 +30,16 @@ import java.util.Scanner;
 
 public class GamePreferencesMenuView {
      Game game;
-    private GamePreferencesMenuControl gamePreferenceControl = new GamePreferencesMenuControl(game);
+    private GamePreferencesMenuControl gamePreferenceControl = new GamePreferencesMenuControl();
 
     private final static String[][] menuItems = {
-        {"1", "Change Marker of the first Player"},
-        {"2", "Change Marker of the second Player"},
+        {"1", "Change Token of the first Player"},
+        {"2", "Change Token of the second Player"},
         {"D", "Change the dimensions of the board"},
         {"Q", "Return to game menu"}
     };
 
-    public GamePreferencesMenuView(Game game) {
-        this.game = game;
-    }
+    
 
     
     public void getInput() {       
@@ -61,10 +55,10 @@ public class GamePreferencesMenuView {
             
             switch (command) {
                 case "1":
-                    this.gamePreferenceControl.getMarker(this.game.playerA);
+                    this.gamePreferenceControl.getToken();
                     break;
                 case "2":
-                    this.gamePreferenceControl.getMarker(this.game.playerB);
+                    this.gamePreferenceControl.getToken();
                     break;
                 case "D":
                     this.gamePreferenceControl.getDimensions();
@@ -72,7 +66,7 @@ public class GamePreferencesMenuView {
                 case "Q":
                     break;
                 default: 
-                    new crazyconnectfour().displayError("Invalid command. Please enter a valid command.");
+                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
                     continue;
             }
         } while (!command.equals("Q"));

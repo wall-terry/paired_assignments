@@ -31,23 +31,19 @@ import java.util.regex.Pattern;
 
 public class GamePreferencesMenuControl {
     
-    private Game game;
-
-    public GamePreferencesMenuControl(Game game) {
-        this.game = game;
     }
 
     public Game getGame() {
         return game;
     }
 
-    public void setGame(Game game) {
+    public void setGame() {
         this.game = game;
     }
           
     
-    public void getMarker(Player player) {
-        System.out.println("\n\tgetMarker called");
+    public void getToken() {
+        System.out.println("\n\tgetToken called");
    
     }
     
