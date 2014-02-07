@@ -28,10 +28,7 @@ import java.awt.Dimension;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-/**
- *
- * @author jacksonrkj
- */
+
 public class GamePreferencesMenuControl {
     
     private Game game;
@@ -63,10 +60,3 @@ public class GamePreferencesMenuControl {
     
 }
 
-/**
- *
- * @author dccoatney
- */
-public class GamePreferencesMenuControl {
-    
-}
