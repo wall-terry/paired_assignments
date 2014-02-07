@@ -29,32 +29,17 @@ public class CrazyConnectFour {
     public static void main(String[] args) {
         boolean result;
         String Outmessage;
-         ScoreBoard runningScore = new ScoreBoard();
+        HelpMenuView HelpMenu = new HelpMenuView();
        
         CrazyConnectFour playTheGame = new CrazyConnectFour();
         
         
-        runningScore.scoreArray[0] = 0;
-        runningScore.scoreArray[1] = 0;
-        
+                
         playTheGame.getName();
         playTheGame.displayHelp();
+        HelpMenu.getInput();
         
-        result = runningScore.addScore(4, 1);
-        if (result){
-            Outmessage = "Score update was successful";
-            System.out.println(Outmessage);
-        }
-        result = runningScore.addScore(5, 0);
-        if (result){
-            Outmessage = "Score update was successful";
-            System.out.println(Outmessage);
-        }
-        result = runningScore.addScore(8, 1);
-        if (result){
-            Outmessage = "Score update was successful";
-            System.out.println(Outmessage);
-        }
+        
         
     }
     
