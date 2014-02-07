@@ -28,11 +28,9 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
-public class GameMenuControl {    
+public class GameMenuControl {
     
-       
-    
-   public void takeTurn() {
+  public void takeTurn() {
        
         System.out.println("\n\ttakeTurn() called");
     }
@@ -75,6 +73,5 @@ public class GameMenuControl {
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.getInput();
-    }  
+    }     
 }
- 
