@@ -24,35 +24,23 @@
 
 package crazyconnectfour;
 
-import java.awt.Dimension;
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
 
-public class GamePreferencesMenuControl {
-    
-    }
 
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame() {
-        this.game = game;
-    }
-          
+public class GamePreferencesMenuControl {  
     
     public void getToken() {
         System.out.println("\n\tgetToken called");
-   
     }
+    
     
      public boolean getDimensions() {
 
        System.out.println("\n\tgetDimensions called");
        return true;
-    }   
-    
-    
+    }  
 }
+    
+    
+
 

@@ -29,7 +29,7 @@ import java.util.Scanner;
 
 
 public class GamePreferencesMenuView {
-     Game game;
+     
     private GamePreferencesMenuControl gamePreferenceControl = new GamePreferencesMenuControl();
 
     private final static String[][] menuItems = {
