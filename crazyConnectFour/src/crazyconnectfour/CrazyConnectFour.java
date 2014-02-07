@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Terry Wall
+ * @author Terry Wall and Crystal Coatney
  */
 public class CrazyConnectFour {
     // Instance variables

@@ -36,14 +36,14 @@ public class Board {
     int columnCount = 3;
     private String name;
     private Point boardDimensions = new Point();
-    private Player[][] boardLocations;
+    private player[][] boardLocations;
 
     public Board() {
     }
 
     public Board(int noRows, int noColumns) {
         this.boardDimensions.setLocation(noRows, noRows);
-        this.boardLocations = new Player[noRows][noColumns];
+        this.boardLocations = new player[noRows][noColumns];
     }
 
 
@@ -51,11 +51,11 @@ public class Board {
         // TODO
     }
 
-    public void occupyLocation(Player player, int row, int column) {
-        Player playerAtLocation = this.boardLocations[row][column];
+    public void occupyLocation(player player, int row, int column) {
+        player playerAtLocation = this.boardLocations[row][column];
 
         if (playerAtLocation != null) { // location already occupied
-            new crazyconnectfour().displayError("This location is already occupied. "
+            new CrazyConnectFour().displayError("This location is already occupied. "
                     + "Try a different location.");
         }
         this.boardLocations[row][column] = player;
@@ -65,7 +65,7 @@ public class Board {
 
         public int row;
         public int column;
-        public Player player;
+        public player player;
 
         Location() {
         }
