@@ -24,11 +24,87 @@
 
 package crazyconnectfour;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Terry Wall
  */
 public class GameMenuView {
-    public void getInput(){
+    
+    
+    private final GameMenuControl gameMenuControl; 
+
+
+    private final static String[][] menuItems = {
+        {"T", "Take your turn"},
+        {"D", "Display the board"},
+        {"N", "New Game"},
+        {"R", "Report stastics"},
+        {"P", "Change game preferences"},
+        {"H", "Help"},
+        {"Q", "QUIT"}
+    };
+
+    public GameMenuView(Object object) {
+      
+      this.gameMenuControl = new GameMenuControl() ;
+        
+      String message = (String) object;  
+      System.out.println("\t"+ message + " Selected");
     }
+
+    
+    
+    public void getInput() {
+   
+        String command;
+        Scanner inFile = new Scanner(System.in);
+
+        do {    
+            this.display(); // display the menu
+
+            // get commaned entered
+            command = inFile.nextLine();
+            command = command.trim().toUpperCase();
+            
+            switch (command) {
+                case "T":
+                    this.gameMenuControl.takeTurn();
+                    break;
+                case "D":
+                    gameMenuControl.displayBoard();
+                    break;
+                case "N":
+                    gameMenuControl.startNewGame();
+                    break;
+                case "R":
+                    gameMenuControl.displayStatistics();
+                    break;
+                case "P":
+                    gameMenuControl.displayPreferencesMenu();
+                    break;
+                case "H":
+                    gameMenuControl.displayHelpMenu();
+                    break;
+                case "Q":                   
+                    break;
+                default: 
+                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
+            }
+        } while (!command.equals("Q"));
+    }
+    
+
+
+    public final void display() {
+        System.out.println("\n\t===============================================================");
+        System.out.println("\tEnter the letter associated with one of the following commands:");
+
+        for (int i = 0; i < GameMenuView.menuItems.length; i++) {
+            System.out.println("\t   " + menuItems[i][0] + "\t" + menuItems[i][1]);
+        }
+        System.out.println("\t===============================================================\n");
+    }
+  
 }
