@@ -24,6 +24,8 @@
 
 package crazyconnectfour;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Terry Wall
@@ -33,7 +35,7 @@ public class MainMenuView {
         {"1", "One player game"},
         {"2", "Two player game"},
         {"H", "Help"},
-        {"X", "Exit Tic-Tac-Toe"}
+        {"X", "Exit CrazyConnectFour"}
     }; 
   
     MainMenuControl mainMenuControl = new MainMenuControl();
@@ -69,11 +71,8 @@ public class MainMenuView {
                     break;
                 default: 
                     new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
-                    continue;                    
             }
         } while (!command.equals("X"));
-
-        return;
     }
     
 
@@ -82,10 +81,9 @@ public class MainMenuView {
    public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tEnter the letter associated with one of the following commands:");
-
-        for (int i = 0; i < MainMenuView.menuItems.length; i++) {
-            System.out.println("\t   " + menuItems[i][0] + "\t" + menuItems[i][1]);
-        }
+     for (String[] menuItem : MainMenuView.menuItems) {
+         System.out.println("\t   " + menuItem[0] + "\t" + menuItem[1]);
+     }
         System.out.println("\t===============================================================\n");
     }   
       

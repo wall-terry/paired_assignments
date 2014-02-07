@@ -28,16 +28,56 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
+public class Player {
     
- public class CrazyConnectFourError {
- 
-    public Object displayError(Object object) {
-        String message = (String) object;
-        System.out.println("\t??????????????????????????????????????????????????????????????????????????????");
-        System.out.println("\t ERROR: " + message);
-        System.out.println("\t???????????????????????????????????????????????????????????????????????????????");
-        return null;
+    public static final String REGULAR_PLAYER = "REGULAR";
+    public static final String COMPUTER_PLAYER = "COMPUTER"; 
+    
+    private String name;
+    private String playerType;
+    private long score = 0;
+    public String token;
+    
+    
+
+    public Player() {
+    }
+
+    public Player(String playerType, String token) {
+        this.playerType = playerType;
+        this.token = token;
     }
     
-}
+    public String getName() {
+        return name;
+    }
  
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPlayerType() {
+        return playerType;
+    }
+
+    public void setPlayerType(String playerType) {
+        this.playerType = playerType;
+    }
+
+    public long getScore() {
+        return score;
+    }
+
+    public void setScore(long score) {
+        this.score = score;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+ 
+}

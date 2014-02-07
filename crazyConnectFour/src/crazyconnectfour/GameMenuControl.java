@@ -28,31 +28,50 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
-public class MainMenuControl {
-
-     
-    public void startGame(long noPlayers) {
-        
-        String message = new String();
-        if (noPlayers == 1) message = "One Player Game";
-        else if (noPlayers == 2) message ="Two Player Game";
-        GameMenuView gameMenu = new GameMenuView(message);
-        gameMenu.getInput();
+public class GameMenuControl {
+    
+  public void takeTurn() {
+       
+        System.out.println("\n\ttakeTurn() called");
     }
-
+   
+       
+   public void displayBoard() {
+        System.out.println("\n\tdisplayBoard() called");
+    }
+   
+   
+    public void startNewGame() {
+        System.out.println("\n\tstartNewGame() called");
+    }
     
     
-    public Game create(String gameType) {
-        Game game = null;
-        Player player1 = null;
-        Player player2 = null;
+            
+    public void displayPreferencesMenu() {
+        System.out.println("\n\t displayPreferencesMenu() called");
         
-        return game;
-    } 
+
+        GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView();
+        gamePreferencesMenu.getInput();
+   
+    }
+    
+    
+    public void displayStatistics() {
+        System.out.println("\n\t displayStatistics()) called");
+        
+        /*
+        String playerAStatistics = this.game.playerA.getPlayerStastics();
+        String playerBStatistics = this.game.playerB.getPlayerStastics();
+        System.out.println("\n\t++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("\t " + playerAStatistics);
+        System.out.println("\n\t " + playerBStatistics);
+        System.out.println("\t+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        */
+    }
     
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.getInput();
-    }
-        
+    }     
 }

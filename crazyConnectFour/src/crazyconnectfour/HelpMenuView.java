@@ -81,7 +81,7 @@ public class HelpMenuView  {
                 case "Q": 
                     break;
                 default: 
-                    new CrazyConnectFour().displayError("Invalid command. Please enter a valid command.");
+                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
                                    }
         } while (!command.equals("Q"));  
         
