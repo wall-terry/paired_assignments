@@ -66,7 +66,7 @@ public class GameMenuControl {
         System.out.println("\n\t displayPreferencesMenu() called");
         
 
-        GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView();
+        GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView(game);
         gamePreferencesMenu.getInput();
    
     }

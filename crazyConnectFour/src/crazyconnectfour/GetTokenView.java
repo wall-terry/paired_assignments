@@ -39,11 +39,17 @@ public class GetTokenView {
     public GetTokenView(Game game) {
         this.game = game;
         
-    } 
-      
-public String getInput() {
+    }
 
-        String newMarker = null;
+    /**
+     *
+     * @param player
+     * @return
+     */
+    
+    public String getInput(Player player) {
+
+        String newToken = null;
         Scanner in = new Scanner(System.in);
                 
         boolean valid = false; // flag to indicate if valid character entered
@@ -54,23 +60,23 @@ public String getInput() {
                     + "your squares in the game.");
             
             // get input from user           
-            newMarker = in.nextLine();
+            newToken = in.nextLine();
            
             // no token entered?
-            if (newMarker == null  || newMarker.length() < 1) {
+            if (newToken == null  || newToken.length() < 1) {
                 continue;
             }
             
             // grab only the first character and convert it to upper case
-            newMarker = newMarker.substring(0, 1).toUpperCase();
+            newToken = newToken.substring(0, 1).toUpperCase();
             
-            if (newMarker.equals("Q")) { // Quit?
+            if (newToken.equals("Q")) { // Quit?
                 return null;
             }
             
             // Check to see if the token is already in use
-            if (this.game.playerA.token.equals(newMarker) ||
-                this.game.playerB.token.equals(newMarker) ) {
+            if (this.game.playerA.token.equals(newToken) ||
+                this.game.playerB.token.equals(newToken) ) {
                new CrazyConnectFourError().displayError(
                         "This token is currently in use. " +
                         "Select a different character");
@@ -80,7 +86,7 @@ public String getInput() {
             valid = true; // signal that a valid token was entered
         }
         
-        return newMarker;
+        return newToken;
     }
     
 }

@@ -29,8 +29,9 @@ import java.util.Scanner;
 
 
 public class GamePreferencesMenuView {
-     
-    private GamePreferencesMenuControl gamePreferenceControl = new GamePreferencesMenuControl();
+    
+    Game game;
+    private GamePreferencesMenuControl gamePreferenceControl;
 
     private final static String[][] menuItems = {
         {"1", "Change Token of the first Player"},
@@ -40,8 +41,12 @@ public class GamePreferencesMenuView {
     };
 
     
-
-    
+ public GamePreferencesMenuView(Game game) {
+     
+        this.game = game;
+        gamePreferenceControl = new GamePreferencesMenuControl(game);
+ }
+ 
     public void getInput() {       
         String command;
         Scanner inFile = new Scanner(System.in);
@@ -55,10 +60,10 @@ public class GamePreferencesMenuView {
             
             switch (command) {
                 case "1":
-                    this.gamePreferenceControl.getToken();
+                    this.gamePreferenceControl.getToken(this.game.playerA);
                     break;
                 case "2":
-                    this.gamePreferenceControl.getToken();
+                    this.gamePreferenceControl.getToken(this.game.playerB);
                     break;
                 case "D":
                     this.gamePreferenceControl.getDimensions();
