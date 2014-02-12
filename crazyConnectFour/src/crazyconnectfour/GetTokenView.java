@@ -36,10 +36,11 @@ public class GetTokenView {
     Game game = new Game();
     Player player = new Player();
     
-    public GetTokenView ()
-    {
+    public GetTokenView(Game game) {
+        this.game = game;
+        
+    } 
       
-}
 public String getInput() {
 
         String newMarker = null;

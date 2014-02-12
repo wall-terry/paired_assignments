@@ -32,9 +32,28 @@ package crazyconnectfour;
 
 public class GamePreferencesMenuControl {  
     
-    public void getToken() {
-        System.out.println("\n\tgetToken called");
+      
+    private Game game;
+
+    public GamePreferencesMenuControl(Game game) {
+        this.game = game;
     }
+    
+    
+    public void getToken() { 
+        
+        GetTokenView getTokenView = new GetTokenView(this.game);
+        String token = getTokenView.getInput(player);
+        
+        if (token == null) { // user changed there mind and quit??
+            return;
+        }
+      
+        player.marker = token; // update the players markers
+        
+        return;
+    }
+        
     
     
      public boolean getDimensions() {
