@@ -28,7 +28,7 @@ package crazyconnectfour;
  *
  * @author dccoatney
  */
-
+package crazyConnectFour;
 public class Location {
       public int row;
     public int column;
