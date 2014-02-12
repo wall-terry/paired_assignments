@@ -32,42 +32,55 @@ import java.awt.Point;
  */
 public class Board {
 
-    int rowCount = 8;
-    int columnCount = 8;
-    private String name;
-    private Point boardDimensions = new Point();
-    Player[][] boardLocations;
+    public int rowCount = 8;
+    public int columnCount = 8;
+   
+    public Location[][] boardLocations;
 
     public Board() {
     }
 
     public Board(int noRows, int noColumns) {
-        this.boardDimensions.setLocation(noRows, noRows);
-        this.boardLocations = new Player[noRows][noColumns];
+  
+        this.createBoardLocations(noRows, noColumns);
     }
 
 
+    public void createBoardLocations(int noRows, int noColumns) {
+        this.rowCount= noRows;
+        this.columnCount= noColumns;
+        
+        // add locations to the board
+        this.boardLocations = new Location[noRows][noColumns];
+        for (int row = 0; row < noRows; row++) { // for every row
+            // for every column in the row
+            for (int column = 0; column < noColumns; column++) { 
+                this.boardLocations[row][column] = new Location();           
+            }            
+        }   
+    }
+    
+    
     public void clearTheBoard() {
-        // TODO
+        // add locations to the board
+        for (int row = 0; row < this.rowCount; row++) {
+            for (int column = 0; column < this.columnCount; column++) {
+                Location location = this.boardLocations[row][column];
+                location.player = null;           
+            }            
+        }    
     }
 
     public void occupyLocation(Player player, int row, int column) {
-        Player playerAtLocation = this.boardLocations[row][column];
-
-        if (playerAtLocation != null) { // location already occupied
+        Location location = this.boardLocations[row][column];
+        
+        if ( location.player != null) { // location already occupied
             new CrazyConnectFourError().displayError("This location is already occupied. "
                     + "Try a different location.");
         }
-        this.boardLocations[row][column] = player;
+        
+        location.player = player;
     }
 
-    public class Location {
 
-        public int row;
-        public int column;
-        public Player player;
-
-        Location() {
-        }
-    }
 }
