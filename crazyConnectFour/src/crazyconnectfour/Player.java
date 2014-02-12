@@ -28,17 +28,8 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
-public class Game {
+public class Player {
+   String name;
+   String marker;   
     
-    Player playerA = new Player();
-    Player playerB = new Player();
-    
-    public Game() {
-      
-    }
-
-    public Game(String gameType) {
-               
-    }
-
 }

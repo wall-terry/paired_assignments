@@ -24,6 +24,8 @@
 
 package crazyconnectfour;
 
+import java.util.Scanner;
+
 /**
  *
  * @author dccoatney, Terry Wallimport java.util.Scanner;
@@ -31,10 +33,14 @@ package crazyconnectfour;
 */
 
 public class GetTokenView {
-    public GetTokenView ) {
-        this.game = game;
+    Game game = new Game();
+    Player player = new Player();
+    
+    public GetTokenView ()
+    {
+      
 }
-public String getInput( ) {
+public String getInput() {
 
         String newMarker = null;
         Scanner in = new Scanner(System.in);
