@@ -55,7 +55,7 @@ public class BoardView {
         
         System.out.println(); // print blank line after the board
          
-        return;
+        return; 
     }
 
     private void printHeadRow() {
