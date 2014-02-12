@@ -1,3 +1,5 @@
+package crazyconnectfour;
+
 /*
  * The MIT License
  *
@@ -22,52 +24,21 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
-
-import java.awt.Point;
-
 /**
  *
- * @author Crystal Coatney, Terry Wall
+ * @author dccoatney
  */
-public class Board {
+public class Location {
+      public int row;
+    public int column;
+    public Player player;
 
-    int rowCount = 8;
-    int columnCount = 8;
-    private String name;
-    private Point boardDimensions = new Point();
-    private Player[][] boardLocations;
-
-    public Board() {
+    Location() {
     }
-
-    public Board(int noRows, int noColumns) {
-        this.boardDimensions.setLocation(noRows, noRows);
-        this.boardLocations = new Player[noRows][noColumns];
+        
+    public void occupyLocation(Player player) {
+        this.player = player;
     }
-
-
-    public void clearTheBoard() {
-        // TODO
-    }
-
-    public void occupyLocation(Player player, int row, int column) {
-        Player playerAtLocation = this.boardLocations[row][column];
-
-        if (playerAtLocation != null) { // location already occupied
-            new CrazyConnectFourError().displayError("This location is already occupied. "
-                    + "Try a different location.");
-        }
-        this.boardLocations[row][column] = player;
-    }
-
-    public class Location {
-
-        public int row;
-        public int column;
-        public Player player;
-
-        Location() {
-        }
-    }
+    
 }
+

@@ -34,7 +34,7 @@ public class GetTokenView {
     public GetTokenView ) {
         this.game = game;
 }
-public String getInput(Player player) {
+public String getInput( ) {
 
         String newMarker = null;
         Scanner in = new Scanner(System.in);
@@ -77,7 +77,5 @@ public String getInput(Player player) {
     }
     
 }
- */
-public class GetTokenView {
+ 
     
-}
