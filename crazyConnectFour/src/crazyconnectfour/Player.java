@@ -28,6 +28,8 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
+
+
 public class Player {
    public static final String REGULAR_PLAYER = "REGULAR";
     public static final String COMPUTER_PLAYER = "COMPUTER"; 
