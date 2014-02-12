@@ -28,7 +28,21 @@ package crazyconnectfour;
  *
  * @author Terry Wall
  */
+
+ 
 public class GameMenuControl {
+    
+    private Game game;
+    private Board board;
+    private GetLocationView getLocationView;
+    private BoardView boardView = new BoardView();
+
+    
+    public GameMenuControl(Game game) {
+        this.game = game;
+        this.board = game.board;
+    }
+    
     
   public void takeTurn() {
        
@@ -42,7 +56,8 @@ public class GameMenuControl {
    
    
     public void startNewGame() {
-        System.out.println("\n\tstartNewGame() called");
+       this.game.start();
+        this.displayBoard();
     }
     
     

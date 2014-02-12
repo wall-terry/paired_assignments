@@ -24,6 +24,8 @@
 
 package crazyconnectfour;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Terry Wall
@@ -31,24 +33,79 @@ package crazyconnectfour;
 public class MainMenuControl {
 
      
-    public void startGame(long noPlayers) {
+      public void startGame(long noPlayers) {
+                
+        if (noPlayers != 1  &&  noPlayers != 2) {
+            new CrazyConnectFourError().displayError("startGame - invalid number of players specified.");
+            return;
+        }
         
-        String message = new String();
-        if (noPlayers == 1) message = "One Player Game";
-        else if (noPlayers == 2) message ="Two Player Game";
-        GameMenuView gameMenu = new GameMenuView(message);
+        Game game;
+        if (noPlayers == 1) {
+            game = this.createGame("ONE_PLAYER");
+        }
+        else {
+            game = this.createGame("TWO_PLAYER");
+        }
+
+        GameMenuView gameMenu = new GameMenuView(game);
         gameMenu.getInput();
     }
 
     
     
-    public Game create(String gameType) {
+    private Game createGame(String gameType) {
         Game game = null;
-        Player player1 = null;
-        Player player2 = null;
+        Player playerA = null;
+        Player playerB = null;
+        
+        if (gameType == null) {
+            new CrazyConnectFourError().displayError("MainCommands - create: gameType is null");
+            return null;
+        }
+        
+        if (gameType.equals(Game.ONE_PLAYER)) {
+            game = new Game(Game.ONE_PLAYER);
+            playerA = new Player(Player.REGULAR_PLAYER, game.PLAYER_A_DEFAULT_MARKER);
+            playerA.name = "Player 1";
+            playerB = new Player(Player.COMPUTER_PLAYER, game.PLAYER_B_DEFAULT_MARKER);
+            playerB.name = "Computer";
+        }
+        else if (gameType.equals(Game.TWO_PLAYER)) {
+            game = new Game(Game.TWO_PLAYER);
+            playerA = new Player(Player.REGULAR_PLAYER, game.PLAYER_A_DEFAULT_MARKER);
+            playerA.name = "Player 1";
+            playerB = new Player(Player.REGULAR_PLAYER, game.PLAYER_B_DEFAULT_MARKER);
+            playerB.name = "Player 2";
+
+        }
+
+        // set default markers for each player
+        playerA.marker = Game.PLAYER_A_DEFAULT_MARKER;
+        playerB.marker = Game.PLAYER_B_DEFAULT_MARKER;
+        
+        // save the two players created as the default players of the game
+        game.playerA = playerA;
+        game.playerB = playerB; 
+        
+        // set the game status to game not yet in playing mode
+        game.status = Game.NO_ACTIVE_GAME;
         
         return game;
     } 
+    
+    
+    private String quitGame() {
+        System.out.println("\n\tAre you sure you want to quit? (Y or N)");
+        Scanner inFile = new Scanner(System.in);
+        String answer = inFile.next().trim().toUpperCase();
+        if (answer.equals("Y")) {
+            return Game.EXIT;
+        }
+
+        return Game.PLAYING;
+    }
+    
     
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();

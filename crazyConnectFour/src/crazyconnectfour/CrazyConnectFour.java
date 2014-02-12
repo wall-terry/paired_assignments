@@ -12,13 +12,33 @@ package crazyconnectfour;
  */
 public class CrazyConnectFour {
     // Instance variables
+    
+     private final static String WELCOME = 
+              "\n\t***********************************************************************"
+            + "\n\t* Welcome to the game of Crazy Connect Four !                         *" 
+            + "\n\t*                                                                     *"
+            + "\n\t* The object of the game is to get four in a row vertically,          *"
+            + "\n\t* horizontally, or diagonally.  Then the fun starts. The four aligned *"
+            + "\n\t* align tokens will be removed and the tokens above will drop done.   *" 
+            + "\n\t* This will result in new combinations of four or more in a row which *"
+            + "\n\t* will also be removed resulting in a cascading effect.  This will    *"
+            + "\n\t* continue until no more combination of four or more are made.  Point *"
+            + "\n\t* will be scored for every token removed from the board for each      *"
+            + "\n\t* player.  Play continues until all tokens are used.                  *"
+            + "\n\t* Good Luck!!!                                                        *"
+            + "\n\t***********************************************************************"
+            + "\n";
    
     public static void main(String[] args) {
-        
-        MainMenuView MainMenu = new MainMenuView();
-        CrazyConnectFour playTheGame = new CrazyConnectFour();
-        MainMenu.getInput();
+         
+        CrazyConnectFour currentGame = new CrazyConnectFour();
+        currentGame.display();
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.getInput();
     }
-        
+    
+    private void display() {
+        System.out.println(CrazyConnectFour.WELCOME);
+    }     
         
 }

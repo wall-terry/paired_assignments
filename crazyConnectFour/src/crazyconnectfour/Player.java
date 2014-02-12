@@ -29,7 +29,23 @@ package crazyconnectfour;
  * @author Terry Wall
  */
 public class Player {
-   String name;
-   String marker;   
+   public static final String REGULAR_PLAYER = "REGULAR";
+    public static final String COMPUTER_PLAYER = "COMPUTER"; 
     
+    public String name;
+    public double age;
+    public String playerType;
+    public long wins = 0;
+    public long losses = 0;
+    public long ties = 0;
+    public String marker;
+    
+
+    public Player() {
+    }
+
+    public Player(String playerType, String marker) {
+        this.playerType = playerType;
+        this.marker = marker;
+    } 
 }

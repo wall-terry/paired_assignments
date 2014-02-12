@@ -33,8 +33,8 @@ import java.util.Scanner;
 public class GameMenuView {
     
     
-    private final GameMenuControl gameMenuControl; 
-
+    private  GameMenuControl gameMenuControl; 
+    private  Game game;
 
     private final static String[][] menuItems = {
         {"T", "Take your turn"},
@@ -46,12 +46,9 @@ public class GameMenuView {
         {"Q", "QUIT"}
     };
 
-    public GameMenuView(Object object) {
-      
-      this.gameMenuControl = new GameMenuControl() ;
-        
-      String message = (String) object;  
-      System.out.println("\t"+ message + " Selected");
+    public GameMenuView(Game game) {
+        this.game = game;
+        this.gameMenuControl = new GameMenuControl(game);
     }
 
     
