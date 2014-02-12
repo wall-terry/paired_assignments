@@ -36,7 +36,7 @@ public class Board {
     int columnCount = 8;
     private String name;
     private Point boardDimensions = new Point();
-    private Player[][] boardLocations;
+    Player[][] boardLocations;
 
     public Board() {
     }

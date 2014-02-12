@@ -33,6 +33,7 @@ public class Game {
     Player playerA = new Player();
     Player playerB = new Player();
     Player currentPlayer = new Player();
+    Board board = new Board();
     
     public Game() {
       

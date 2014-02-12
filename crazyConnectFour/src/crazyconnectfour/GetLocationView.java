@@ -107,13 +107,14 @@ public class GetLocationView {
             // convert each of the cordinates from a String type to 
             // an integer type
           
+            int row = Integer.parseInt(coordinates[0]);
             int column = Integer.parseInt(coordinates[1]);
                      
             Board board = this.game.board; // get the game board
             
             // Check for invalid row and column entered
           
-                column < 1  ||  column > board.columnCount) {
+                if (column < 1  ||  column > board.columnCount) {
                 new CrazyConnectFourError().displayError(
                         "Enter a valid number columns from 3 to 10. Try again.");
                 continue;
@@ -123,7 +124,7 @@ public class GetLocationView {
             location = new Point(row-1, column-1);
             
             // check to see if the location entered is already occupied
-            if ( board.boardLocations[row-1][column-1].player != null ) {
+            if ( board.boardLocations[row-1][column-1] != null ) {
                 new CrazyConnectFourError().displayError(
                     "The current location is taken. Select another location");
                 continue;
