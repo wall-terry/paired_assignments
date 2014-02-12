@@ -60,8 +60,8 @@ public class Game {
        this.playerA = new Player();
        this.playerB = new Player();
        
-       this.playerA.marker = Game.PLAYER_A_DEFAULT_MARKER;
-       this.playerB.marker = Game.PLAYER_B_DEFAULT_MARKER;
+       this.playerA.token = Game.PLAYER_A_DEFAULT_MARKER;
+       this.playerB.token = Game.PLAYER_B_DEFAULT_MARKER;
     }
 
     public Game(String gameType) {

@@ -38,14 +38,14 @@ public class Player {
     public long wins = 0;
     public long losses = 0;
     public long ties = 0;
-    public String marker;
+    public String token;
     
 
     public Player() {
     }
 
-    public Player(String playerType, String marker) {
+    public Player(String playerType, String token) {
         this.playerType = playerType;
-        this.marker = marker;
+        this.token = token;
     } 
 }

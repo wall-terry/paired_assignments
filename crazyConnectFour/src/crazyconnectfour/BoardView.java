@@ -93,7 +93,7 @@ public class BoardView {
         // print contents of first column in the row
         String letter = " ";
         if (rowLocations[0].player != null) {
-            letter = rowLocations[0].player.marker;
+            letter = rowLocations[0].player.token;
         }
         System.out.print("\n\t" + rowNumber + " |  " + letter + "  |");
 
@@ -102,7 +102,7 @@ public class BoardView {
             if (rowLocations[i].player == null) {
                 letter = " ";
             } else {
-                letter = rowLocations[i].player.marker;
+                letter = rowLocations[i].player.token;
             }
          
             System.out.print("  " + letter + "  |");

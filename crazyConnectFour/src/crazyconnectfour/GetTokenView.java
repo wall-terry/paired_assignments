@@ -56,7 +56,7 @@ public String getInput() {
             // get input from user           
             newMarker = in.nextLine();
            
-            // no marker entered?
+            // no token entered?
             if (newMarker == null  || newMarker.length() < 1) {
                 continue;
             }
@@ -68,16 +68,16 @@ public String getInput() {
                 return null;
             }
             
-            // Check to see if the marker is already in use
-            if (this.game.playerA.marker.equals(newMarker) ||
-                this.game.playerB.marker.equals(newMarker) ) {
+            // Check to see if the token is already in use
+            if (this.game.playerA.token.equals(newMarker) ||
+                this.game.playerB.token.equals(newMarker) ) {
                new CrazyConnectFourError().displayError(
-                        "This marker is currently in use. " +
+                        "This token is currently in use. " +
                         "Select a different character");
                continue; 
             }
             
-            valid = true; // signal that a valid marker was entered
+            valid = true; // signal that a valid token was entered
         }
         
         return newMarker;

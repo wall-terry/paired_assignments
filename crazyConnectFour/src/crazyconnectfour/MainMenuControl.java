@@ -80,9 +80,9 @@ public class MainMenuControl {
 
         }
 
-        // set default markers for each player
-        playerA.marker = Game.PLAYER_A_DEFAULT_MARKER;
-        playerB.marker = Game.PLAYER_B_DEFAULT_MARKER;
+        // set default tokens for each player
+        playerA.token = Game.PLAYER_A_DEFAULT_MARKER;
+        playerB.token = Game.PLAYER_B_DEFAULT_MARKER;
         
         // save the two players created as the default players of the game
         game.playerA = playerA;

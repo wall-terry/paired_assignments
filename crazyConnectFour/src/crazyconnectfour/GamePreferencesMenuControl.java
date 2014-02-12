@@ -40,7 +40,7 @@ public class GamePreferencesMenuControl {
     }
     
     
-    public void getToken() { 
+    public void getToken(Player player) { 
         
         GetTokenView getTokenView = new GetTokenView(this.game);
         String token = getTokenView.getInput(player);
@@ -49,7 +49,7 @@ public class GamePreferencesMenuControl {
             return;
         }
       
-        player.marker = token; // update the players markers
+        player.token = token; // update the players markers
         
         return;
     }
