@@ -36,7 +36,7 @@ public class BoardView {
     
     Board board;
     
-    public Object displayBoard(Object object) {
+    public void displayBoard(Object object) {
           this.board = board;
         
         this.printHeadRow(); // print the header row for the board
