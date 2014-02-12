@@ -33,9 +33,12 @@ import java.util.Scanner;
  * @author Crystal Coatney, Terry Wall
  */
 public class GetLocationView {
-    private Game game;
+    
+    public Game game = new Game();
     
     public GetLocationView(Game game) {
+        
+        
         this.game = game;
     }
     
