@@ -36,6 +36,17 @@ public class GetTokenView {
     Game game = new Game();
     Player player = new Player();
     
+    private final static String[][] getToken = {
+        {"T", "Take your turn"},
+        {"D", "Display the board"},
+        {"N", "New Game"},
+        {"R", "Report stastics"},
+        {"P", "Change game preferences"},
+        {"H", "Help"},
+        {"Q", "QUIT"}
+    };
+    
+    
     public GetTokenView(Game game) {
         this.game = game;
         
@@ -51,13 +62,11 @@ public class GetTokenView {
 
         String newToken = null;
         Scanner in = new Scanner(System.in);
-                
+           
         boolean valid = false; // flag to indicate if valid character entered
         while (!valid) {
             // prompt for input
-            System.out.println("\n\t" + player.name 
-                    + ", enter a single character that will be used to mark "
-                    + "your squares in the game.");
+            this.display();
             
             // get input from user           
             newToken = in.nextLine();
@@ -88,7 +97,16 @@ public class GetTokenView {
         
         return newToken;
     }
-    
+
+    public final void display() {
+        System.out.println("\n\t===============================================================");
+        System.out.println("\tEnter the letter associated with one of the following commands:");
+
+        for (int i = 0; i < GetTokenView.getToken.length; i++) {
+            System.out.println("\t   " + getToken[i][0] + "\t" + getToken[i][1]);
+        }
+        System.out.println("\t===============================================================\n");
+    }
 }
  
     

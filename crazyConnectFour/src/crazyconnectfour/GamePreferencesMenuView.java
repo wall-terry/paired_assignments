@@ -39,6 +39,13 @@ public class GamePreferencesMenuView {
         {"D", "Change the dimensions of the board"},
         {"Q", "Return to game menu"}
     };
+private final static String[][] TokenOptions = {
+        {"R", "Change Token to RED"},
+        {"B", "Change Token to BLACK"},
+        {"O", "Change Token to Orange"},
+        {"O", "Change Token to Orange"},
+        {"Q", "Return to game menu"}
+    };
 
     
  public GamePreferencesMenuView(Game game) {
