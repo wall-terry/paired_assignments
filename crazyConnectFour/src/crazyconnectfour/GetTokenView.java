@@ -37,12 +37,12 @@ public class GetTokenView {
     Player player = new Player();
     
     private final static String[][] getToken = {
-        {"T", "Take your turn"},
-        {"D", "Display the board"},
-        {"N", "New Game"},
-        {"R", "Report stastics"},
-        {"P", "Change game preferences"},
-        {"H", "Help"},
+        {"R", "RED"},
+        {"B", "BLACK"},
+        {"G", "GREEN"},
+        {"Y", "YELLOW"},
+        {"P", "PINK"},
+        {"O", "ORANGE"},
         {"Q", "QUIT"}
     };
     
@@ -66,6 +66,7 @@ public class GetTokenView {
         boolean valid = false; // flag to indicate if valid character entered
         while (!valid) {
             // prompt for input
+            System.out.println("\n\t" + player.name);
             this.display();
             
             // get input from user           
@@ -77,7 +78,7 @@ public class GetTokenView {
             }
             
             // grab only the first character and convert it to upper case
-            newToken = newToken.substring(0, 1).toUpperCase();
+            newToken = newToken.toUpperCase();
             
             if (newToken.equals("Q")) { // Quit?
                 return null;
@@ -88,7 +89,7 @@ public class GetTokenView {
                 this.game.playerB.token.equals(newToken) ) {
                new CrazyConnectFourError().displayError(
                         "This token is currently in use. " +
-                        "Select a different character");
+                        "Select a different token");
                continue; 
             }
             
@@ -100,7 +101,7 @@ public class GetTokenView {
 
     public final void display() {
         System.out.println("\n\t===============================================================");
-        System.out.println("\tEnter the letter associated with one of the following commands:");
+        System.out.println("\tEnter the letter associated with one of the following Token Options:");
 
         for (int i = 0; i < GetTokenView.getToken.length; i++) {
             System.out.println("\t   " + getToken[i][0] + "\t" + getToken[i][1]);

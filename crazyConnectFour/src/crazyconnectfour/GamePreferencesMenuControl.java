@@ -56,6 +56,7 @@ public class GamePreferencesMenuControl {
         
     
     
+    
 
         public void getDimensions()  {
         
@@ -67,33 +68,8 @@ public class GamePreferencesMenuControl {
               + "of the board. ");
             return;
         }
-        
-        GetDimensionsView getDimensionsView = new GetDimensionsView(this.game);
-        Dimension dimension = getDimensionsView.getInput();
-        
-        if (dimension == null) {    
-            return;
-        }
-        
-        int boardRowCount = dimension.width;
-        int boardColumnCount= dimension.height;
          
-        // no change in the board size so return
-        if (boardRowCount == this.game.board.rowCount &&
-            boardColumnCount == this.game.board.columnCount) {
-            return;
-        }
-        
-        // create new locations in the board
-        this.game.board.createBoardLocations(boardRowCount, boardColumnCount);
-               
-        return;
     }
-    
-    
-    
+        
 }
-    
-    
-
-
+     
