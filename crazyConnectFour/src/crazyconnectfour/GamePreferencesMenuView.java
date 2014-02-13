@@ -38,13 +38,7 @@ public class GamePreferencesMenuView {
         {"2", "Change Token of the second Player"},
         {"D", "Change the dimensions of the board"},
         {"Q", "Return to game menu"}
-    };
-private final static String[][] TokenOptions = {
-        {"R", "Change Token to RED"},
-        {"B", "Change Token to BLACK"},
-        {"O", "Change Token to Orange"},
-        {"O", "Change Token to Orange"},
-        {"Q", "Return to game menu"}
+   
     };
 
     
@@ -65,12 +59,20 @@ private final static String[][] TokenOptions = {
             command = inFile.nextLine();
             command = command.trim().toUpperCase();
             
+            
+            
+            
+            
             switch (command) {
                 case "1":
                     this.gamePreferenceControl.getToken(this.game.playerA);
+                    System.out.println("\n\t Player 1 is using "+ this.game.playerA.token +" as a token");
+                    System.out.println("\n\t Player 2 is using "+ this.game.playerB.token +" as a token");
                     break;
                 case "2":
                     this.gamePreferenceControl.getToken(this.game.playerB);
+                    System.out.println("\n\t Player 1 is using "+ this.game.playerA.token +" as a token");
+                    System.out.println("\n\t Player 2 is using "+ this.game.playerB.token +" as a token");
                     break;
                 case "D":
                     this.gamePreferenceControl.getDimensions();
