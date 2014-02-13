@@ -35,6 +35,7 @@ public class GameMenuControl {
     private Game game;
     private Board board;
     private GetLocationView getLocationView;
+    private GetPlayerNameView getPlayerName;
     private BoardView boardView = new BoardView();
 
     
@@ -57,7 +58,14 @@ public class GameMenuControl {
    
     public void startNewGame() {
        this.game.start();
-        this.displayBoard();
+   /*    this.displayBoard();   */
+       GetPlayerNameView getPlayerName = new GetPlayerNameView(this.game);
+       System.out.println("\n\t First Player");
+       this.game.playerA.name = getPlayerName.getInput();
+       System.out.println("\n\t Second Player");
+       this.game.playerB.name = getPlayerName.getInput();
+       System.out.println("\n\t Player one is named " + this.game.playerA.name);
+       System.out.println("\n\t Player two is named " + this.game.playerB.name);
     }
     
     

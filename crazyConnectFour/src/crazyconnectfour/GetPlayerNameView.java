@@ -42,11 +42,10 @@ import java.util.Scanner;
 
     /**
      *
-     * @param player
      * @return
      */
     
-    public String getInput(Player player) {
+    public String getInput() {
 
         String newName = null;
         Scanner in = new Scanner(System.in);
