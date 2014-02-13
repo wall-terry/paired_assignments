@@ -47,10 +47,14 @@ public class GameMenuControl {
     
   public void takeTurn() {
        
-        System.out.println("\n\ttakeTurn() called");
-    }
-   
-       
+        int returnValue = 1;
+        
+        if (!this.game.status.equals(Game.NEW_GAME)  && 
+            !this.game.status.equals(Game.PLAYING)) 
+            new CrazyConnectFourError().displayError("You must start a new game first.");
+            return;
+        }
+    
    public void displayBoard() {
         System.out.println("\n\tdisplayBoard() called");
     }
