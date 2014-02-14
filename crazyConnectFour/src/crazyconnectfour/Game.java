@@ -29,8 +29,8 @@ package crazyconnectfour;
  * @author Terry Wall
  */
 public class Game {
-    public final static String PLAYER_A_DEFAULT_MARKER = "X";
-    public final static String PLAYER_B_DEFAULT_MARKER = "O";
+    public final static String PLAYER_A_DEFAULT_MARKER = "RED";
+    public final static String PLAYER_B_DEFAULT_MARKER = "BLACK";
     
     
     public static final String ONE_PLAYER = "ONE_PLAYER";
@@ -68,7 +68,7 @@ public class Game {
         this();
 
         this.gameType = gameType;
-        this.board = new Board(3, 3);
+        this.board = new Board(8, 8);
         
     }
 
