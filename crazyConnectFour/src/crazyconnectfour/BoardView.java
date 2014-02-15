@@ -30,7 +30,7 @@
 
 /**
  *
- * @author jacksonrkj
+ * @author terry wall
  */
 public class BoardView {
     

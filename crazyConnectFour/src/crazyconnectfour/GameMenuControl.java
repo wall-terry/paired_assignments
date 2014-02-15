@@ -56,13 +56,13 @@ public class GameMenuControl {
         }
     
    public void displayBoard() {
-        System.out.println("\n\tdisplayBoard() called");
-    }
+         boardView.displayBoard(this.board);
+   }
    
    
     public void startNewGame() {
        this.game.start();
-   /*    this.displayBoard();   */
+       this.displayBoard();     
        GetPlayerNameView getPlayerName = new GetPlayerNameView(this.game);
        System.out.println("\n\t First Player");
        this.game.playerA.name = getPlayerName.getInput();

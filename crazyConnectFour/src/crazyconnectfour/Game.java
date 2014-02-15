@@ -29,8 +29,8 @@ package crazyconnectfour;
  * @author Terry Wall
  */
 public class Game {
-    public final static String PLAYER_A_DEFAULT_MARKER = "X";
-    public final static String PLAYER_B_DEFAULT_MARKER = "O";
+    public final static String PLAYER_A_DEFAULT_TOKEN = "RED";
+    public final static String PLAYER_B_DEFAULT_TOKEN = "BLACK";
     
     
     public static final String ONE_PLAYER = "ONE_PLAYER";
@@ -44,6 +44,9 @@ public class Game {
     public static final String QUIT = "QUIT"; 
     public static final String ERROR = "ERROR";
     public static final String EXIT = "EXIT";
+    public static final int NUMBER_OF_ROWS_DEFAULT = 8;
+    public static final int NUMBER_OF_COLUMNS_DEFAULT = 8;
+    
 
     public String gameType;
     public Player playerA;
@@ -60,15 +63,15 @@ public class Game {
        this.playerA = new Player();
        this.playerB = new Player();
        
-       this.playerA.token = Game.PLAYER_A_DEFAULT_MARKER;
-       this.playerB.token = Game.PLAYER_B_DEFAULT_MARKER;
+       this.playerA.token = Game.PLAYER_A_DEFAULT_TOKEN;
+       this.playerB.token = Game.PLAYER_B_DEFAULT_TOKEN;
     }
 
     public Game(String gameType) {
         this();
 
         this.gameType = gameType;
-        this.board = new Board(3, 3);
+        this.board = new Board(Game.NUMBER_OF_ROWS_DEFAULT, NUMBER_OF_COLUMNS_DEFAULT);
         
     }
 
