@@ -57,11 +57,13 @@ public class Game {
     public Player loser;
     public String status;
     public Board board;
+    public ScoreBoard scoreBoard;
 
     public Game() {
    
        this.playerA = new Player();
        this.playerB = new Player();
+       this.scoreBoard = new ScoreBoard();
        
        this.playerA.token = Game.PLAYER_A_DEFAULT_TOKEN;
        this.playerB.token = Game.PLAYER_B_DEFAULT_TOKEN;

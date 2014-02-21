@@ -24,6 +24,8 @@
 
 package crazyconnectfour;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Terry Wall
@@ -52,7 +54,7 @@ public class GameMenuControl {
         if (!this.game.status.equals(Game.NEW_GAME)  && 
             !this.game.status.equals(Game.PLAYING)) 
             new CrazyConnectFourError().displayError("You must start a new game first.");
-            return;
+         
         }
     
    public void displayBoard() {
@@ -84,8 +86,43 @@ public class GameMenuControl {
     }
     
     
-    public void displayStatistics() {
-        System.out.println("\n\t displayStatistics()) called");
+    public void displayTopScores() {
+        
+        boolean status;
+        String command;
+        Scanner inFile = new Scanner(System.in);
+        int stringToInteger;
+        
+        status = this.game.scoreBoard.listScores();
+        
+        do {    
+            System.out.println("\n\t enter new score for player one or player two by typing 1 for player one"
+                                + "\n\t or 2 for player 2");
+            
+            // get commaned entered
+            command = inFile.nextLine();
+            command = command.trim().toUpperCase();
+            
+            switch (command) {
+                case "1":
+                    
+                    command = inFile.nextLine();
+                    stringToInteger = Integer.parseInt(command);
+                    status = this.game.scoreBoard.addScore(stringToInteger, this.game.playerA);
+                    status = this.game.scoreBoard.listScores();
+                    break;
+                case "2":
+                    command = inFile.nextLine();
+                    stringToInteger = Integer.parseInt(command);
+                    status = this.game.scoreBoard.addScore(stringToInteger, this.game.playerB);
+                    status = this.game.scoreBoard.listScores();
+                    break;
+                case "Q":                   
+                    break;
+                default: 
+                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
+            }
+        } while (!command.equals("Q"));
         
         /*
         String playerAStatistics = this.game.playerA.getPlayerStastics();

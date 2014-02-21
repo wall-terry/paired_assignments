@@ -40,7 +40,7 @@ public class GameMenuView {
         {"T", "Take your turn"},
         {"D", "Display the board"},
         {"N", "New Game"},
-        {"R", "Report stastics"},
+        {"R", "Report Top Scores"},
         {"P", "Change game preferences"},
         {"H", "Help"},
         {"Q", "QUIT"}
@@ -76,7 +76,7 @@ public class GameMenuView {
                     gameMenuControl.startNewGame();
                     break;
                 case "R":
-                    gameMenuControl.displayStatistics();
+                    gameMenuControl.displayTopScores();
                     break;
                 case "P":
                     gameMenuControl.displayPreferencesMenu();

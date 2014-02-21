@@ -29,24 +29,65 @@ package crazyconnectfour;
  * @author Terry Wall
  */
 public class ScoreBoard  {
+    public int scoreArray[];
+    public String nameArray[];
+    public Player player;
     
-    int scoreArray[] = new int[2];
     
-    boolean addScore(int newScore, int playerNumber ){
+    public ScoreBoard(){
+    scoreArray = new int[10];
+    nameArray = new String[10];
+    int i;
+    for (i=0; i<10; i++) {
+        scoreArray[i] = 0;
+        nameArray[i] = "";
+    }
+   }
     
+    public boolean addScore(int newScore, Player player){
+    
+        this.player = player;
         boolean success = false;
-        int temp;
-        int tempTimesTen;
-        String OutMessage;
+        int temp = 0;
+        String stringTemp = "";
+        String newName ;
+        int i;
+        String outMessage;
         
         if (newScore > 0){
-            temp = newScore + scoreArray[playerNumber];
-            tempTimesTen = temp * 10;  // Just for the sake of the assignment
-            scoreArray[playerNumber] = tempTimesTen / 10;
-            OutMessage = "Player \"one\" has a score of " + scoreArray[0] + "\n Player two has score of " + scoreArray[1] +"\n";
-            System.out.println(OutMessage);
-            success = true;
-            }
+            for (i= 0; i < 10 && success == false; i++){
+                if (newScore > scoreArray[i]){
+                    temp = scoreArray[i];
+                    stringTemp = nameArray[i];
+                    scoreArray[i] = newScore;
+                    nameArray[i] = player.name;
+                    success = true;
+                }
+            } 
+        if (success == true){
+            do {
+                newScore = temp;
+                newName = stringTemp;
+                temp = scoreArray[i];
+                stringTemp = nameArray[i];
+                scoreArray[i] = newScore;
+                nameArray[i] = newName;
+                i++;          
+            } while(i<10);
+        }
+            
+       }    
+            return success;
+    }
+    public boolean listScores(){
+        
+        boolean success = false;
+        int i;
+        
+        for (i=0; i<10; i++){
+            
+            System.out.println("\n\t " + nameArray[i] + "\t" + scoreArray[i]);
+        }
         return success;
     }
         
