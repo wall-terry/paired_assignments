@@ -105,13 +105,16 @@ public class GameMenuControl {
             
             switch (command) {
                 case "1":
-                    
+                    System.out.println("\n\t enter new score for player one");
+                                
                     command = inFile.nextLine();
                     stringToInteger = Integer.parseInt(command);
                     status = this.game.scoreBoard.addScore(stringToInteger, this.game.playerA);
                     status = this.game.scoreBoard.listScores();
                     break;
                 case "2":
+                    System.out.println("\n\t enter new score for player two");
+                               
                     command = inFile.nextLine();
                     stringToInteger = Integer.parseInt(command);
                     status = this.game.scoreBoard.addScore(stringToInteger, this.game.playerB);

@@ -31,7 +31,8 @@ package crazyconnectfour;
 public class Game {
     public final static String PLAYER_A_DEFAULT_TOKEN = "RED";
     public final static String PLAYER_B_DEFAULT_TOKEN = "BLACK";
-    
+    public final static String PLAYER_A_DEFAULT_NAME = "Aristotle";
+    public final static String PLAYER_B_DEFAULT_NAME = "Euripedes";
     
     public static final String ONE_PLAYER = "ONE_PLAYER";
     public static final String TWO_PLAYER = "TWO_PLAYER";
@@ -67,6 +68,8 @@ public class Game {
        
        this.playerA.token = Game.PLAYER_A_DEFAULT_TOKEN;
        this.playerB.token = Game.PLAYER_B_DEFAULT_TOKEN;
+       this.playerA.name = Game.PLAYER_A_DEFAULT_NAME;
+       this.playerB.name = Game.PLAYER_B_DEFAULT_NAME;
     }
 
     public Game(String gameType) {
