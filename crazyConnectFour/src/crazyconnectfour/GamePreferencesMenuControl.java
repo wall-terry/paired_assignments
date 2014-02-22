@@ -53,7 +53,7 @@ public class GamePreferencesMenuControl {
         
         return;
     }
-        
+  
     
     
     
@@ -68,8 +68,32 @@ public class GamePreferencesMenuControl {
               + "of the board. ");
             return;
         }
-         
-    }
+         GetDimensionsView getDimensionsView = new GetDimensionsView(this.game);
+        Dimension dimension = getDimensionsView.getInput();
         
+        if (dimension == null) {    
+            return;
+        }
+        
+        int boardRowCount = dimension.width;
+        int boardColumnCount= dimension.height;
+         
+        // no change in the board size so return
+        if (boardRowCount == this.game.board.getRowCount() &&
+            boardColumnCount == this.game.board.getColumnCount()) {
+            return;
+        }
+        
+        // change the size board
+        Player[][] boardLocations = new Player[boardRowCount][boardColumnCount];
+        this.game.board.getBoardDimensions().setLocation(boardRowCount, boardRowCount);
+        this.game.board.setBoardLocations(boardLocations);
+               
+        return;
+          }
 }
+    
+    
+        
+
      

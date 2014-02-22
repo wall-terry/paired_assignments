@@ -30,17 +30,58 @@ package crazyconnectfour;
  */
 
 public class Location {
-    
-    public int row;
-    public int column;
-    public Player player;
 
-    Location() {
+        private int row;
+        private int column;
+        private String value;
+        private Player player;
+
+        Location() {
+        }
+
+        int getRow() {
+            return row;
+        }
+
+        void setRow(int row) {
+            this.row = row;
+        }
+
+        int getColumn() {
+            return column;
+        }
+
+        void setColumn(int column) {
+            this.column = column;
+        }
+
+        String getValue() {
+            return value;
+        }
+
+        void setValue(String value) {
+            this.value = value;
+        }
+
+        Player getPlayer() {
+            return player;
+        }
+
+        public void setPlayer(Player player) {
+            this.player = player;
+        }
+
+        String[] getCoordinates() {
+            String[] coordinates = new String[2];
+            Integer intRow = this.getRow() + 1;
+            Integer intColumn = this.getColumn() + 1;
+            coordinates[0] = intRow.toString();
+            coordinates[1] = intColumn.toString();
+            return coordinates;
+        }
     }
+
+
         
-    public void occupyLocation(Player player) {
-        this.player = player;
-    }
     
-}
 
