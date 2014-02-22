@@ -22,11 +22,11 @@
  * THE SOFTWARE.
  */
 
-/* author Crystal Coatney
+/* author Crystal Coatney, Terry Wall
 
 */
 package crazyconnectfour;
-
+import java.awt.Dimension;
 
 
 
