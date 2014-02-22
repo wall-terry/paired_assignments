@@ -36,82 +36,65 @@ public class BoardView {
     
     Board board;
     
-    public void displayBoard(Object object) {
-        
-          this.board = (Board) object;
-        
-        this.printHeadRow(); // print the header row for the board
-        this.printDividerRow(); // print the top divider row of the board
-        
-        // for all rows in the board
-        for (int i = 0; i < this.board.rowCount; i++) {
-            // get the list of list of columns locations in the row
-            Location[] rowOfLocations = this.board.boardLocations[i];
-            
-            // print the contents of each location in the row
-            this.printRow(i+1, rowOfLocations); 
-            
-            this.printDividerRow();// print the ending divider for the row
+    public Object displayBoard(Object object) {
+        this.board = (Board) object;
+        this.printHeadRow();
+        this.printDividerRow();
+        for (int i = 0; i < this.board.getRowCount(); i++) {
+            Player[] rowOfLocations = this.board.getBoardLocations()[i];
+            this.printRow(i+1, rowOfLocations);
+            this.printDividerRow();
         }
-        
-        System.out.println(); // print blank line after the board
+        System.out.println();
          
-        return; 
+        return null;
     }
 
     private void printHeadRow() {
 
-        // print the first column in the header row
+        // print first cell
+
         System.out.print("\n\t      1   ");
-        
-        // print remaining header cells in row between the first and last column
-        int columnsInRow = this.board.columnCount;
+        int columnsInRow = this.board.getColumnCount();
+        // print remaining cells in row
         for (int i = 1; i < columnsInRow - 1; i++) {
             int col = i + 1;
-            System.out.print("   " + col + "   ");
+            System.out.print("  " + col + "   ");
         }
-        // print the header for the last column in the header
-        System.out.print("  " + columnsInRow + "   ");
+        System.out.print(" " + columnsInRow + "   ");
     }
 
     private void printDividerRow() {
 
-        // print the divider for the first column in the row
-        System.out.print("\n\t  |-------");
-        
-        int columnsInRow = this.board.columnCount;
-        // print remaining divider for each column between the first and last
+        // print first cell
+
+        System.out.print("\n\t  |------");
+        int columnsInRow = this.board.getColumnCount();
+        // print remaining cells in row
         for (int i = 1; i < columnsInRow - 1; i++) {
-            System.out.print("-------");
+            System.out.print("------");
         }
-        // print the row divider for the last column in the row
-        System.out.print("------|");
+        System.out.print("-----|");
     }
 
-    private void printRow(int rowNumber, Location[] rowLocations) {
+    private void printRow(int rowNumber, Player[] rowLocations) {
         
-        // print contents of first column in the row
-        String letter = "      ";
-        if (rowLocations[0].player != null) {
-            letter = rowLocations[0].player.token;
+        // print first cell
+        String letter = " ";
+        if (rowLocations[0] != null) {
+            letter = rowLocations[0].token;
         }
-        System.out.print("\n\n\t" + rowNumber + " |" + letter + "|");
+        System.out.print("\n\t" + rowNumber + " |  " + letter + "  |");
 
-        // print the contents of the rest of the columns in the row 
+        // print remaining cells in row
         for (int i = 1; i < rowLocations.length; i++) {
-            if (rowLocations[i].player == null) {
-                letter = "      ";
+            if (rowLocations[i] == null) {
+                letter = " ";
             } else {
-                letter = rowLocations[i].player.token;
+                letter = rowLocations[i].token;
             }
-         
-            System.out.print("" + letter + "|");
+            System.out.print("  " + letter + "  |");
         }
-        System.out.print("\n");
     }
 
 }
-
-
-
-
