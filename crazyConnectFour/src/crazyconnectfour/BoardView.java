@@ -68,45 +68,46 @@ public class BoardView {
         int columnsInRow = this.board.columnCount;
         for (int i = 1; i < columnsInRow - 1; i++) {
             int col = i + 1;
-            System.out.print("  " + col + "   ");
+            System.out.print("   " + col + "   ");
         }
         // print the header for the last column in the header
-        System.out.print(" " + columnsInRow + "   ");
+        System.out.print("  " + columnsInRow + "   ");
     }
 
     private void printDividerRow() {
 
         // print the divider for the first column in the row
-        System.out.print("\n\t  |------");
+        System.out.print("\n\t  |-------");
         
         int columnsInRow = this.board.columnCount;
         // print remaining divider for each column between the first and last
         for (int i = 1; i < columnsInRow - 1; i++) {
-            System.out.print("------");
+            System.out.print("-------");
         }
         // print the row divider for the last column in the row
-        System.out.print("-----|");
+        System.out.print("------|");
     }
 
     private void printRow(int rowNumber, Location[] rowLocations) {
         
         // print contents of first column in the row
-        String letter = " ";
+        String letter = "      ";
         if (rowLocations[0].player != null) {
             letter = rowLocations[0].player.token;
         }
-        System.out.print("\n\t" + rowNumber + " |  " + letter + "  |");
+        System.out.print("\n\n\t" + rowNumber + " |" + letter + "|");
 
         // print the contents of the rest of the columns in the row 
         for (int i = 1; i < rowLocations.length; i++) {
             if (rowLocations[i].player == null) {
-                letter = " ";
+                letter = "      ";
             } else {
                 letter = rowLocations[i].player.token;
             }
          
-            System.out.print("  " + letter + "  |");
+            System.out.print("" + letter + "|");
         }
+        System.out.print("\n");
     }
 
 }

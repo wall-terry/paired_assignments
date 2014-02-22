@@ -30,7 +30,8 @@ package crazyconnectfour;
  */
 
 public class Location {
-      public int row;
+    
+    public int row;
     public int column;
     public Player player;
 

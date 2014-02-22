@@ -37,11 +37,11 @@ public class GetTokenView {
     Player player = new Player();
     
     private final static String[][] tokenOptions = {
-        {"R", "RED"},
-        {"B", "BLACK"},
-        {"G", "GREEN"},
+        {"R", "  RED "},
+        {"B", " BLACK"},
+        {"G", " GREEN"},
         {"Y", "YELLOW"},
-        {"P", "PINK"},
+        {"P", " PINK "},
         {"O", "ORANGE"},
         {"Q", "QUIT"}
     };
