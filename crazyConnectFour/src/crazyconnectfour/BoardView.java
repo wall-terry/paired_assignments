@@ -22,15 +22,11 @@
  * THE SOFTWARE.
  */
 
-/**
- *
- * @author dccoatney
- */
      package crazyconnectfour;
 
 /**
  *
- * @author terry wall
+ * @author terry wall, Crystal Coatney
  */
 public class BoardView {
     
