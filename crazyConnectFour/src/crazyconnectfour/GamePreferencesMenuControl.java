@@ -50,8 +50,6 @@ public class GamePreferencesMenuControl {
         }
       
         player.token = token; // update the players markers
-        
-        return;
     }
   
     
@@ -88,9 +86,7 @@ public class GamePreferencesMenuControl {
         Player[][] boardLocations = new Player[boardRowCount][boardColumnCount];
         this.game.board.getBoardDimensions().setLocation(boardRowCount, boardRowCount);
         this.game.board.setBoardLocations(boardLocations);
-               
-        return;
-          }
+    }
 }
     
     
