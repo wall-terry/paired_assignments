@@ -87,17 +87,17 @@ public class GetDimensionsView {
            int rowsEntered = Integer.parseInt(valuesEntered[0]);
            int columnsEntered = Integer.parseInt(valuesEntered[1]);
 
-           if (rowsEntered < 3 || rowsEntered > 10) {
+           if (rowsEntered < 6 || rowsEntered > 15) {
            new CrazyConnectFourError().displayError(
-                   "The number of rows must be between 3 -10 and the "
-                   + "number of columns must be between 3 -10 ");
+                   "The number of rows must be between 6 -15 and the "
+                   + "number of columns must be between 6 -15 ");
            continue;
            }
 
-           if (columnsEntered < 3 || columnsEntered > 10) {
+           if (columnsEntered < 6 || columnsEntered > 15) {
                new CrazyConnectFourError().displayError(
-                       "The number of rows must be between 3 -10 and the "
-                       + "number of columns must be between 3 -10 ");
+                       "The number of rows must be between 6 -15 and the "
+                       + "number of columns must be between 6 -15 ");
                continue;
            }
 
