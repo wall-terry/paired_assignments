@@ -67,10 +67,10 @@ public class GetLocationView {
             
             // trim off all extra blanks from the input
             strRowColumn = strRowColumn.trim();  
-            
+/*            
             // replace any commas enter with blanks
             strRowColumn = strRowColumn.replace(',', ' '); 
-            
+           
             // tokenize the string into an array of words
             coordinates = strRowColumn.split("\\s"); 
 
@@ -81,15 +81,16 @@ public class GetLocationView {
                 continue;
             }    
 
-            else if (coordinates.length == 1) { // only one coordinate entered?
-                if (coordinates[0].toUpperCase().equals("Q")) { // Quit?
+            else if (coordinates.length == 1) { // only one coordinate entered?*/
+                if (strRowColumn.toUpperCase().equals("Q")) { // Quit?
                     return null;
-                } else { // wrong number of values entered.
+                } 
+/*                else { // wrong number of values entered.
                     new CrazyConnectFourError().displayError(
                         "You must enter one number, the column, "
                         + "or a \"Q\" to quit. Try again.");
                     continue;
-                }
+                }*/
             }
 
             
