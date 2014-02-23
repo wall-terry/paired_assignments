@@ -36,7 +36,7 @@ public class BoardView {
     
     Board board;
     
-    public Object displayBoard(Object object) {
+    public void displayBoard(Object object) {
         this.board = (Board) object;
         this.printHeadRow();
         this.printDividerRow();
@@ -47,54 +47,55 @@ public class BoardView {
         }
         System.out.println();
          
-        return null;
+/*        return null;*/
     }
 
     private void printHeadRow() {
 
         // print first cell
 
-        System.out.print("\n\t      1   ");
+        System.out.print("\n\t      1    ");
         int columnsInRow = this.board.getColumnCount();
         // print remaining cells in row
         for (int i = 1; i < columnsInRow - 1; i++) {
             int col = i + 1;
-            System.out.print("  " + col + "   ");
+            System.out.print("   " + col + "   ");
         }
-        System.out.print(" " + columnsInRow + "   ");
+        System.out.print("  " + columnsInRow + "   ");
     }
 
     private void printDividerRow() {
 
         // print first cell
 
-        System.out.print("\n\t  |------");
+        System.out.print("\n\t  |-------");
         int columnsInRow = this.board.getColumnCount();
         // print remaining cells in row
         for (int i = 1; i < columnsInRow - 1; i++) {
-            System.out.print("------");
+            System.out.print("-------");
         }
-        System.out.print("-----|");
+        System.out.print("------|");
     }
 
     private void printRow(int rowNumber, Player[] rowLocations) {
         
         // print first cell
-        String letter = " ";
+        String letter = "      ";
         if (rowLocations[0] != null) {
             letter = rowLocations[0].token;
         }
-        System.out.print("\n\t" + rowNumber + " |  " + letter + "  |");
+        System.out.print("\n\n\t" + rowNumber + " |" + letter + "|");
 
         // print remaining cells in row
         for (int i = 1; i < rowLocations.length; i++) {
             if (rowLocations[i] == null) {
-                letter = " ";
+                letter = "      ";
             } else {
                 letter = rowLocations[i].token;
             }
-            System.out.print("  " + letter + "  |");
+            System.out.print("" + letter + "|");
         }
+        System.out.print("\n");
     }
 
 }
