@@ -90,15 +90,14 @@ public class GetLocationView {
                         "You must enter one number, the column, "
                         + "or a \"Q\" to quit. Try again.");
                     continue;
-                }*/
+                }
             }
 
-            
+ */           
             // user java regular expression to check for valid integer number 
             // for both numbers
             String regExpressionPattern = ".*\\d.*";
-            if (!coordinates[0].matches(regExpressionPattern) ||
-                !coordinates[1].matches(regExpressionPattern)) {
+            if (!strRowColumn.matches(regExpressionPattern)) {
                 new CrazyConnectFourError().displayError(
                         "You must enter one number, the number columns, "
                         + "or a \"Q\" to quit. Try again.");
@@ -108,8 +107,8 @@ public class GetLocationView {
             // convert each of the cordinates from a String type to 
             // an integer type
           
-            int row = Integer.parseInt(coordinates[0]);
-            int column = Integer.parseInt(coordinates[1]);
+            
+            int column = Integer.parseInt(strRowColumn);
                      
             Board board = this.game.board; // get the game board
             

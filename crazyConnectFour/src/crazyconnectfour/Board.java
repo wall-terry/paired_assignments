@@ -41,7 +41,7 @@ public class Board extends AbstractTableModel {
     }
 
     public Board(int noRows, int noColumns) {
-        this.boardDimensions.setLocation(noColumns, noRows);
+        this.boardDimensions.setLocation(noRows, noColumns);
         this.boardLocations = new Player[noRows][noColumns];
     }
 
