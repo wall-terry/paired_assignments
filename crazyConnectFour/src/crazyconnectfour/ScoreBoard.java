@@ -29,13 +29,13 @@ package crazyconnectfour;
  * @author Terry Wall
  */
 public class ScoreBoard  {
-    public int scoreArray[];
+    public long scoreArray[];
     public String nameArray[];
     public Player player;
     
     
     public ScoreBoard(){
-    scoreArray = new int[10];
+    scoreArray = new long[10];
     nameArray = new String[10];
     int i;
     for (i=0; i<10; i++) {
@@ -44,11 +44,11 @@ public class ScoreBoard  {
     }
    }
     
-    public boolean addScore(int newScore, Player player){
+    public boolean addScore(long newScore, Player player){
     
         this.player = player;
         boolean success = false;
-        int temp = 0;
+        long temp = 0;
         String stringTemp = "";
         String newName ;
         int i;

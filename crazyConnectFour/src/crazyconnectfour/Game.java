@@ -106,49 +106,41 @@ public class Game {
     }
 
     public void recordWinner() {
-        if (this.currentPlayer == this.playerA) {
+        if (this.playerA.currentScore < playerB.currentScore) {
             this.winner = this.playerA;
-            this.loser = this.playerB;
+          
         } else {
             this.winner = this.playerB;
-            this.loser = this.playerA;
         }
-
-        long noWins = this.winner.wins;
-        noWins++;
-        this.winner.wins = noWins;
-        long noLosses = this.loser.losses;
-        noLosses++;
-        this.loser.losses = noLosses;
-
-        this.status = Game.WINNER;
+        
+        this.scoreBoard.addScore(this.winner.currentScore,this.winner);
+        this.getWinningMessage();        
         
     }
 
     public void recordTie() {
-        long player1Ties = this.playerA.ties;
-        player1Ties++;
-        this.playerA.ties = player1Ties;
-        long player2Ties = this.playerB.ties;
-        player2Ties++;
-        this.playerB.ties =player2Ties;
-
-        this.status = Game.TIE;
+        this.scoreBoard.addScore(this.playerA.currentScore,this.playerA);
+        this.scoreBoard.addScore(this.playerB.currentScore,this.playerB);
+        this.getTiedMessage();
        
     }
 
 
 
     public String getWinningMessage () {
+        this.scoreBoard.listScores();
         return "\n\t*******************************************************************************"
              + "\n\t Congratulations " + winner.name + "! You won the game."
-             + "\n\t Sorry " + loser.name + ", You are the loser." 
+             + "\n\t Your score was " + winner.currentScore  
              + "\n\t*******************************************************************************";
+    
+        
     }
 
     public String getTiedMessage () {
+       this.scoreBoard.listScores();
        return "\n\t*******************************************************************************"
-             + "\n\t The game is a tie. Better luck next time!" 
+             + "\n\t The game is a tie. You both scored " + playerA.currentScore 
              + "\n\t*******************************************************************************";
     }
        
