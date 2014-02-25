@@ -37,9 +37,7 @@ public class Player {
     public String name;
     public double age;
     public String playerType;
-    public long wins = 0;
-    public long losses = 0;
-    public long ties = 0;
+    public long currentScore = 0;
     public String token;
     
 
