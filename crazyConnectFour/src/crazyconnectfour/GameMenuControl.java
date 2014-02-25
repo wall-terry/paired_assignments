@@ -31,7 +31,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Terry Wall
+ * @author Terry Wall, Crystal Coatney
  */
 
  

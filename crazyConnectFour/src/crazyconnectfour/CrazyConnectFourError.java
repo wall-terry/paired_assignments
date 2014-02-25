@@ -26,7 +26,7 @@ package crazyconnectfour;
 
 /**
  *
- * @author Terry Wall
+ * @author Terry Wall, Crystal Coatney
  */
     
  public class CrazyConnectFourError {
