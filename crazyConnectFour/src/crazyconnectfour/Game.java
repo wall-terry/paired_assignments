@@ -29,8 +29,8 @@ package crazyconnectfour;
  * @author Terry Wall, Crystal Coatney
  */
 public class Game {
-    public final static String PLAYER_A_DEFAULT_TOKEN = "RED";
-    public final static String PLAYER_B_DEFAULT_TOKEN = "BLACK";
+    public final static String PLAYER_A_DEFAULT_TOKEN = "  RED ";
+    public final static String PLAYER_B_DEFAULT_TOKEN = " BLACK";
     public final static String PLAYER_A_DEFAULT_NAME = "Aristotle";
     public final static String PLAYER_B_DEFAULT_NAME = "Euripedes";
     

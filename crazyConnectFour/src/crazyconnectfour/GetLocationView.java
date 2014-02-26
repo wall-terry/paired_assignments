@@ -63,79 +63,62 @@ public class GetLocationView {
                 + " Enter a column number (For example: 1)");
             
             // get the value entered by the user 
-            String strRowColumn = inFile.nextLine(); 
+            String strColumn = inFile.nextLine(); 
             
             // trim off all extra blanks from the input
-            strRowColumn = strRowColumn.trim();  
-/*            
-            // replace any commas enter with blanks
-            strRowColumn = strRowColumn.replace(',', ' '); 
-           
-            // tokenize the string into an array of words
-            coordinates = strRowColumn.split("\\s"); 
+            strColumn = strColumn.trim();  
 
-            if (coordinates.length < 1) { // the value entered was not blank?
-                new CrazyConnectFourError().displayError(
-                        "You must enter a number, the column, "
-                        + "or a \"Q\" to quit. Try again.");
-                continue;
-            }    
-
-            else if (coordinates.length == 1) { // only one coordinate entered?*/
-                if (strRowColumn.toUpperCase().equals("Q")) { // Quit?
+            
+                if (strColumn.toUpperCase().equals("Q")) { // Quit?
                     return null;
                 } 
-/*                else { // wrong number of values entered.
-                    new CrazyConnectFourError().displayError(
-                        "You must enter one number, the column, "
-                        + "or a \"Q\" to quit. Try again.");
-                    continue;
-                }
-            }
-
- */           
+                
+        
             // user java regular expression to check for valid integer number 
             // for both numbers
             String regExpressionPattern = ".*\\d.*";
-            if (!strRowColumn.matches(regExpressionPattern)) {
+            if (!strColumn.matches(regExpressionPattern)) {
                 new CrazyConnectFourError().displayError(
-                        "You must enter one number, the number columns, "
+                        "You must enter one number, the number of the column you want to play, "
                         + "or a \"Q\" to quit. Try again.");
                 continue;
             }
             
-            // convert each of the cordinates from a String type to 
+            // convert the column number from a String type to 
             // an integer type
-          
-            
-            int column = Integer.parseInt(strRowColumn);
+            Board board = this.game.board;
+            int column = Integer.parseInt(strColumn);
+            int row = this.game.board.rowCount;
                      
-            Board board = this.game.board; // get the game board
+        
             
             // Check for invalid row and column entered
           
                 if (column < 1  ||  column > board.columnCount) {
                 new CrazyConnectFourError().displayError(
-                        "Enter a valid number columns from 3 to 10. Try again.");
+                        "Enter a valid column number from 1 to " + board.columnCount + ". Try again.");
                 continue;
             }
             
             // create a Point object to store the row and column coordinates in
-            location = new Point(row-1, column-1);
+            
             
             // check to see if the location entered is already occupied
-            if ( board.boardLocations[row-1][column-1] != null ) {
-                new CrazyConnectFourError().displayError(
-                    "The current location is taken. Select another location");
-                continue;
+            while ( row > 0  && board.boardLocations[row-1][column-1] != null ){
+               row -= 1; 
             }
 
-            valid = true; // a valid location was entered
-
-        }
-        
+                if (row != 0) {
+                    valid = true;
+                    location = new Point(row-1, column-1); 
+                } // a valid location was entered
+                else {
+                    new CrazyConnectFourError().displayError(
+                        "The column you entered is full.  Try again.");
+                }
+             }
+       
         return location; 
-            
+        }     
     }
 
-}
