@@ -24,6 +24,8 @@
 
      package crazyconnectfour;
 
+
+
 /**
  *
  * @author terry wall, Crystal Coatney
@@ -37,7 +39,7 @@ public class BoardView {
         this.printHeadRow();
         this.printDividerRow();
         for (int i = 0; i < this.board.getRowCount(); i++) {
-            Player[] rowOfLocations = this.board.getBoardLocations()[i];
+            Location [] rowOfLocations = this.board.getBoardLocations()[i];
             this.printRow(i+1, rowOfLocations);
             this.printDividerRow();
         }
@@ -73,12 +75,12 @@ public class BoardView {
         System.out.print("------|");
     }
 
-    private void printRow(int rowNumber, Player[] rowLocations) {
+    private void printRow(int rowNumber, Location[] rowLocations) {
         
         // print first cell
         String letter = "      ";
         if (rowLocations[0] != null) {
-            letter = rowLocations[0].token;
+            letter = rowLocations[0].getPlayer().token;
         }
         System.out.print("\n\n\t" + rowNumber + " |" + letter + "|");
 
@@ -87,7 +89,7 @@ public class BoardView {
             if (rowLocations[i] == null) {
                 letter = "      ";
             } else {
-                letter = rowLocations[i].token;
+                letter = rowLocations[i].getPlayer().token;
             }
             System.out.print("" + letter + "|");
         }

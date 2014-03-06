@@ -83,7 +83,7 @@ public class GamePreferencesMenuControl {
         }
         
         // change the size board
-        Player[][] boardLocations = new Player[boardRowCount][boardColumnCount];
+        Location [][] boardLocations = new Location [boardRowCount][boardColumnCount];
         this.game.board.getBoardDimensions().setLocation(boardRowCount, boardRowCount);
         this.game.board.setBoardLocations(boardLocations);
     }

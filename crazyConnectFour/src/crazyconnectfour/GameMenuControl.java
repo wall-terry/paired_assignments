@@ -287,16 +287,16 @@ public class GameMenuControl {
      */ 
     private boolean isTie() {
         
-        Player[][] locations = this.board.getBoardLocations();
+        Location [][] locations = this.board.getBoardLocations();
         
         // for every row in the table
         for (int row = 0; row < locations.length; row++) {
             
-            Player[] rowLocations = locations[row];
+            Location [] rowLocations = locations[row];
             
             // for every column in the row
             for (int col = 0; col < rowLocations.length; col++) {
-                Player location = rowLocations[col]; // get contents of cell
+                Location location = rowLocations[col]; // get contents of cell
                 if (locations[row][col] == null) { // location not taken yet?
                     return false;
                 }
@@ -311,13 +311,13 @@ public class GameMenuControl {
      */
     private boolean isWinner() {
 
-        Player[][] locations = this.board.getBoardLocations();
+        Location[][] locations = this.board.getBoardLocations();
 
         // for every row in the table
         for (int row = 0; row < locations.length; row++) {
             
             // get the list of locstaions (columns) in the row
-            Player[] rowLocations = locations[row];
+            Location[] rowLocations = locations[row];
             
             // for every column in the row
             for (int col = 0; col < rowLocations.length; col++) {
@@ -335,7 +335,7 @@ public class GameMenuControl {
     /* 
      * Are there three of the same markers in a row
      */
-    private boolean threeInARow(int row, int col, Player[][] boardLocations) {
+    private boolean threeInARow(int row, int col, Location [][] boardLocations) {
         boolean winner = false;
 
         int columnLength = boardLocations[row].length;
@@ -374,75 +374,75 @@ public class GameMenuControl {
      */
     private Point findWinningLocation(Player player) {
         Point coordinate = new Point();
-        Player[][] locations = this.board.getBoardLocations();
+        Location [][] locations = this.board.getBoardLocations();
         for (int row = 0; row < locations.length; row++) {
-            Player[] rowLocations = locations[row];
+            Location[] rowLocations = locations[row];
             for (int col = 0; col < rowLocations.length; col++) {
-                Player location = rowLocations[col];
+                Player playerAtLocation = rowLocations[col].getPlayer();
                 coordinate.setLocation(row, col);
 
-                if (rowLocations[col] != null) { // location is occupied
+                if (rowLocations[col].getPlayer() != null) { // location is occupied
                     continue;
                 }
 
                 // search for three adjacent horizontally
                 if ((row < locations.length
                         && col < rowLocations.length - 2)
-                        && (locations[row][col + 1] == player
-                        && locations[row][col + 2] == player)) {
+                        && (locations[row][col + 1].getPlayer() == player)
+                        && (locations[row][col + 2].getPlayer() == player)) {
                     return coordinate;
-                } else if ((row < locations.length
-                        && col > 0 && col < rowLocations.length - 1)
-                        && (locations[row][col - 1] == player
-                        && locations[row][col + 1] == player)) {
+                } else if ((row < locations.length)
+                        && (col > 0 && col < rowLocations.length - 1)
+                        && (locations[row][col - 1].getPlayer()) == player
+                        && (locations[row][col + 1].getPlayer() == player)) {
                     return coordinate;
                 } else if ((row < locations.length && col > 1)
-                        && (locations[row][col - 1] == player
-                        && locations[row][col - 2] == player)) {
+                        && (locations[row][col - 1].getPlayer()) == player
+                        && (locations[row][col - 2].getPlayer() == player)) {
                     return coordinate;
                 } // search for three adjacent vertically
                 else if ((row < locations.length - 2
                         && col < rowLocations.length)
-                        && (locations[row + 1][col] == player
-                        && locations[row + 2][col] == player)) {
+                        && (locations[row + 1][col].getPlayer()) == player
+                        && (locations[row + 2][col].getPlayer() == player)) {
                     return coordinate;
                 } else if ((row > 0 && row < locations.length - 1
                         && col < rowLocations.length)
-                        && (locations[row - 1][col] == player
-                        && locations[row + 1][col] == player)) {
+                        && (locations[row - 1][col].getPlayer()) == player
+                        && (locations[row + 1][col].getPlayer() == player)) {
                     return coordinate;
                 } else if ((row > 1 && col < rowLocations.length)
-                        && (locations[row - 1][col] == player
-                        && locations[row - 2][col] == player)) {
+                        && (locations[row - 1][col].getPlayer()) == player
+                        && (locations[row - 2][col].getPlayer() == player)) {
                     return coordinate;
                 } // search for three adjacent diagonally leaning backward
                 else if ((row < locations.length - 2
                         && col < rowLocations.length - 2)
-                        && (locations[row + 1][col + 1] == player
-                        && locations[row + 2][col + 2] == player)) {
+                        && (locations[row + 1][col + 1].getPlayer()) == player
+                        && locations[row + 2][col + 2].getPlayer() == player){
                     return coordinate;
-                } else if ((row > 0 && row < locations.length - 1
-                        && col > 0 && col < rowLocations.length - 1)
-                        && (locations[row - 1][col + 1] == player
-                        && locations[row + 1][col - 1] == player)) {
+                } else if ((row > 0 && row < locations.length - 1)
+                        &&( col > 0 && col < rowLocations.length - 1)
+                        && (locations[row - 1][col + 1].getPlayer()) == player
+                        && (locations[row + 1][col - 1].getPlayer() == player)) {
                     return coordinate;
                 } else if ((row > 1 && col > 1)
-                        && (locations[row - 1][col - 1] == player
-                        && locations[row - 2][col - 2] == player)) {
+                        && (locations[row - 1][col - 1].getPlayer()) == player
+                        && (locations[row - 2][col - 2].getPlayer() == player)) {
                     return coordinate;
                 } // search for three adjacent diagonally learning forward
                 else if ((row < locations.length - 2 && col > 1)
-                        && (locations[row + 1][col - 1] == player
-                        && locations[row + 2][col - 2] == player)) {
+                        && (locations[row + 1][col - 1].getPlayer()) == player
+                        && (locations[row + 2][col - 2].getPlayer() == player)) {
                     return coordinate;
                 } else if ((row > 0 && row < locations.length - 1
                         && col > 0 && col < rowLocations.length - 1)
-                        && (locations[row - 1][col + 1] == player
-                        && locations[row + 1][col - 1] == player)) {
+                        && (locations[row - 1][col + 1].getPlayer()) == player
+                        && (locations[row + 1][col - 1].getPlayer() == player)) {
                     return coordinate;
                 } else if ((row > 1 && col < rowLocations.length - 2)
-                        && (locations[row - 1][col + 1] == player
-                        && locations[row - 2][col + 2] == player)) {
+                        && (locations[row - 1][col + 1].getPlayer()) == player
+                        && (locations[row - 2][col + 2].getPlayer() == player)) {
                     return coordinate;
                 }
             }
@@ -458,14 +458,14 @@ public class GameMenuControl {
         Point randomLocation;
 
         ArrayList<Point> listOfEmptyLocations = new ArrayList<>();
-        Player[][] locations = this.board.getBoardLocations();
+        Location[][] locations = this.board.getBoardLocations();
 
         // create list of empty locations
         for (int row = 0; row < locations.length; row++) {
-            Player[] rowLocations = locations[row];
+            Location[] rowLocations = locations[row];
             for (int col = 0; col < rowLocations.length; col++) {
-                Player location = rowLocations[col];
-                if (location == null) { // location not occupied?
+                Player playerAtLocation = rowLocations[col].getPlayer();
+                if (playerAtLocation == null) { // location not occupied?
                     listOfEmptyLocations.add(new Point(row, col));
                 }
             }
@@ -489,12 +489,12 @@ public class GameMenuControl {
      * Clear the board action
      */
     public void clearTheBoard() {
-        Player[][] locations = this.game.board.getBoardLocations();
+        Location [][] locations = this.game.board.getBoardLocations();
         
         for (int i = 0; i < this.board.getBoardLocations().length; i++) {
-            Player[] rowlocations = locations[i];
+           Location [] rowlocations = locations[i];
             for (int j = 0; j < rowlocations.length; j++) {
-                rowlocations[j] = null;
+                rowlocations[j].setPlayer(null);
             }
         }
     }

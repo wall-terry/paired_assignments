@@ -35,14 +35,14 @@ public class Board extends AbstractTableModel {
     public int rowCount = 8;
     public int columnCount = 8;
     public Point boardDimensions = new Point();
-    public Player[][] boardLocations;
+    public Location [][] boardLocations;
 
     public Board() {
     }
 
     public Board(int noRows, int noColumns) {
         this.boardDimensions.setLocation(noRows, noColumns);
-        this.boardLocations = new Player[noRows][noColumns];
+        this.boardLocations = new Location [noRows][noColumns];
     }
 
     public Point getBoardDimensions() {
@@ -53,11 +53,11 @@ public class Board extends AbstractTableModel {
         this.boardDimensions = boardDimensions;
     }
 
-    public Player[][] getBoardLocations() {
+    public Location [][] getBoardLocations() {
         return boardLocations;
     }
 
-    public void setBoardLocations(Player[][] boardLocations) {
+    public void setBoardLocations(Location[][] boardLocations) {
         this.boardLocations = boardLocations;
     }
 
@@ -78,15 +78,15 @@ public class Board extends AbstractTableModel {
    
 
     public Player getPlayerAt(int row, int column) {
-        return this.boardLocations[row][column];
+        return this.boardLocations[row][column].getPlayer();
     }
 
 
     public void clearTheBoard() {
         for (int i = 0; i < this.boardLocations.length; i++) {
-            Player[] rowlocations = this.boardLocations[i];
+            Location[] rowlocations = this.boardLocations[i];
             for (int j = 0; j < rowlocations.length; j++) {
-                rowlocations[j] =  null;
+                rowlocations[j].setPlayer(null);
             }
         }
     }
@@ -95,7 +95,7 @@ public class Board extends AbstractTableModel {
         int row = location.x;
         int column = location.y;
         
-        if (this.boardLocations[row][column] != null) {
+        if (this.boardLocations[row][column].getPlayer() != null) {
             return true;
         }
         else {
@@ -107,20 +107,21 @@ public class Board extends AbstractTableModel {
     public void occupyLocation(Player player, int row, int column)  {
         // subtract 1 from row and column number because the array starts a position 0
 
-         Player playerAtLocation = this.boardLocations[row][column];
+         Player playerAtLocation = this.boardLocations[row][column].getPlayer();
 
         if (playerAtLocation != null) { // location already occupied
             new CrazyConnectFourError().displayError("This location is already occupied. "
                     + "Try a different location.");
         }
-        this.boardLocations[row][column] = player;
+        this.boardLocations[row][column].setPlayer(player);
     }
-
+/*
     public class Location {
 
         private int row;
         private int column;
         private String value;
+        private boolean deleteFlag;
         private Player player;
 
         Location() {
@@ -167,5 +168,5 @@ public class Board extends AbstractTableModel {
             return coordinates;
         }
     }
-
+*/
 }

@@ -76,7 +76,7 @@ public class Game {
         this();
 
         this.gameType = gameType;
-        this.board = new Board(Game.NUMBER_OF_ROWS_DEFAULT, NUMBER_OF_COLUMNS_DEFAULT);
+        this.board = new Board(Game.NUMBER_OF_ROWS_DEFAULT, Game.NUMBER_OF_COLUMNS_DEFAULT);
         
     }
 

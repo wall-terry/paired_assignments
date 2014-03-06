@@ -1,9 +1,7 @@
-package crazyconnectfour;
-
 /*
  * The MIT License
  *
- * Copyright 2014 dccoatney.
+ * Copyright 2014 Terry Wall.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,16 +22,18 @@ package crazyconnectfour;
  * THE SOFTWARE.
  */
 
+package crazyconnectfour;
+
 /**
  *
- * @author dccoatney
+ * @author Terry Wall
  */
-
 public class Location {
-
-        private int row;
+    
+   private int row;
         private int column;
         private String value;
+        private boolean deleteFlag;
         private Player player;
 
         Location() {
@@ -78,10 +78,5 @@ public class Location {
             coordinates[0] = intRow.toString();
             coordinates[1] = intColumn.toString();
             return coordinates;
-        }
-    }
-
-
-        
-    
-
+        } 
+}
