@@ -60,7 +60,7 @@ public class ScoreBoard  {
                     temp = scoreArray[i];
                     stringTemp = nameArray[i];
                     scoreArray[i] = newScore;
-                    nameArray[i] = player.name;
+                    nameArray[i] = player.getName();
                     success = true;
                 }
             } 

@@ -67,22 +67,22 @@ public class MainMenuControl {
         if (gameType.equals(Game.ONE_PLAYER)) {
             game = new Game(Game.ONE_PLAYER);
             playerA = new Player(Player.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_TOKEN);
-            playerA.name = Game.PLAYER_A_DEFAULT_NAME;
+            playerA.setName (Game.PLAYER_A_DEFAULT_NAME);
             playerB = new Player(Player.COMPUTER_PLAYER, Game.PLAYER_B_DEFAULT_TOKEN);
-            playerB.name = "Computer";
+            playerB.setName ("Computer");
         }
         else if (gameType.equals(Game.TWO_PLAYER)) {
             game = new Game(Game.TWO_PLAYER);
             playerA = new Player(Player.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_TOKEN);
-            playerA.name = Game.PLAYER_A_DEFAULT_NAME;
+            playerA.setName (Game.PLAYER_A_DEFAULT_NAME);
             playerB = new Player(Player.REGULAR_PLAYER, Game.PLAYER_B_DEFAULT_TOKEN);
-            playerB.name = Game.PLAYER_B_DEFAULT_NAME;
+            playerB.setName (Game.PLAYER_B_DEFAULT_NAME);
 
         }
 
         // set default tokens for each player
-        playerA.token = Game.PLAYER_A_DEFAULT_TOKEN;
-        playerB.token = Game.PLAYER_B_DEFAULT_TOKEN;
+        playerA.setToken (Game.PLAYER_A_DEFAULT_TOKEN);
+        playerB.setToken (Game.PLAYER_B_DEFAULT_TOKEN);
         
         // save the two players created as the default players of the game
         game.playerA = playerA;

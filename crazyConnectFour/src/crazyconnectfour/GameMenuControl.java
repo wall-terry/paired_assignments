@@ -104,11 +104,11 @@ public class GameMenuControl {
        this.displayBoard();     
        GetPlayerNameView getPlayerName = new GetPlayerNameView(this.game);
        System.out.println("\n\t First Player");
-       this.game.playerA.name = getPlayerName.getInput();
+       this.game.playerA.setName (getPlayerName.getInput());
        System.out.println("\n\t Second Player");
-       this.game.playerB.name = getPlayerName.getInput();
-       System.out.println("\n\t Player one is named " + this.game.playerA.name);
-       System.out.println("\n\t Player two is named " + this.game.playerB.name);
+       this.game.playerB.setName (getPlayerName.getInput());
+       System.out.println("\n\t Player one is named " + this.game.playerA.getName());
+       System.out.println("\n\t Player two is named " + this.game.playerB.getName());
     }
     
     
@@ -194,7 +194,7 @@ public class GameMenuControl {
     
     private void displayGameOverMessage(Player player, String message) {
         System.out.println("\n\t************************************************");
-        System.out.println("\t " + player.name + ": " + message);
+        System.out.println("\t " + player.getName() + ": " + message);
         System.out.println("\t************************************************");
     }
     

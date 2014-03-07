@@ -66,13 +66,13 @@ public class GamePreferencesMenuView {
             switch (command) {
                 case "1":
                     this.gamePreferenceControl.getToken(this.game.playerA);
-                    System.out.println("\n\t Player 1 is using "+ this.game.playerA.token + " as a token");
-                    System.out.println("\n\t Player 2 is using "+ this.game.playerB.token + " as a token");
+                    System.out.println("\n\t Player 1 is using "+ this.game.playerA.getToken() + " as a token");
+                    System.out.println("\n\t Player 2 is using "+ this.game.playerB.getToken() + " as a token");
                     break;
                 case "2":
                     this.gamePreferenceControl.getToken(this.game.playerB);
-                    System.out.println("\n\t Player 1 is using "+ this.game.playerA.token + " as a token");
-                    System.out.println("\n\t Player 2 is using "+ this.game.playerB.token + " as a token");
+                    System.out.println("\n\t Player 1 is using "+ this.game.playerA.getToken() + " as a token");
+                    System.out.println("\n\t Player 2 is using "+ this.game.playerB.getToken() + " as a token");
                     break;
                 case "D":
                     this.gamePreferenceControl.getDimensions();

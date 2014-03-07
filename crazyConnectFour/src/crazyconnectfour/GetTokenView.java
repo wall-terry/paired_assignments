@@ -66,7 +66,7 @@ public class GetTokenView {
         boolean valid = false; // flag to indicate if valid character entered
         while (!valid) {
             // prompt for input
-            System.out.println("\n\t" + player.name);
+            System.out.println("\n\t" + player.getName());
             this.display();
             
             // get input from user           
@@ -102,8 +102,8 @@ public class GetTokenView {
             }
             
             // Check to see if the token is already in use
-            if (this.game.playerA.token.equals(newToken) ||
-                this.game.playerB.token.equals(newToken) ) {
+            if (this.game.playerA.getToken().equals(newToken) ||
+                this.game.playerB.getToken().equals(newToken) ) {
                new CrazyConnectFourError().displayError(
                         "This token is currently in use. " +
                         "Select a different token");

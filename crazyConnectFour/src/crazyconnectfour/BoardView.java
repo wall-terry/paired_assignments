@@ -80,7 +80,7 @@ public class BoardView {
         // print first cell
         String letter = "      ";
         if (rowLocations[0] != null) {
-            letter = rowLocations[0].getPlayer().token;
+            letter = rowLocations[0].getPlayer().getToken();
         }
         System.out.print("\n\n\t" + rowNumber + " |" + letter + "|");
 
@@ -89,7 +89,7 @@ public class BoardView {
             if (rowLocations[i] == null) {
                 letter = "      ";
             } else {
-                letter = rowLocations[i].getPlayer().token;
+                letter = rowLocations[i].getPlayer().getToken();
             }
             System.out.print("" + letter + "|");
         }

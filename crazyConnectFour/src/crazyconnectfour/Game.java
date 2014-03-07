@@ -66,10 +66,10 @@ public class Game {
        this.playerB = new Player();
        this.scoreBoard = new ScoreBoard();
        
-       this.playerA.token = Game.PLAYER_A_DEFAULT_TOKEN;
-       this.playerB.token = Game.PLAYER_B_DEFAULT_TOKEN;
-       this.playerA.name = Game.PLAYER_A_DEFAULT_NAME;
-       this.playerB.name = Game.PLAYER_B_DEFAULT_NAME;
+       this.playerA.setToken (Game.PLAYER_A_DEFAULT_TOKEN);
+       this.playerB.setToken (Game.PLAYER_B_DEFAULT_TOKEN);
+       this.playerA.setName (Game.PLAYER_A_DEFAULT_NAME);
+       this.playerB.setName (Game.PLAYER_B_DEFAULT_NAME);
     }
 
     public Game(String gameType) {
@@ -106,21 +106,21 @@ public class Game {
     }
 
     public void recordWinner() {
-        if (this.playerA.currentScore < playerB.currentScore) {
+        if (this.playerA.getCurrentScore() < playerB.getCurrentScore()) {
             this.winner = this.playerA;
           
         } else {
             this.winner = this.playerB;
         }
         
-        this.scoreBoard.addScore(this.winner.currentScore,this.winner);
+        this.scoreBoard.addScore(this.winner.getCurrentScore(),this.winner);
         this.getWinningMessage();        
         
     }
 
     public void recordTie() {
-        this.scoreBoard.addScore(this.playerA.currentScore,this.playerA);
-        this.scoreBoard.addScore(this.playerB.currentScore,this.playerB);
+        this.scoreBoard.addScore(this.playerA.getCurrentScore(),this.playerA);
+        this.scoreBoard.addScore(this.playerB.getCurrentScore(),this.playerB);
         this.getTiedMessage();
        
     }
@@ -130,8 +130,8 @@ public class Game {
     public String getWinningMessage () {
         this.scoreBoard.listScores();
         return "\n\t*******************************************************************************"
-             + "\n\t Congratulations " + winner.name + "! You won the game."
-             + "\n\t Your score was " + winner.currentScore  
+             + "\n\t Congratulations " + winner.getName() + "! You won the game."
+             + "\n\t Your score was " + winner.getCurrentScore()  
              + "\n\t*******************************************************************************";
     
         
@@ -140,7 +140,7 @@ public class Game {
     public String getTiedMessage () {
        this.scoreBoard.listScores();
        return "\n\t*******************************************************************************"
-             + "\n\t The game is a tie. You both scored " + playerA.currentScore 
+             + "\n\t The game is a tie. You both scored " + playerA.getCurrentScore() 
              + "\n\t*******************************************************************************";
     }
        

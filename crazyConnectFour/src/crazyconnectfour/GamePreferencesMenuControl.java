@@ -49,7 +49,7 @@ public class GamePreferencesMenuControl {
             return;
         }
       
-        player.token = token; // update the players markers
+        player.setToken (token); // update the players markers
     }
   
     
