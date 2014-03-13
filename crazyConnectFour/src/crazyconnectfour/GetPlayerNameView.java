@@ -52,9 +52,6 @@ import java.util.Scanner;
                 
         boolean valid = false; // flag to indicate if valid character entered
         while (!valid) {
-            // prompt for input
-            System.out.println("\n\t" 
-                    + ", Enter a player name with a minimum of 3 characters and a maximum of 12 charcters.You can also enter Q to quit.");
             
             // get input from user           
             newName = in.nextLine();

@@ -52,9 +52,24 @@ public class GamePreferencesMenuControl {
         player.setToken (token); // update the players markers
     }
   
-    
-    
-    
+    public void getPlayerNames(){
+        
+        GetPlayerNameView getPlayerNameView = new GetPlayerNameView(this.game);
+        System.out.println("\n\t" 
+                    + "Enter a name for player one with a minimum of 3 characters and a maximum of 12 charcters.\n\t"
+                    + "You can also enter Q to keep the default or current name\n\t"
+                    + "The current name is " + this.game.playerA.getName());
+        String name = getPlayerNameView.getInput();
+        if (name != null) this.game.playerA.setName(name);
+        
+        System.out.println("\n\t" 
+                    + "Enter a name for player two with a minimum of 3 characters and a maximum of 12 charcters.\n\t"
+                    + "You can also enter Q to keep the default or current name\n\t"
+                    + "The Current name is " + this.game.playerB.getName());
+        
+        name = getPlayerNameView.getInput();
+        if (name != null) this.game.playerB.setName(name);
+    }
 
         public void getDimensions()  {
         
@@ -84,8 +99,11 @@ public class GamePreferencesMenuControl {
         
         // change the size board
         Location [][] boardLocations = new Location [boardRowCount][boardColumnCount];
-        this.game.board.getBoardDimensions().setLocation(boardRowCount, boardRowCount);
         this.game.board.setBoardLocations(boardLocations);
+        this.game.board.makeTheBoard();
+        this.game.board.getBoardDimensions().setLocation(boardRowCount, boardColumnCount);
+        
+        
     }
 }
     

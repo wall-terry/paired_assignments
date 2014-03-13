@@ -52,12 +52,13 @@ public class BoardView {
 
         // print first cell
 
-        System.out.print("\n\t      1    ");
+        System.out.print("\n\t      1  ");
         int columnsInRow = this.board.getColumnCount();
         // print remaining cells in row
         for (int i = 1; i < columnsInRow - 1; i++) {
             int col = i + 1;
-            System.out.print("   " + col + "   ");
+            if (col < 10) System.out.print("   " + col + "   ");
+            else System.out.print("   " + col + "  ");
         }
         System.out.print("  " + columnsInRow + "   ");
     }
@@ -79,14 +80,14 @@ public class BoardView {
         
         // print first cell
         String letter = "      ";
-        if (rowLocations[0] != null) {
+        if (rowLocations[0].getPlayer() != null) {
             letter = rowLocations[0].getPlayer().getToken();
         }
         System.out.print("\n\n\t" + rowNumber + " |" + letter + "|");
 
         // print remaining cells in row
         for (int i = 1; i < rowLocations.length; i++) {
-            if (rowLocations[i] == null) {
+            if (rowLocations[i].getPlayer() == null) {
                 letter = "      ";
             } else {
                 letter = rowLocations[i].getPlayer().getToken();

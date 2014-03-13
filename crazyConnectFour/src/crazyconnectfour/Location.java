@@ -23,12 +23,12 @@
  */
 
 package crazyconnectfour;
-
+import java.io.Serializable;
 /**
  *
  * @author Terry Wall
  */
-public class Location {
+public class Location implements Serializable {
     
    private int row;
         private int column;
@@ -37,6 +37,8 @@ public class Location {
         private Player player;
 
         Location() {
+            this.player = new Player();
+            this.deleteFlag = false;
         }
 
         int getRow() {
@@ -55,20 +57,28 @@ public class Location {
             this.column = column;
         }
 
-        String getValue() {
+        public String getValue() {
             return value;
         }
 
-        void setValue(String value) {
+        public void setValue(String value) {
             this.value = value;
         }
 
-        Player getPlayer() {
+        public Player getPlayer() {
             return player;
         }
 
         public void setPlayer(Player player) {
             this.player = player;
+        }
+        
+        public void setDeleteFlag(){
+            this.deleteFlag = true;
+        }
+        
+        public void clearDeleteFlag(){
+            this.deleteFlag = false;
         }
 
         String[] getCoordinates() {

@@ -36,6 +36,7 @@ public class GamePreferencesMenuView {
     private final static String[][] menuItems = {
         {"1", "Change Token of the first Player"},
         {"2", "Change Token of the second Player"},
+        {"N", "Change Player Names"},
         {"D", "Change the dimensions of the board"},
         {"Q", "Return to game menu"}
    
@@ -77,6 +78,8 @@ public class GamePreferencesMenuView {
                 case "D":
                     this.gamePreferenceControl.getDimensions();
                     break;
+                case "N":
+                    this.gamePreferenceControl.getPlayerNames();
                 case "Q":
                     break;
                 default: 

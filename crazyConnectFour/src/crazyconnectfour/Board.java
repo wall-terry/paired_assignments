@@ -35,14 +35,16 @@ public class Board extends AbstractTableModel {
     public int rowCount = 8;
     public int columnCount = 8;
     public Point boardDimensions = new Point();
-    public Location [][] boardLocations;
+    public Location[][] boardLocations;
 
     public Board() {
+        this.boardDimensions.setLocation(rowCount,columnCount);
+        this.boardLocations = new Location[rowCount][columnCount];
     }
 
     public Board(int noRows, int noColumns) {
         this.boardDimensions.setLocation(noRows, noColumns);
-        this.boardLocations = new Location [noRows][noColumns];
+        this.boardLocations = new Location[noRows][noColumns];
     }
 
     public Point getBoardDimensions() {
@@ -53,7 +55,7 @@ public class Board extends AbstractTableModel {
         this.boardDimensions = boardDimensions;
     }
 
-    public Location [][] getBoardLocations() {
+    public Location[][] getBoardLocations() {
         return boardLocations;
     }
 
@@ -82,11 +84,24 @@ public class Board extends AbstractTableModel {
     }
 
 
-    public void clearTheBoard() {
+  public void makeTheBoard() {
+        
+        for (int i = 0; i < this.boardLocations.length; i++) {
+            Location[] rowlocations = this.boardLocations[i];
+            for (int j = 0; j < rowlocations.length; j++) {
+                rowlocations[j] = new Location();
+                rowlocations[j].setPlayer(null);
+                rowlocations[j].clearDeleteFlag();
+            }
+        }
+    }  
+  
+  public void clearTheBoard() {
         for (int i = 0; i < this.boardLocations.length; i++) {
             Location[] rowlocations = this.boardLocations[i];
             for (int j = 0; j < rowlocations.length; j++) {
                 rowlocations[j].setPlayer(null);
+                rowlocations[j].clearDeleteFlag();
             }
         }
     }

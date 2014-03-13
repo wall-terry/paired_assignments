@@ -92,7 +92,7 @@ public class GetLocationView {
                      
         
             
-            // Check for invalid row and column entered
+            // Check for invalid column entered
           
                 if (column < 1  ||  column > board.columnCount) {
                 new CrazyConnectFourError().displayError(
@@ -104,7 +104,7 @@ public class GetLocationView {
             
             
             // check to see if the location entered is already occupied
-            while ( row > 0  && board.boardLocations[row-1][column-1] != null ){
+            while ( row > 0  && board.boardLocations[row-1][column-1].getPlayer() != null ){
                row -= 1; 
             }
 
