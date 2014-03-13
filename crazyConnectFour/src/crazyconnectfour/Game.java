@@ -77,6 +77,7 @@ public class Game {
 
         this.gameType = gameType;
         this.board = new Board(Game.NUMBER_OF_ROWS_DEFAULT, Game.NUMBER_OF_COLUMNS_DEFAULT);
+        this.board.makeTheBoard();
         
     }
 

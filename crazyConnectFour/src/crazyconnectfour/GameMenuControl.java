@@ -62,7 +62,7 @@ public class GameMenuControl {
          if (this.game.gameType.equals(Game.TWO_PLAYER)) { //two player game 
             // regular player takes turn
             returnValue = this.regularPlayerTurn(this.game.currentPlayer);            
-            if (returnValue < 0  || this.gameOver(this.game.currentPlayer)) {
+            if (returnValue < 0) {
                 return;
             }
             this.displayBoard();
@@ -70,7 +70,7 @@ public class GameMenuControl {
             
             // other player takes turn 
             returnValue = this.regularPlayerTurn(this.game.currentPlayer);            
-            if (returnValue < 0  || this.gameOver(this.game.currentPlayer)) {
+            if (returnValue < 0) {
                 return;
             }
             this.displayBoard();
@@ -102,18 +102,17 @@ public class GameMenuControl {
     public void startNewGame() {
        this.game.start();
        this.displayBoard();     
-       GetPlayerNameView getPlayerName = new GetPlayerNameView(this.game);
-       System.out.println("\n\t First Player");
-       this.game.playerA.setName (getPlayerName.getInput());
-       System.out.println("\n\t Second Player");
-       this.game.playerB.setName (getPlayerName.getInput());
-       System.out.println("\n\t Player one is named " + this.game.playerA.getName());
-       System.out.println("\n\t Player two is named " + this.game.playerB.getName());
     }
     
     
             
     public void displayPreferencesMenu() {
+        
+       if (this.game.status.equals(Game.PLAYING)) {
+            new CrazyConnectFourError().displayError("You can not change the preferences "
+              + "of the game once the game has been started. "
+              + "\n\tStart select a new game and then change then preferences ");
+            return;}
        
         GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView(game);
         gamePreferencesMenu.getInput();
