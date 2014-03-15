@@ -80,6 +80,9 @@ public class Location implements Serializable {
         public void clearDeleteFlag(){
             this.deleteFlag = false;
         }
+        public boolean checkDeleteFlag(){
+            return this.deleteFlag;
+        }
 
         String[] getCoordinates() {
             String[] coordinates = new String[2];

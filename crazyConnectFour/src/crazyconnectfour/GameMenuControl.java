@@ -65,6 +65,7 @@ public class GameMenuControl {
             if (returnValue < 0) {
                 return;
             }
+            this.checkForMatches();
             this.displayBoard();
             this.alternatePlayers(); // alternate players             
             
@@ -73,6 +74,7 @@ public class GameMenuControl {
             if (returnValue < 0) {
                 return;
             }
+            this.checkForMatches();
             this.displayBoard();
             this.alternatePlayers(); // alternate players
         }
@@ -176,20 +178,10 @@ public class GameMenuControl {
         helpMenu.getInput();
     } 
       private boolean gameOver(Player player) {
-        if (this.isWinner()) {
-            this.game.status = Game.WINNER;
-            this.displayGameOverMessage(player, "Congratulations! You won the game.");
-            
+        
             return true;
         }
-        else if (this.isTie()) {
-            this.game.status = Game.TIE;
-            this.displayGameOverMessage(player, "Better luck next time. The game is a tie.");
-            return true;
-        } 
         
-        return false;
-    }
     
     private void displayGameOverMessage(Player player, String message) {
         System.out.println("\n\t************************************************");
@@ -279,98 +271,98 @@ public class GameMenuControl {
         return coordinate;
     }
 
-
-
-    /* 
-     * Is the game tied?
-     */ 
-    private boolean isTie() {
-        
-        Location [][] locations = this.board.getBoardLocations();
-        
-        // for every row in the table
-        for (int row = 0; row < locations.length; row++) {
-            
-            Location [] rowLocations = locations[row];
-            
-            // for every column in the row
-            for (int col = 0; col < rowLocations.length; col++) {
-                Location location = rowLocations[col]; // get contents of cell
-                if (locations[row][col] == null) { // location not taken yet?
-                    return false;
-                }
+    private void checkForMatches(){
+        boolean matchesFound = false;
+        do{
+            matchesFound = this.fourInARow(this.board.getRowCount() - 1,this.board.getColumnCount()- 1,this.board.getBoardLocations());
+            if (matchesFound == true){
+                this.board.removeMatches();
+                this.board.cascadeBoard();
+            } else {
             }
-        }
-
-        return true; // all locations are taken
+        }while(matchesFound == true);
+        
     }
-
-    /*
-     * Is the game won
-     */
-    private boolean isWinner() {
-
-        Location[][] locations = this.board.getBoardLocations();
-
-        // for every row in the table
-        for (int row = 0; row < locations.length; row++) {
-            
-            // get the list of locstaions (columns) in the row
-            Location[] rowLocations = locations[row];
-            
-            // for every column in the row
-            for (int col = 0; col < rowLocations.length; col++) {
-                
-                // three of the same players markers in a row?
-                if (threeInARow(row, col, locations)) { 
-                    return true; // three in a row found (a winner)
-                }
-            }
-        }
-
-        return false; // no one is a winner yet
-    }
-
+    
     /* 
-     * Are there three of the same markers in a row
+     * Are there four of the same markers in a row
      */
-    private boolean threeInARow(int row, int col, Location [][] boardLocations) {
-        boolean winner = false;
-
+    private boolean fourInARow(int row, int col, Location [][] boardLocations) {
+        
         int columnLength = boardLocations[row].length;
         int rowLength = boardLocations.length;
+        int startRow;
+        int currentRow;
+        int startColumn;
+        int currentColumn;
+        int matches = 0;
+        boolean fourOfAKindFound = false;
+        int i,j,k;
 
-        // square not taken yet
-        if (boardLocations[row][col] == null) {
-            return false;
-        } // search for three adjacent horizontally
-        else if (row < rowLength && col < columnLength - 2
-                && boardLocations[row][col] == boardLocations[row][col + 1]
-                && boardLocations[row][col] == boardLocations[row][col + 2]) {
-            return true;
-        } // search for three adjacent vertically
-        else if (row < rowLength - 2 && col < columnLength
-                && boardLocations[row][col] == boardLocations[row + 1][col]
-                && boardLocations[row][col] == boardLocations[row + 2][col]) {
-            return true;
-        } // search for three adjacent diagonally leaning backward
-        else if (row < rowLength - 2 && col < columnLength - 2
-                && boardLocations[row][col] == boardLocations[row + 1][col + 1]
-                && boardLocations[row][col] == boardLocations[row + 2][col + 2]) {
-            return true;
-        } // search for three adjacent diagonally learning forward
-        else if (row < rowLength - 2 && col > 1
-                && boardLocations[row][col] == boardLocations[row + 1][col - 1]
-                && boardLocations[row][col] == boardLocations[row + 2][col - 2]) {
-            return true;
+        // check for horizontal sets of four in a row
+        for ( i = 0; i < rowLength; i++){
+        Location[] rowlocations = boardLocations[i];
+        for ( j = 0, startColumn = 0, currentColumn = 0, matches = 0; j < columnLength-1; j++){
+            if (rowlocations[j].getPlayer() == rowlocations[j+1].getPlayer()){
+                currentColumn++;
+                if(rowlocations[j].getPlayer() != null) matches++;
+                else startColumn = currentColumn;
+            }
+            else if(matches < 3){
+                currentColumn++;
+                startColumn = currentColumn;
+                matches = 0;
+            }
+            else {
+                
+                for (k = startColumn; k <= currentColumn; k++){
+                   rowlocations[k].setDeleteFlag();
+                }
+                currentColumn++;
+                startColumn = currentColumn;
+                matches = 0;
+                fourOfAKindFound = true;
+                }
+            }
+            if (matches > 3) fourOfAKindFound = true;
         }
+        
+        
+        // Search for Four or more in a row in a column
+        
+        for (j = 0; j < columnLength; j++){
+            for ( i = 0, matches = 0,startRow =0, currentRow =0; i < rowLength - 1; i++){
+               if (boardLocations [i][j].getPlayer() == boardLocations[i+1][j].getPlayer()){
+                   currentRow++;
+                   if (boardLocations[i][j].getPlayer()!= null) matches++;
+                   else startRow = currentRow;
+               } 
+               else if (matches < 3){
+                   currentRow++;
+                   startRow = currentRow;
+                   matches = 0;
+               }
+               else{
+                   for (k = startRow; k <= currentRow; k++){
+                       boardLocations[k][j].setDeleteFlag();
+                   }
+                   currentRow++;
+                   startRow = currentRow;
+                   matches = 0;
+                   fourOfAKindFound = true;
+               }
+            }
+            if( matches > 3) fourOfAKindFound = true;
+        }
+        
 
-        return false;
+        return fourOfAKindFound;
     }
 
     /* 
      * Find a winning location
      */
+    
     private Point findWinningLocation(Player player) {
         Point coordinate = new Point();
         Location [][] locations = this.board.getBoardLocations();

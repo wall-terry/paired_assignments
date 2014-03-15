@@ -130,58 +130,33 @@ public class Board extends AbstractTableModel {
         }
         this.boardLocations[row][column].setPlayer(player);
     }
-/*
-    public class Location {
 
-        private int row;
-        private int column;
-        private String value;
-        private boolean deleteFlag;
-        private Player player;
-
-        Location() {
-        }
-
-        int getRow() {
-            return row;
-        }
-
-        void setRow(int row) {
-            this.row = row;
-        }
-
-        int getColumn() {
-            return column;
-        }
-
-        void setColumn(int column) {
-            this.column = column;
-        }
-
-        String getValue() {
-            return value;
-        }
-
-        void setValue(String value) {
-            this.value = value;
-        }
-
-        Player getPlayer() {
-            return player;
-        }
-
-        public void setPlayer(Player player) {
-            this.player = player;
-        }
-
-        String[] getCoordinates() {
-            String[] coordinates = new String[2];
-            Integer intRow = this.getRow() + 1;
-            Integer intColumn = this.getColumn() + 1;
-            coordinates[0] = intRow.toString();
-            coordinates[1] = intColumn.toString();
-            return coordinates;
+    
+    public void removeMatches(){
+        for (int i = 0; i < this.boardLocations.length; i++) {
+            Location[] rowlocations = this.boardLocations[i];
+            for (int j = 0; j < rowlocations.length; j++) {
+                if (rowlocations[j].checkDeleteFlag()){
+                  Player player = rowlocations[j].getPlayer();
+                  player.setCurrentScore(player.getCurrentScore() + 1);  
+                  rowlocations[j].setPlayer(null);
+                  rowlocations[j].clearDeleteFlag();
+                }
+            }
         }
     }
-*/
+
+    
+    public void cascadeBoard(){
+        for (int i = this.boardLocations.length - 1; i >0; i--) {
+            Location[] rowlocations = this.boardLocations[i];
+            for (int j = rowlocations.length - 1; j >= 0; j--) {
+                if (rowlocations[j].getPlayer() == null){
+                  boardLocations[i][j].setPlayer(boardLocations[i-1][j].getPlayer());
+                  boardLocations[i-1][j].setPlayer(null);
+                }
+                
+            }
+        }
+    }
 }
