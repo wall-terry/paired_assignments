@@ -28,7 +28,7 @@ import java.util.Scanner;
 
 
 
-public class HelpMenuView  {
+public class HelpMenuView extends Menu {
         
     private final static String[][] menuItems = {
         {"B", "The board"},
@@ -43,22 +43,18 @@ public class HelpMenuView  {
     private final HelpMenuControl HelpMenuControl = new HelpMenuControl();
     
     public HelpMenuView() {
-        
+        super(HelpMenuView.menuItems);
     } 
     
-    public void getInput() {       
+
+    @Override
+    public String executeCommands(Object object) {       
               
-        String command;
-        Scanner inFile = new Scanner(System.in);
-        
+        String gameStatus = Game.PLAYING;
         do {
-            
-            this.display(); // display the menu
-            
-         
-            command = inFile.nextLine();
-            command = command.trim().toUpperCase();
-            
+            this.display();
+            // get commaned entered
+            String command = this.getCommand();
             switch (command) {
                 case "B":
                     this.HelpMenuControl.displayBoardHelp();
@@ -79,15 +75,17 @@ public class HelpMenuView  {
                     this.HelpMenuControl.displayRealPlayerHelp();
                     break; 
                 case "Q": 
+                    gameStatus = Game.QUIT;
                     break;
                 default: 
                     new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
                                    }
-        } while (!command.equals("Q"));  
+        } while (!gameStatus.equals(Game.QUIT));  
         
+      return gameStatus;
     }
 
-        // displays the help menu
+        /*displays the help menu
     public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tEnter the letter associated with one of the following commands:");
@@ -98,5 +96,6 @@ public class HelpMenuView  {
         }
         System.out.println("\t===============================================================\n");
     }
+    */
 }
 

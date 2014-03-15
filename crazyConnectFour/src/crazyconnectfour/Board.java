@@ -26,16 +26,17 @@ package crazyconnectfour;
 
 import java.awt.Point;
 import javax.swing.table.AbstractTableModel;
+import java.io.Serializable;
 
 /**
  *
  * @author Crystal Coatney, Terry Wall
  */
-public class Board extends AbstractTableModel {
-    public int rowCount = 8;
-    public int columnCount = 8;
-    public Point boardDimensions = new Point();
-    public Location[][] boardLocations;
+public class Board extends AbstractTableModel implements Serializable {
+    private int rowCount = 8;
+    private int columnCount = 8;
+    private Point boardDimensions = new Point();
+    private Location[][] boardLocations;
 
     public Board() {
         this.boardDimensions.setLocation(rowCount,columnCount);

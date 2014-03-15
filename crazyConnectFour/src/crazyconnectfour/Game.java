@@ -23,12 +23,14 @@
  */
 
 package crazyconnectfour;
+import java.io.Serializable; 
+
 
 /**
  *
  * @author Terry Wall, Crystal Coatney
  */
-public class Game {
+public class Game implements Serializable {
     public final static String PLAYER_A_DEFAULT_TOKEN = "  RED ";
     public final static String PLAYER_B_DEFAULT_TOKEN = " BLACK";
     public final static String PLAYER_A_DEFAULT_NAME = "Aristotle";
@@ -49,16 +51,16 @@ public class Game {
     public static final int NUMBER_OF_COLUMNS_DEFAULT = 8;
     
 
-    public String gameType;
-    public Player playerA;
-    public Player playerB;
-    public Player currentPlayer;
-    public Player otherPlayer;
-    public Player winner;
-    public Player loser;
-    public String status;
-    public Board board;
-    public ScoreBoard scoreBoard;
+    private String gameType;
+    private Player playerA;
+    private Player playerB;
+    private Player currentPlayer;
+    private Player otherPlayer;
+    private Player winner;
+    private Player loser;
+    private String status;
+    private Board board;
+    private ScoreBoard scoreBoard;
 
     public Game() {
    
@@ -79,6 +81,86 @@ public class Game {
         this.board = new Board(Game.NUMBER_OF_ROWS_DEFAULT, Game.NUMBER_OF_COLUMNS_DEFAULT);
         this.board.makeTheBoard();
         
+    }
+
+    public String getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(String gameType) {
+        this.gameType = gameType;
+    }
+
+    public Player getPlayerA() {
+        return playerA;
+    }
+
+    public void setPlayerA(Player playerA) {
+        this.playerA = playerA;
+    }
+
+    public Player getPlayerB() {
+        return playerB;
+    }
+
+    public void setPlayerB(Player playerB) {
+        this.playerB = playerB;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
+    public Player getOtherPlayer() {
+        return otherPlayer;
+    }
+
+    public void setOtherPlayer(Player otherPlayer) {
+        this.otherPlayer = otherPlayer;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
+
+    public Player getLoser() {
+        return loser;
+    }
+
+    public void setLoser(Player loser) {
+        this.loser = loser;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public ScoreBoard getScoreBoard() {
+        return scoreBoard;
+    }
+
+    public void setScoreBoard(ScoreBoard scoreBoard) {
+        this.scoreBoard = scoreBoard;
     }
 
 

@@ -28,7 +28,7 @@ package crazyconnectfour;
 import java.util.Scanner;
 
 
-public class GamePreferencesMenuView {
+public class GamePreferencesMenuView extends Menu {
     
     Game game;
     private GamePreferencesMenuControl gamePreferenceControl;
@@ -43,37 +43,34 @@ public class GamePreferencesMenuView {
     };
 
     
- public GamePreferencesMenuView(Game game) {
+ public GamePreferencesMenuView() {
      
-        this.game = game;
-        gamePreferenceControl = new GamePreferencesMenuControl(game);
+        super(GamePreferencesMenuView.menuItems);
+        gamePreferenceControl = new GamePreferencesMenuControl();
  }
  
-    public void getInput() {       
-        String command;
-        Scanner inFile = new Scanner(System.in);
+    @Override
+    public String executeCommands(Object object) {       
+        this.game = (Game) object;
+        this.gamePreferenceControl.setGame(game);
         
+        String gameStatus = Game.PLAYING;
         do {
             this.display();
 
             // get commaned entered
-            command = inFile.nextLine();
-            command = command.trim().toUpperCase();
-            
-            
-            
-            
+            String command = this.getCommand();
             
             switch (command) {
                 case "1":
-                    this.gamePreferenceControl.getToken(this.game.playerA);
-                    System.out.println("\n\t Player 1 is using "+ this.game.playerA.getToken() + " as a token");
-                    System.out.println("\n\t Player 2 is using "+ this.game.playerB.getToken() + " as a token");
+                    this.gamePreferenceControl.getToken(this.game.getPlayerA());
+                    System.out.println("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token");
+                    System.out.println("\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
                     break;
                 case "2":
-                    this.gamePreferenceControl.getToken(this.game.playerB);
-                    System.out.println("\n\t Player 1 is using "+ this.game.playerA.getToken() + " as a token");
-                    System.out.println("\n\t Player 2 is using "+ this.game.playerB.getToken() + " as a token");
+                    this.gamePreferenceControl.getToken(this.game.getPlayerB());
+                    System.out.println("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token");
+                    System.out.println("\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
                     break;
                 case "D":
                     this.gamePreferenceControl.getDimensions();
@@ -81,28 +78,28 @@ public class GamePreferencesMenuView {
                 case "N":
                     this.gamePreferenceControl.getPlayerNames();
                 case "Q":
+                    gameStatus = Game.QUIT;
                     break;
                 default: 
                     new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
                     continue;
             }
-        } while (!command.equals("Q"));
+        } while (!gameStatus.equals(Game.QUIT));
 
-        return;
+        return gameStatus;
     }
     
-    
+/*    
         
     public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tEnter the letter associated with one of the following commands:");
-
-        for (int i = 0; i < GamePreferencesMenuView.menuItems.length; i++) {
-            System.out.println("\t   " + menuItems[i][0] + "\t" + menuItems[i][1]);
+        for (String[] menuItem : GamePreferencesMenuView.menuItems) {
+            System.out.println("\t   " + menuItem[0] + "\t" + menuItem[1]);
         }
         System.out.println("\t===============================================================\n");
     }
- 
+ */
 }
 
 

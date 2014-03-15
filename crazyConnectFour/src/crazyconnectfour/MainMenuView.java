@@ -30,7 +30,8 @@ import java.util.Scanner;
  *
  * @author Terry Wall
  */
-public class MainMenuView {
+public class MainMenuView extends Menu {
+   
  private static final String[][] menuItems = {
         {"1", "One player game"},
         {"2", "Two player game"},
@@ -41,21 +42,21 @@ public class MainMenuView {
     MainMenuControl mainMenuControl = new MainMenuControl();
     
     public MainMenuView() {
-
+        super (MainMenuView.menuItems);
     }
  
     
-    public void getInput() {       
+      
 
-        String command;
-        Scanner inFile = new Scanner(System.in);
+    @Override
+    public String executeCommands(Object object) {       
         
+        String gameStatus = Game.PLAYING;
         do {
-            this.display(); // display the menu
+            this.display();
 
             // get commaned entered
-            command = inFile.nextLine();
-            command = command.trim().toUpperCase();
+            String command = this.getCommand();
             
             switch (command) {
                 case "1":
@@ -68,15 +69,19 @@ public class MainMenuView {
                     this.mainMenuControl.displayHelpMenu();            
                     break;
                 case "X":
+                    gameStatus = Game.EXIT;
                     break;
                 default: 
                     new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
             }
-        } while (!command.equals("X"));
+        } while (!gameStatus.equals(Game.EXIT));
+        
+      return Game.EXIT;
+      
     }
     
 
-    
+ /*   
     
    public final void display() {
         System.out.println("\n\t===============================================================");
@@ -86,5 +91,5 @@ public class MainMenuView {
      }
         System.out.println("\t===============================================================\n");
     }   
-      
+ */     
 }

@@ -35,10 +35,17 @@ public class GamePreferencesMenuControl {
       
     private Game game;
 
-    public GamePreferencesMenuControl(Game game) {
-        this.game = game;
+    public GamePreferencesMenuControl() {
+        
     }
     
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
     
     public void getToken(Player player) { 
         
@@ -58,23 +65,23 @@ public class GamePreferencesMenuControl {
         System.out.println("\n\t" 
                     + "Enter a name for player one with a minimum of 3 characters and a maximum of 12 charcters.\n\t"
                     + "You can also enter Q to keep the default or current name\n\t"
-                    + "The current name is " + this.game.playerA.getName());
+                    + "The current name is " + this.game.getPlayerA().getName());
         String name = getPlayerNameView.getInput();
-        if (name != null) this.game.playerA.setName(name);
+        if (name != null) this.game.getPlayerA().setName(name);
         
         System.out.println("\n\t" 
                     + "Enter a name for player two with a minimum of 3 characters and a maximum of 12 charcters.\n\t"
                     + "You can also enter Q to keep the default or current name\n\t"
-                    + "The Current name is " + this.game.playerB.getName());
+                    + "The Current name is " + this.game.getPlayerB().getName());
         
         name = getPlayerNameView.getInput();
-        if (name != null) this.game.playerB.setName(name);
+        if (name != null) this.game.getPlayerB().setName(name);
     }
 
         public void getDimensions()  {
         
         // Check to see if a game is already in progress
-        if (this.game.status.equals(Game.PLAYING)) {
+        if (this.game.getStatus().equals(Game.PLAYING)) {
             new CrazyConnectFourError().displayError("You can not change the dimensions "
               + "of the board once the game has been started. "
               + "\n\tStart a new game and then change the dimensions "
@@ -92,16 +99,16 @@ public class GamePreferencesMenuControl {
         int boardColumnCount= dimension.height;
          
         // no change in the board size so return
-        if (boardRowCount == this.game.board.getRowCount() &&
-            boardColumnCount == this.game.board.getColumnCount()) {
+        if (boardRowCount == this.game.getBoard().getRowCount() &&
+            boardColumnCount == this.game.getBoard().getColumnCount()) {
             return;
         }
         
         // change the size board
         Location [][] boardLocations = new Location [boardRowCount][boardColumnCount];
-        this.game.board.setBoardLocations(boardLocations);
-        this.game.board.makeTheBoard();
-        this.game.board.getBoardDimensions().setLocation(boardRowCount, boardColumnCount);
+        this.game.getBoard().setBoardLocations(boardLocations);
+        this.game.getBoard().makeTheBoard();
+        this.game.getBoard().getBoardDimensions().setLocation(boardRowCount, boardColumnCount);
         
         
     }

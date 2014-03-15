@@ -49,7 +49,7 @@ public class MainMenuControl {
         }
 
         GameMenuView gameMenu = new GameMenuView(game);
-        gameMenu.getInput();
+        gameMenu.executeCommands(game);
     }
 
     
@@ -85,11 +85,11 @@ public class MainMenuControl {
         playerB.setToken (Game.PLAYER_B_DEFAULT_TOKEN);
         
         // save the two players created as the default players of the game
-        game.playerA = playerA;
-        game.playerB = playerB; 
+        game.setPlayerA(playerA);
+        game.setPlayerB(playerB); 
         
         // set the game status to game not yet in playing mode
-        game.status = Game.NO_ACTIVE_GAME;
+        game.setStatus (Game.NO_ACTIVE_GAME);
         
         return game;
     } 
@@ -109,7 +109,7 @@ public class MainMenuControl {
     
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.getInput();
+        helpMenu.executeCommands(null);
     }
         
 }

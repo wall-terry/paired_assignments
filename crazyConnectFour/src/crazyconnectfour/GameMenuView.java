@@ -30,7 +30,7 @@ import java.util.Scanner;
  *
  * @author Terry Wall
  */
-public class GameMenuView {
+public class GameMenuView extends Menu{
     
     
     private  GameMenuControl gameMenuControl; 
@@ -47,24 +47,24 @@ public class GameMenuView {
     };
 
     public GameMenuView(Game game) {
-        this.game = game;
+        super(GameMenuView.menuItems);
         this.gameMenuControl = new GameMenuControl(game);
     }
 
     
     
-    public void getInput() {
+    @Override
+    public String executeCommands(Object object) {
    
-        String command;
-        Scanner inFile = new Scanner(System.in);
+        this.game = (Game) object;
 
-        do {    
-            this.display(); // display the menu
-
-            // get commaned entered
-            command = inFile.nextLine();
-            command = command.trim().toUpperCase();
+        String gameStatus = Game.PLAYING;
+        do {
+     
+            this.display();
             
+            // get commaned entered
+            String command = this.getCommand();
             switch (command) {
                 case "T":
                     this.gameMenuControl.takeTurn();
@@ -84,15 +84,18 @@ public class GameMenuView {
                 case "H":
                     gameMenuControl.displayHelpMenu();
                     break;
-                case "Q":                   
+                case "Q":
+                    gameStatus = Game.QUIT;
                     break;
                 default: 
                     new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
             }
-        } while (!command.equals("Q"));
+        } while (!gameStatus.equals(Game.QUIT));
+        
+      return gameStatus;
     }
     
-    
+/*    
     public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tEnter the letter associated with one of the following commands:");
@@ -102,5 +105,5 @@ public class GameMenuView {
         }
         System.out.println("\t===============================================================\n");
     }
-  
+ */ 
 }

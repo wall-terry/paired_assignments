@@ -6,11 +6,17 @@
 
 package crazyconnectfour;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Terry Wall and Crystal Coatney
  */
 public class CrazyConnectFour {
+    
+    private static final Scanner inFile = new Scanner(System.in);
+  
+    
     // Instance variables
     
      private final static String WELCOME = 
@@ -28,13 +34,25 @@ public class CrazyConnectFour {
             + "\n\t* Good Luck!!!                                                        *"
             + "\n\t***********************************************************************"
             + "\n";
-   
+     
+     public CrazyConnectFour() {
+              
+     }
+     
+ 
+     public static Scanner getInputFile() {
+        return CrazyConnectFour.inFile;
+     }
+    
     public static void main(String[] args) {
          
         CrazyConnectFour currentGame = new CrazyConnectFour();
         currentGame.display();
+        
         MainMenuView mainMenu = new MainMenuView();
-        mainMenu.getInput();
+        
+        mainMenu.executeCommands(null);
+        CrazyConnectFour.inFile.close();
     }
     
     private void display() {

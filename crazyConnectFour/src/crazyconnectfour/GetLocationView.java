@@ -59,7 +59,7 @@ public class GetLocationView {
         // prompt the use to enter the locaton to placeread the row and column coordinates
         while (!valid) {
             // prompt for the row and column numbers
-            System.out.println("\n\n\t" + this.game.currentPlayer.getName() + " it is your turn."
+            System.out.println("\n\n\t" + this.game.getCurrentPlayer().getName() + " it is your turn."
                 + " Enter a column number (For example: 1)");
             
             // get the value entered by the user 
@@ -86,17 +86,17 @@ public class GetLocationView {
             
             // convert the column number from a String type to 
             // an integer type
-            Board board = this.game.board;
+            Board board = this.game.getBoard();
             int column = Integer.parseInt(strColumn);
-            int row = this.game.board.rowCount;
+            int row = this.game.getBoard().getRowCount();
                      
         
             
             // Check for invalid column entered
           
-                if (column < 1  ||  column > board.columnCount) {
+                if (column < 1  ||  column > board.getColumnCount()) {
                 new CrazyConnectFourError().displayError(
-                        "Enter a valid column number from 1 to " + board.columnCount + ". Try again.");
+                        "Enter a valid column number from 1 to " + board.getColumnCount() + ". Try again.");
                 continue;
             }
             
@@ -104,7 +104,7 @@ public class GetLocationView {
             
             
             // check to see if the location entered is already occupied
-            while ( row > 0  && board.boardLocations[row-1][column-1].getPlayer() != null ){
+            while ( row > 0  && board.getBoardLocations()[row-1][column-1].getPlayer() != null ){
                row -= 1; 
             }
 

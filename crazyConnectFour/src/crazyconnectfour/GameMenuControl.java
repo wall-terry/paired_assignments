@@ -46,7 +46,7 @@ public class GameMenuControl {
     
     public GameMenuControl(Game game) {
         this.game = game;
-        this.board = game.board;
+        this.board = game.getBoard();
     }
     
     
@@ -54,14 +54,14 @@ public class GameMenuControl {
        
         int returnValue = 1;
         
-        if (!this.game.status.equals(Game.NEW_GAME)  && 
-            !this.game.status.equals(Game.PLAYING)) {
+        if (!this.game.getStatus().equals(Game.NEW_GAME)  && 
+            !this.game.getStatus().equals(Game.PLAYING)) {
             new CrazyConnectFourError().displayError("You must start a new game first.");
          
         }
-         if (this.game.gameType.equals(Game.TWO_PLAYER)) { //two player game 
+         if (this.game.getGameType().equals(Game.TWO_PLAYER)) { //two player game 
             // regular player takes turn
-            returnValue = this.regularPlayerTurn(this.game.currentPlayer);            
+            returnValue = this.regularPlayerTurn(this.game.getCurrentPlayer());            
             if (returnValue < 0) {
                 return;
             }
@@ -70,7 +70,7 @@ public class GameMenuControl {
             this.alternatePlayers(); // alternate players             
             
             // other player takes turn 
-            returnValue = this.regularPlayerTurn(this.game.currentPlayer);            
+            returnValue = this.regularPlayerTurn(this.game.getCurrentPlayer());            
             if (returnValue < 0) {
                 return;
             }
@@ -81,16 +81,16 @@ public class GameMenuControl {
         
         else { // one player game
             // regular player takes turn
-            this.regularPlayerTurn(this.game.currentPlayer);
-            if (returnValue < 0  || this.gameOver(this.game.currentPlayer)) {
+            this.regularPlayerTurn(this.game.getCurrentPlayer());
+            if (returnValue < 0  || this.gameOver(this.game.getCurrentPlayer())) {
                 return;
             }
         
             // computer takes turn         
-            this.coumputerTakesTurn(this.game.otherPlayer);
+            this.coumputerTakesTurn(this.game.getOtherPlayer());
             System.out.println("\n\tThe computer also took it's turn");
             this.displayBoard();            
-            if (returnValue < 0  || this.gameOver(this.game.otherPlayer)) {
+            if (returnValue < 0  || this.gameOver(this.game.getOtherPlayer())) {
                 return;
             }
         }
@@ -110,14 +110,14 @@ public class GameMenuControl {
             
     public void displayPreferencesMenu() {
         
-       if (this.game.status.equals(Game.PLAYING)) {
+       if (this.game.getStatus().equals(Game.PLAYING)) {
             new CrazyConnectFourError().displayError("You can not change the preferences "
               + "of the game once the game has been started. "
               + "\n\tStart select a new game and then change then preferences ");
             return;}
        
-        GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView(game);
-        gamePreferencesMenu.getInput();
+        GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView();
+        gamePreferencesMenu.executeCommands(this.game);
    
     }
     
@@ -129,7 +129,7 @@ public class GameMenuControl {
         Scanner inFile = new Scanner(System.in);
         int stringToInteger;
         
-        status = this.game.scoreBoard.listScores();
+        status = this.game.getScoreBoard().listScores();
         
         do {    
             System.out.println("\n\t enter new score for player one or player two by typing 1 for player one"
@@ -145,16 +145,16 @@ public class GameMenuControl {
                                 
                     command = inFile.nextLine();
                     stringToInteger = Integer.parseInt(command);
-                    status = this.game.scoreBoard.addScore(stringToInteger, this.game.playerA);
-                    status = this.game.scoreBoard.listScores();
+                    status = this.game.getScoreBoard().addScore(stringToInteger, this.game.getPlayerA());
+                    status = this.game.getScoreBoard().listScores();
                     break;
                 case "2":
                     System.out.println("\n\t enter new score for player two");
                                
                     command = inFile.nextLine();
                     stringToInteger = Integer.parseInt(command);
-                    status = this.game.scoreBoard.addScore(stringToInteger, this.game.playerB);
-                    status = this.game.scoreBoard.listScores();
+                    status = this.game.getScoreBoard().addScore(stringToInteger, this.game.getPlayerB());
+                    status = this.game.getScoreBoard().listScores();
                     break;
                 case "Q":                   
                     break;
@@ -175,7 +175,7 @@ public class GameMenuControl {
     
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.getInput();
+        helpMenu.executeCommands(null);
     } 
       private boolean gameOver(Player player) {
         
@@ -195,15 +195,15 @@ public class GameMenuControl {
      */
     private int regularPlayerTurn(Player player) {
         
-        if (!this.game.status.equals(Game.NEW_GAME)  &&
-            !this.game.status.equals(Game.PLAYING)) {
+        if (!this.game.getStatus().equals(Game.NEW_GAME)  &&
+            !this.game.getStatus().equals(Game.PLAYING)) {
             new CrazyConnectFourError().displayError(
                     "There is no active game. You must start a new game before "
                     + "you can take a turn");
             return -1;
         } 
         
-        this.game.status = Game.PLAYING;
+        this.game.setStatus(Game.PLAYING);
         
         GetLocationView getLocationView = new GetLocationView(this.game);
         Point location = getLocationView.getInput();
@@ -211,7 +211,7 @@ public class GameMenuControl {
             return -1;
         }
             
-        this.game.board.occupyLocation(player, location.x, location.y);
+        this.game.getBoard().occupyLocation(player, location.x, location.y);
         
         return 0;
     }
@@ -223,7 +223,7 @@ public class GameMenuControl {
     private void coumputerTakesTurn(Player player) {
         // computer takes turn 
         Point location = this.getComputersSelection();
-        this.game.board.occupyLocation(player, location.x, location.y);
+        this.game.getBoard().occupyLocation(player, location.x, location.y);
         return;
     }
     
@@ -233,12 +233,12 @@ public class GameMenuControl {
      * Alternate players
      */
     public void alternatePlayers() {
-        if (this.game.currentPlayer == this.game.playerA) {
-            this.game.currentPlayer =  this.game.playerB ;
-            this.game.otherPlayer =  this.game.playerA;
+        if (this.game.getCurrentPlayer() == this.game.getPlayerA()) {
+            this.game.setCurrentPlayer (this.game.getPlayerB()) ;
+            this.game.setOtherPlayer(this.game.getPlayerA());
         } else {
-            this.game.currentPlayer =  this.game.playerA;
-            this.game.otherPlayer =  this.game.playerB ;
+            this.game.setCurrentPlayer(this.game.getPlayerA());
+            this.game.setOtherPlayer(this.game.getPlayerB()) ;
         }
     }
     
@@ -252,13 +252,13 @@ public class GameMenuControl {
     private Point getComputersSelection() {
         Point coordinate;
 
-        coordinate = this.findWinningLocation(game.currentPlayer);
+        coordinate = this.findWinningLocation(game.getCurrentPlayer());
         if (coordinate != null) { // winning location found for computer
             return coordinate;
         }
 
         // find winning location for other player
-        coordinate = this.findWinningLocation(game.otherPlayer);
+        coordinate = this.findWinningLocation(game.getOtherPlayer());
         if (coordinate == null) { // no winning location found for other player
             coordinate = this.chooseRandomLocation();
 
@@ -480,12 +480,12 @@ public class GameMenuControl {
      * Clear the board action
      */
     public void clearTheBoard() {
-        Location [][] locations = this.game.board.getBoardLocations();
+        Location [][] locations = this.game.getBoard().getBoardLocations();
         
         for (int i = 0; i < this.board.getBoardLocations().length; i++) {
            Location [] rowlocations = locations[i];
-            for (int j = 0; j < rowlocations.length; j++) {
-                rowlocations[j].setPlayer(null);
+            for (Location rowlocation : rowlocations) {
+                rowlocation.setPlayer(null);
             }
         }
     }

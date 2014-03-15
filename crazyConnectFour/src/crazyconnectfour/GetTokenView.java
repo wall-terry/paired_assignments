@@ -102,8 +102,8 @@ public class GetTokenView {
             }
             
             // Check to see if the token is already in use
-            if (this.game.playerA.getToken().equals(newToken) ||
-                this.game.playerB.getToken().equals(newToken) ) {
+            if (this.game.getPlayerA().getToken().equals(newToken) ||
+                this.game.getPlayerB().getToken().equals(newToken) ) {
                new CrazyConnectFourError().displayError(
                         "This token is currently in use. " +
                         "Select a different token");
@@ -119,9 +119,8 @@ public class GetTokenView {
     public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tEnter the letter associated with one of the following Token Options:");
-
-        for (int i = 0; i < GetTokenView.tokenOptions.length; i++) {
-            System.out.println("\t   " + tokenOptions[i][0] + "\t" + tokenOptions[i][1]);
+        for (String[] tokenOption : GetTokenView.tokenOptions) {
+            System.out.println("\t   " + tokenOption[0] + "\t" + tokenOption[1]);
         }
         System.out.println("\t===============================================================\n");
     }
