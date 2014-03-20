@@ -28,7 +28,7 @@ import CrazyConnectFourModels.Player;
 import CrazyConnectFourModels.Game;
 import CrazyConnectFourViews.GameMenuView;
 import crazyconnectfour.CrazyConnectFourError;
-import crazyconnectfour.HelpMenuView;
+import CrazyConnectFourViews.HelpMenuView;
 import java.util.Scanner;
 
 /**

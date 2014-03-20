@@ -23,9 +23,11 @@
  */
 
 
-package crazyconnectfour;
+package CrazyConnectFourViews;
 import CrazyConnectFourModels.Menu;
 import CrazyConnectFourModels.Game;
+import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourControls.HelpMenuControl;
 import java.util.Scanner;
 
 

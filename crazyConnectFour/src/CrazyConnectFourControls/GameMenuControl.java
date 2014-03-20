@@ -33,7 +33,7 @@ import CrazyConnectFourViews.GetLocationView;
 import CrazyConnectFourViews.GamePreferencesMenuView;
 import CrazyConnectFourViews.BoardView;
 import crazyconnectfour.CrazyConnectFourError;
-import crazyconnectfour.HelpMenuView;
+import CrazyConnectFourViews.HelpMenuView;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;

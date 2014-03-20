@@ -22,13 +22,13 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
+package CrazyConnectFourControls;
 
 /**
  *
  * @author dccoatney
  */
-class HelpMenuControl {
+public class HelpMenuControl {
     
     
     
