@@ -22,8 +22,11 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
+package CrazyConnectFourViews;
 
+import CrazyConnectFourModels.Board;
+import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourModels.Game;
 import java.awt.Point;
 import java.util.Scanner;
 

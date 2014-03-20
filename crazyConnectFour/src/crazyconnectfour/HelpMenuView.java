@@ -24,6 +24,8 @@
 
 
 package crazyconnectfour;
+import CrazyConnectFourModels.Menu;
+import CrazyConnectFourModels.Game;
 import java.util.Scanner;
 
 

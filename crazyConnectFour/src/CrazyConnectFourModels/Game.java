@@ -22,7 +22,8 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
+package CrazyConnectFourModels;
+import CrazyConnectFourModels.Board;
 import java.io.Serializable; 
 
 

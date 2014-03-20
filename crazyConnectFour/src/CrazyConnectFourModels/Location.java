@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
+package CrazyConnectFourModels;
 import java.io.Serializable;
 /**
  *

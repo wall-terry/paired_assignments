@@ -22,8 +22,10 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
+package CrazyConnectFourModels;
 
+import crazyconnectfour.CrazyConnectFour;
+import crazyconnectfour.CrazyConnectFourError;
 import java.util.Scanner;
 
 /**

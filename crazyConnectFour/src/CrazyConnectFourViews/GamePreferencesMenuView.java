@@ -23,8 +23,12 @@
  */
 /*author Crystal Coatney*/
 
-package crazyconnectfour;
+package CrazyConnectFourViews;
 
+import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourModels.Game;
+import CrazyConnectFourControls.GamePreferencesMenuControl;
+import CrazyConnectFourModels.Menu;
 import java.util.Scanner;
 
 

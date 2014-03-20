@@ -6,6 +6,7 @@
 
 package crazyconnectfour;
 
+import CrazyConnectFourViews.MainMenuView;
 import java.util.Scanner;
 
 /**

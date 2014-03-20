@@ -22,8 +22,7 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
-import java.io.Serializable;
+package CrazyConnectFourModels;
 
 /**
  *
@@ -31,63 +30,12 @@ import java.io.Serializable;
  */
 
 
-public class Player implements Serializable {
+public class Player extends AbstractPlayer {
   
-   public static final String REGULAR_PLAYER = "REGULAR";
-    public static final String COMPUTER_PLAYER = "COMPUTER"; 
-    
-    private String name;
-    private double age;
-    private String playerType;
-    private long currentScore = 0;
-    private String token;
-    
-
     public Player() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getAge() {
-        return age;
-    }
-
-    public void setAge(double age) {
-        this.age = age;
-    }
-
-    public String getPlayerType() {
-        return playerType;
-    }
-
-    public void setPlayerType(String playerType) {
-        this.playerType = playerType;
-    }
-
-    public long getCurrentScore() {
-        return currentScore;
-    }
-
-    public void setCurrentScore(long currentScore) {
-        this.currentScore = currentScore;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
     public Player(String playerType, String token) {
-        this.playerType = playerType;
-        this.token = token;
+        super(playerType, token);
     } 
 }

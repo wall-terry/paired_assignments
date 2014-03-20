@@ -22,8 +22,18 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
+package CrazyConnectFourControls;
 
+import CrazyConnectFourModels.Player;
+import CrazyConnectFourModels.Location;
+import CrazyConnectFourModels.Game;
+import CrazyConnectFourModels.Board;
+import CrazyConnectFourViews.GetPlayerNameView;
+import CrazyConnectFourViews.GetLocationView;
+import CrazyConnectFourViews.GamePreferencesMenuView;
+import CrazyConnectFourViews.BoardView;
+import crazyconnectfour.CrazyConnectFourError;
+import crazyconnectfour.HelpMenuView;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;

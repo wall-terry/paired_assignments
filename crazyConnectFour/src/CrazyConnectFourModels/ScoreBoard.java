@@ -22,7 +22,9 @@
  * THE SOFTWARE.
  */
 
-package crazyconnectfour;
+package CrazyConnectFourModels;
+
+import CrazyConnectFourModels.Player;
 
 /**
  *

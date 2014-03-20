@@ -25,7 +25,14 @@
 /* author Crystal Coatney, Terry Wall
 
 */
-package crazyconnectfour;
+package CrazyConnectFourControls;
+import CrazyConnectFourModels.Player;
+import CrazyConnectFourModels.Location;
+import CrazyConnectFourModels.Game;
+import CrazyConnectFourViews.GetTokenView;
+import CrazyConnectFourViews.GetPlayerNameView;
+import CrazyConnectFourViews.GetDimensionsView;
+import crazyconnectfour.CrazyConnectFourError;
 import java.awt.Dimension;
 
 

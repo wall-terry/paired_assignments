@@ -22,7 +22,10 @@
  * THE SOFTWARE.
  */
 
-     package crazyconnectfour;
+     package CrazyConnectFourViews;
+
+import CrazyConnectFourModels.Board;
+import CrazyConnectFourModels.Location;
 
 
 
