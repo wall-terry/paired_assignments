@@ -23,7 +23,7 @@
  */
 
 package CrazyConnectFourModels;
-
+import CrazyConnectFourEnumerations.PlayerType;
 /**
  *
  * @author Terry Wall
@@ -31,11 +31,11 @@ package CrazyConnectFourModels;
 
 
 public class Player extends AbstractPlayer {
-  
+
     public Player() {
     }
 
-    public Player(String playerType, String token) {
+    public Player(PlayerType playerType, String token) {
         super(playerType, token);
     } 
 }

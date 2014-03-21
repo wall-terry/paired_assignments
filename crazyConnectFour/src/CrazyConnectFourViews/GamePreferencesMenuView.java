@@ -25,10 +25,9 @@
 
 package CrazyConnectFourViews;
 
-import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourExceptions.CrazyConnectFourError;
 import CrazyConnectFourModels.Game;
 import CrazyConnectFourControls.GamePreferencesMenuControl;
-import CrazyConnectFourModels.Menu;
 import CrazyConnectFourEnumerations.StatusType;
 
 public class GamePreferencesMenuView extends Menu {

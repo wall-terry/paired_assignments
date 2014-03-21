@@ -32,13 +32,15 @@ import CrazyConnectFourViews.GetPlayerNameView;
 import CrazyConnectFourViews.GetLocationView;
 import CrazyConnectFourViews.GamePreferencesMenuView;
 import CrazyConnectFourViews.BoardView;
-import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourExceptions.CrazyConnectFourError;
 import CrazyConnectFourViews.HelpMenuView;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import CrazyConnectFourEnumerations.StatusType;
+import CrazyConnectFourEnumerations.PlayerType;
+import CrazyConnectFourEnumerations.GameType;
 
 /**
  *
@@ -70,7 +72,7 @@ public class GameMenuControl {
             new CrazyConnectFourError().displayError("You must start a new game first.");
          
         }
-         if (this.game.getGameType().equals(Game.TWO_PLAYER)) { //two player game 
+         if (this.game.getGameType().equals(GameType.TWO_PLAYER)) { //two player game 
             // regular player takes turn
             returnValue = this.regularPlayerTurn(this.game.getCurrentPlayer());            
             if (returnValue < 0) {

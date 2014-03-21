@@ -22,10 +22,10 @@
  * THE SOFTWARE.
  */
 
-package CrazyConnectFourModels;
+package CrazyConnectFourViews;
 
-import crazyconnectfour.CrazyConnectFour;
-import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourControls.CrazyConnectFour;
+import CrazyConnectFourExceptions.CrazyConnectFourError;
 import java.util.Scanner;
 import CrazyConnectFourInterfaces.DisplayInfo;
 import CrazyConnectFourInterfaces.EnterInfo;

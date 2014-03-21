@@ -32,7 +32,7 @@ import CrazyConnectFourModels.Game;
 import CrazyConnectFourViews.GetTokenView;
 import CrazyConnectFourViews.GetPlayerNameView;
 import CrazyConnectFourViews.GetDimensionsView;
-import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourExceptions.CrazyConnectFourError;
 import java.awt.Dimension;
 import CrazyConnectFourEnumerations.StatusType;
 

@@ -25,7 +25,7 @@
 package CrazyConnectFourModels;
 
 import java.io.Serializable;
-
+import CrazyConnectFourEnumerations.PlayerType;
 /**
  *
  * @author Terry Wall
@@ -37,14 +37,14 @@ public abstract class AbstractPlayer implements Serializable {
     
     private String name;
     private double age;
-    private String playerType;
+    private PlayerType playerType;
     private long currentScore = 0;
     private String token;
     
 
     public AbstractPlayer() {
     }
-    public AbstractPlayer(String playerType, String token) {
+    public AbstractPlayer(PlayerType playerType, String token) {
         this.playerType = playerType;
         this.token = token;
     } 
@@ -64,11 +64,11 @@ public abstract class AbstractPlayer implements Serializable {
         this.age = age;
     }
 
-    public String getPlayerType() {
+    public PlayerType getPlayerType() {
         return playerType;
     }
 
-    public void setPlayerType(String playerType) {
+    public void setPlayerType(PlayerType playerType) {
         this.playerType = playerType;
     }
 

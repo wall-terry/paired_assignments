@@ -27,10 +27,12 @@ package CrazyConnectFourControls;
 import CrazyConnectFourModels.Player;
 import CrazyConnectFourModels.Game;
 import CrazyConnectFourViews.GameMenuView;
-import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourExceptions.CrazyConnectFourError;
 import CrazyConnectFourViews.HelpMenuView;
 import java.util.Scanner;
 import CrazyConnectFourEnumerations.StatusType;
+import CrazyConnectFourEnumerations.PlayerType;
+import CrazyConnectFourEnumerations.GameType;
 /**
  *
  * @author Terry Wall
@@ -47,10 +49,10 @@ public class MainMenuControl {
         
         Game game;
         if (noPlayers == 1) {
-            game = this.createGame("ONE_PLAYER");
+            game = this.createGame(GameType.ONE_PLAYER);
         }
         else {
-            game = this.createGame("TWO_PLAYER");
+            game = this.createGame(GameType.TWO_PLAYER);
         }
 
         GameMenuView gameMenu = new GameMenuView(game);
@@ -59,7 +61,7 @@ public class MainMenuControl {
 
     
     
-    private Game createGame(String gameType) {
+    private Game createGame(GameType gameType) {
         Game game = null;
         Player playerA = null;
         Player playerB = null;
@@ -69,18 +71,18 @@ public class MainMenuControl {
             return null;
         }
         
-        if (gameType.equals(Game.ONE_PLAYER)) {
-            game = new Game(Game.ONE_PLAYER);
-            playerA = new Player(Player.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_TOKEN);
+        if (gameType.equals(GameType.ONE_PLAYER)) {
+            game = new Game(GameType.ONE_PLAYER);
+            playerA = new Player(PlayerType.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_TOKEN);
             playerA.setName (Game.PLAYER_A_DEFAULT_NAME);
-            playerB = new Player(Player.COMPUTER_PLAYER, Game.PLAYER_B_DEFAULT_TOKEN);
+            playerB = new Player(PlayerType.COMPUTER_PLAYER, Game.PLAYER_B_DEFAULT_TOKEN);
             playerB.setName ("Computer");
         }
-        else if (gameType.equals(Game.TWO_PLAYER)) {
-            game = new Game(Game.TWO_PLAYER);
-            playerA = new Player(Player.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_TOKEN);
+        else if (gameType.equals(GameType.TWO_PLAYER)) {
+            game = new Game(GameType.TWO_PLAYER);
+            playerA = new Player(PlayerType.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_TOKEN);
             playerA.setName (Game.PLAYER_A_DEFAULT_NAME);
-            playerB = new Player(Player.REGULAR_PLAYER, Game.PLAYER_B_DEFAULT_TOKEN);
+            playerB = new Player(PlayerType.REGULAR_PLAYER, Game.PLAYER_B_DEFAULT_TOKEN);
             playerB.setName (Game.PLAYER_B_DEFAULT_NAME);
 
         }

@@ -23,7 +23,7 @@
  */
 
 package CrazyConnectFourModels;
-
+import CrazyConnectFourEnumerations.PlayerType;
 /**
  *
  * @author Terry Wall
@@ -36,7 +36,7 @@ public class ComputerPlayer extends AbstractPlayer {
     public ComputerPlayer() {
     }
 
-    public ComputerPlayer(String playerType, String token) {
+    public ComputerPlayer(PlayerType playerType, String token) {
        
         super(playerType, token);
     } 

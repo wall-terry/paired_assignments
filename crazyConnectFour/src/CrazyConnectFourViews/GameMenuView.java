@@ -24,10 +24,9 @@
 
 package CrazyConnectFourViews;
 
-import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourExceptions.CrazyConnectFourError;
 import CrazyConnectFourModels.Game;
 import CrazyConnectFourControls.GameMenuControl;
-import CrazyConnectFourModels.Menu;
 import CrazyConnectFourEnumerations.StatusType;
 
 /**

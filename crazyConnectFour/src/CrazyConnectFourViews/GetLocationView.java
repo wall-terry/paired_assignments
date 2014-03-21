@@ -25,7 +25,7 @@
 package CrazyConnectFourViews;
 
 import CrazyConnectFourModels.Board;
-import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourExceptions.CrazyConnectFourError;
 import CrazyConnectFourModels.Game;
 import java.awt.Point;
 import java.util.Scanner;

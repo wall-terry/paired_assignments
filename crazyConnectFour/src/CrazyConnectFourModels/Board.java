@@ -24,7 +24,7 @@
 
 package CrazyConnectFourModels;
 
-import crazyconnectfour.CrazyConnectFourError;
+import CrazyConnectFourExceptions.CrazyConnectFourError;
 import java.awt.Point;
 import javax.swing.table.AbstractTableModel;
 import java.io.Serializable;
