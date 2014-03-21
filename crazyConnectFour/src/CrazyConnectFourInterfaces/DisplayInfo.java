@@ -29,5 +29,5 @@ package CrazyConnectFourInterfaces;
  * @author Terry Wall
  */
 public interface DisplayInfo {
-   Object display(Object object); 
+   void display(); 
 }

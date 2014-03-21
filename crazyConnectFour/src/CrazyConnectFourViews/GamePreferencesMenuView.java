@@ -91,7 +91,7 @@ public class GamePreferencesMenuView extends Menu {
         return gameStatus;
     }
     
-/*    
+    @Override
         
     public final void display() {
         System.out.println("\n\t===============================================================");
@@ -101,7 +101,7 @@ public class GamePreferencesMenuView extends Menu {
         }
         System.out.println("\t===============================================================\n");
     }
- */
+
 }
 
 

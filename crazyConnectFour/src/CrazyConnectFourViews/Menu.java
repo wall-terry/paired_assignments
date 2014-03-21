@@ -58,7 +58,7 @@ public class Menu implements DisplayInfo, EnterInfo {
         this.menuItems = menuItems;
     }
 
-    
+  /*  
     public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tEnter the letter associated with one of the following commands:");
@@ -68,7 +68,7 @@ public class Menu implements DisplayInfo, EnterInfo {
         }
         System.out.println("\t===============================================================\n");
     }
-
+*/
     private boolean validCommand(String command) {
         String[][] items = this.menuItems;
 
@@ -100,7 +100,7 @@ public class Menu implements DisplayInfo, EnterInfo {
     }
 
     @Override
-    public Object display(Object object) {
+    public void display() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

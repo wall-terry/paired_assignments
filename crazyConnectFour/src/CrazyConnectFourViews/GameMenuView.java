@@ -98,7 +98,7 @@ public class GameMenuView extends Menu{
       return gameStatus;
     }
     
-/*    
+    @Override
     public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tEnter the letter associated with one of the following commands:");
@@ -108,5 +108,5 @@ public class GameMenuView extends Menu{
         }
         System.out.println("\t===============================================================\n");
     }
- */ 
+
 }

@@ -83,7 +83,7 @@ public class MainMenuView extends Menu {
     }
     
 
- /*   
+   @Override
     
    public final void display() {
         System.out.println("\n\t===============================================================");
@@ -93,5 +93,5 @@ public class MainMenuView extends Menu {
      }
         System.out.println("\t===============================================================\n");
     }   
- */     
+   
 }

@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package CrazyConnectFourModels;
 
 import CrazyConnectFourModels.Player;
@@ -30,6 +29,7 @@ import CrazyConnectFourModels.Player;
  *
  * @author Terry Wall
  */
+
 public class ScoreBoard  {
     public long scoreArray[];
     public String nameArray[];
