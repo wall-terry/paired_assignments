@@ -25,6 +25,7 @@
 package CrazyConnectFourModels;
 import CrazyConnectFourModels.Board;
 import java.io.Serializable; 
+import CrazyConnectFourEnumerations.StatusType;
 
 
 /**
@@ -40,14 +41,7 @@ public class Game implements Serializable {
     public static final String ONE_PLAYER = "ONE_PLAYER";
     public static final String TWO_PLAYER = "TWO_PLAYER";
     
-    public static final String NO_ACTIVE_GAME = "NO_GAME_STARTED";
-    public static final String NEW_GAME = "NEW_GAME";
-    public static final String PLAYING = "PLAYING"; 
-    public static final String WINNER = "WINNER"; 
-    public static final String TIE = "TIE"; 
-    public static final String QUIT = "QUIT"; 
-    public static final String ERROR = "ERROR";
-    public static final String EXIT = "EXIT";
+    
     public static final int NUMBER_OF_ROWS_DEFAULT = 8;
     public static final int NUMBER_OF_COLUMNS_DEFAULT = 8;
     
@@ -59,7 +53,7 @@ public class Game implements Serializable {
     private Player otherPlayer;
     private Player winner;
     private Player loser;
-    private String status;
+    private StatusType status;
     private Board board;
     private ScoreBoard scoreBoard;
 
@@ -140,11 +134,11 @@ public class Game implements Serializable {
         this.loser = loser;
     }
 
-    public String getStatus() {
+    public StatusType getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusType status) {
         this.status = status;
     }
 
@@ -171,7 +165,7 @@ public class Game implements Serializable {
 
         // clear the board
         this.board.clearTheBoard();
-        this.status = Game.NEW_GAME;
+        this.setStatus(StatusType.NEW_GAME);
         this.setPlayingOrder(this.playerA, this.playerB);
     }
 

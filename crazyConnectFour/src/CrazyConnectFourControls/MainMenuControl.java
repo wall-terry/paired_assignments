@@ -30,7 +30,7 @@ import CrazyConnectFourViews.GameMenuView;
 import crazyconnectfour.CrazyConnectFourError;
 import CrazyConnectFourViews.HelpMenuView;
 import java.util.Scanner;
-
+import CrazyConnectFourEnumerations.StatusType;
 /**
  *
  * @author Terry Wall
@@ -94,21 +94,21 @@ public class MainMenuControl {
         game.setPlayerB(playerB); 
         
         // set the game status to game not yet in playing mode
-        game.setStatus (Game.NO_ACTIVE_GAME);
+        game.setStatus(StatusType.NEW_GAME);
         
         return game;
     } 
     
     
-    private String quitGame() {
+    private StatusType quitGame() {
         System.out.println("\n\tAre you sure you want to quit? (Y or N)");
         Scanner inFile = new Scanner(System.in);
         String answer = inFile.next().trim().toUpperCase();
         if (answer.equals("Y")) {
-            return Game.EXIT;
+            return StatusType.EXIT;
         }
 
-        return Game.PLAYING;
+        return StatusType.PLAYING;
     }
     
     

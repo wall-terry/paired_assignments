@@ -34,6 +34,7 @@ import CrazyConnectFourViews.GetPlayerNameView;
 import CrazyConnectFourViews.GetDimensionsView;
 import crazyconnectfour.CrazyConnectFourError;
 import java.awt.Dimension;
+import CrazyConnectFourEnumerations.StatusType;
 
 
 
@@ -88,7 +89,7 @@ public class GamePreferencesMenuControl {
         public void getDimensions()  {
         
         // Check to see if a game is already in progress
-        if (this.game.getStatus().equals(Game.PLAYING)) {
+        if (this.game.getStatus().equals(StatusType.PLAYING)) {
             new CrazyConnectFourError().displayError("You can not change the dimensions "
               + "of the board once the game has been started. "
               + "\n\tStart a new game and then change the dimensions "

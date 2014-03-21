@@ -29,8 +29,7 @@ import crazyconnectfour.CrazyConnectFourError;
 import CrazyConnectFourModels.Game;
 import CrazyConnectFourControls.GamePreferencesMenuControl;
 import CrazyConnectFourModels.Menu;
-import java.util.Scanner;
-
+import CrazyConnectFourEnumerations.StatusType;
 
 public class GamePreferencesMenuView extends Menu {
     
@@ -54,11 +53,11 @@ public class GamePreferencesMenuView extends Menu {
  }
  
     @Override
-    public String getInput(Object object) {       
+    public StatusType getInput(Object object) {       
         this.game = (Game) object;
         this.gamePreferenceControl.setGame(game);
         
-        String gameStatus = Game.PLAYING;
+        StatusType gameStatus = StatusType.PLAYING;
         do {
             this.display();
 
@@ -82,13 +81,13 @@ public class GamePreferencesMenuView extends Menu {
                 case "N":
                     this.gamePreferenceControl.getPlayerNames();
                 case "Q":
-                    gameStatus = Game.QUIT;
+                    gameStatus = StatusType.QUIT ;
                     break;
                 default: 
                     new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
                     continue;
             }
-        } while (!gameStatus.equals(Game.QUIT));
+        } while (!gameStatus.equals(StatusType.QUIT));
 
         return gameStatus;
     }

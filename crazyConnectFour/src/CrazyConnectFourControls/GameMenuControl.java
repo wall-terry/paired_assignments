@@ -38,6 +38,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import CrazyConnectFourEnumerations.StatusType;
 
 /**
  *
@@ -64,8 +65,8 @@ public class GameMenuControl {
        
         int returnValue = 1;
         
-        if (!this.game.getStatus().equals(Game.NEW_GAME)  && 
-            !this.game.getStatus().equals(Game.PLAYING)) {
+        if (!this.game.getStatus().equals(StatusType.NEW_GAME)  && 
+            !this.game.getStatus().equals(StatusType.PLAYING)) {
             new CrazyConnectFourError().displayError("You must start a new game first.");
          
         }
@@ -120,7 +121,7 @@ public class GameMenuControl {
             
     public void displayPreferencesMenu() {
         
-       if (this.game.getStatus().equals(Game.PLAYING)) {
+       if (this.game.getStatus().equals(StatusType.PLAYING)) {
             new CrazyConnectFourError().displayError("You can not change the preferences "
               + "of the game once the game has been started. "
               + "\n\tStart select a new game and then change then preferences ");
@@ -205,15 +206,15 @@ public class GameMenuControl {
      */
     private int regularPlayerTurn(Player player) {
         
-        if (!this.game.getStatus().equals(Game.NEW_GAME)  &&
-            !this.game.getStatus().equals(Game.PLAYING)) {
+        if (!this.game.getStatus().equals(StatusType.NEW_GAME)  &&
+            !this.game.getStatus().equals(StatusType.PLAYING)) {
             new CrazyConnectFourError().displayError(
                     "There is no active game. You must start a new game before "
                     + "you can take a turn");
             return -1;
         } 
         
-        this.game.setStatus(Game.PLAYING);
+        this.game.setStatus(StatusType.PLAYING);
         
         GetLocationView getLocationView = new GetLocationView(this.game);
         Point location = getLocationView.getInput();
