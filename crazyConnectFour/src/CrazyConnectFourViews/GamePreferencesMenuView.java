@@ -54,7 +54,7 @@ public class GamePreferencesMenuView extends Menu {
  }
  
     @Override
-    public String executeCommands(Object object) {       
+    public String getInput(Object object) {       
         this.game = (Game) object;
         this.gamePreferenceControl.setGame(game);
         

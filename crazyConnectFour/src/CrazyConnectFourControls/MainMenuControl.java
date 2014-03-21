@@ -54,7 +54,7 @@ public class MainMenuControl {
         }
 
         GameMenuView gameMenu = new GameMenuView(game);
-        gameMenu.executeCommands(game);
+        gameMenu.getInput(game);
     }
 
     
@@ -114,7 +114,7 @@ public class MainMenuControl {
     
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.executeCommands(null);
+        helpMenu.getInput(null);
     }
         
 }

@@ -127,7 +127,7 @@ public class GameMenuControl {
             return;}
        
         GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView();
-        gamePreferencesMenu.executeCommands(this.game);
+        gamePreferencesMenu.getInput(this.game);
    
     }
     
@@ -185,7 +185,7 @@ public class GameMenuControl {
     
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.executeCommands(null);
+        helpMenu.getInput(null);
     } 
       private boolean gameOver(Player player) {
         

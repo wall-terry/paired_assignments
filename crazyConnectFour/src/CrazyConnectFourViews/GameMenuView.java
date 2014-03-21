@@ -58,7 +58,7 @@ public class GameMenuView extends Menu{
     
     
     @Override
-    public String executeCommands(Object object) {
+    public String getInput(Object object) {
    
         this.game = (Game) object;
 

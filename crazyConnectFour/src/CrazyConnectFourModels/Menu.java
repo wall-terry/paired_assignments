@@ -27,12 +27,15 @@ package CrazyConnectFourModels;
 import crazyconnectfour.CrazyConnectFour;
 import crazyconnectfour.CrazyConnectFourError;
 import java.util.Scanner;
+import CrazyConnectFourInterfaces.DisplayInfo;
+import CrazyConnectFourInterfaces.EnterInfo;
 
 /**
  *
  * @author dccoatney
  */
-public abstract class Menu {
+
+public class Menu implements DisplayInfo, EnterInfo {
 
     private String[][] menuItems = null;
 
@@ -46,8 +49,7 @@ public abstract class Menu {
     
     // This is an abstract function. It specifies that all sub-classes must
     // implement this function.
-    public abstract String executeCommands(Object object);
-    
+       
     public String[][] getMenuItems() {
         return menuItems;
     }
@@ -97,5 +99,13 @@ public abstract class Menu {
         return command;
     }
 
+    @Override
+    public Object display(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    @Override
+    public Object getInput(Object object) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

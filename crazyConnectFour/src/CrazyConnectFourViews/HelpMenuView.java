@@ -52,7 +52,7 @@ public class HelpMenuView extends Menu {
     
 
     @Override
-    public String executeCommands(Object object) {       
+    public String getInput(Object object) {       
               
         String gameStatus = Game.PLAYING;
         do {

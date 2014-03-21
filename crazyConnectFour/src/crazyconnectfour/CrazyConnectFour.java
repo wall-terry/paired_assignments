@@ -52,7 +52,7 @@ public class CrazyConnectFour {
         
         MainMenuView mainMenu = new MainMenuView();
         
-        mainMenu.executeCommands(null);
+        mainMenu.getInput(null);
         CrazyConnectFour.inFile.close();
     }
     
