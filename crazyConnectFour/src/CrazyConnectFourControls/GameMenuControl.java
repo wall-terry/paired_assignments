@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import CrazyConnectFourEnumerations.StatusType;
-import CrazyConnectFourEnumerations.PlayerType;
 import CrazyConnectFourEnumerations.GameType;
 
 /**
