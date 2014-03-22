@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package CrazyConnectFourControls;
+package citbyui.cit260.CrazyConnectFour.Controls;
 
 import CrazyConnectFourViews.MainMenuView;
 import java.util.Scanner;

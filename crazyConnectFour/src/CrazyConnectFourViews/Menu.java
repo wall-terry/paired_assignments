@@ -24,7 +24,7 @@
 
 package CrazyConnectFourViews;
 
-import CrazyConnectFourControls.CrazyConnectFour;
+import citbyui.cit260.CrazyConnectFour.Controls.CrazyConnectFour;
 import CrazyConnectFourExceptions.CrazyConnectFourError;
 import java.util.Scanner;
 import CrazyConnectFourInterfaces.DisplayInfo;

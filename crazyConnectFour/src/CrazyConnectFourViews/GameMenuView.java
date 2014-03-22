@@ -26,7 +26,7 @@ package CrazyConnectFourViews;
 
 import CrazyConnectFourExceptions.CrazyConnectFourError;
 import CrazyConnectFourModels.Game;
-import CrazyConnectFourControls.GameMenuControl;
+import citbyui.cit260.CrazyConnectFour.Controls.GameMenuControl;
 import CrazyConnectFourEnumerations.StatusType;
 
 /**

@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package CrazyConnectFourControls;
+package citbyui.cit260.CrazyConnectFour.Controls;
 
 import CrazyConnectFourModels.Player;
 import CrazyConnectFourModels.Location;
@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import CrazyConnectFourEnumerations.StatusType;
-import CrazyConnectFourEnumerations.PlayerType;
 import CrazyConnectFourEnumerations.GameType;
 
 /**

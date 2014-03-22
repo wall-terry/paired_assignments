@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package CrazyConnectFourControls;
+package citbyui.cit260.CrazyConnectFour.Controls;
 
 /**
  *

@@ -25,7 +25,7 @@
 /* author Crystal Coatney, Terry Wall
 
 */
-package CrazyConnectFourControls;
+package citbyui.cit260.CrazyConnectFour.Controls;
 import CrazyConnectFourModels.Player;
 import CrazyConnectFourModels.Location;
 import CrazyConnectFourModels.Game;
