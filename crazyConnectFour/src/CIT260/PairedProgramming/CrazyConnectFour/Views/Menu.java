@@ -25,10 +25,11 @@
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.CrazyConnectFour;
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import java.util.Scanner;
 import CIT260.PairedProgramming.CrazyConnectFour.Interfaces.DisplayInfo;
 import CIT260.PairedProgramming.CrazyConnectFour.Interfaces.EnterInfo;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 
 /**
  *
@@ -80,7 +81,7 @@ public class Menu implements DisplayInfo, EnterInfo {
         return false;
     }
 
-    protected final String getCommand() {
+    protected final String getCommand() throws MenuException{
 
         Scanner inFile = CrazyConnectFour.getInputFile();
         String command;
@@ -90,13 +91,14 @@ public class Menu implements DisplayInfo, EnterInfo {
             command = command.trim().toUpperCase();
             valid = validCommand(command);
             if (!validCommand(command)) {
-                new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
-                continue;
+                 throw new MenuException(ErrorType.ERROR105.getMessage());
+                
             }
+       return command;
        
         } while (!valid);
         
-        return command;
+        
     }
 
     @Override

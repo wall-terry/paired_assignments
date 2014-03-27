@@ -8,7 +8,8 @@ package CIT260.PairedProgramming.CrazyConnectFour.Controls;
 
 import CIT260.PairedProgramming.CrazyConnectFour.Views.MainMenuView;
 import java.util.Scanner;
-
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourException;
 /**
  *
  * @author Terry Wall and Crystal Coatney
@@ -49,13 +50,17 @@ public class CrazyConnectFour {
          
         CrazyConnectFour currentGame = new CrazyConnectFour();
         currentGame.display();
-        
         MainMenuView mainMenu = new MainMenuView();
-        
-        mainMenu.getInput(null);
+        try {
+            mainMenu.getInput(null);
+        } catch (MenuException ex) {
+            System.out.println(ex.getMessage());
+        }
+        finally {
         CrazyConnectFour.inFile.close();
+        
+        }
     }
-    
     private void display() {
         System.out.println(CrazyConnectFour.WELCOME);
     }     
