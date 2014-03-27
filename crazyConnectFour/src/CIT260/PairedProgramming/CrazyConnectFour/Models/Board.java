@@ -24,7 +24,7 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Models;
 
-import CrazyConnectFourExceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
 import java.awt.Point;
 import javax.swing.table.AbstractTableModel;
 import java.io.Serializable;

@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package CrazyConnectFourExceptions;
+package CIT260.PairedProgramming.CrazyConnectFour.Exceptions;
 
 /**
  *

@@ -32,7 +32,7 @@ import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GetTokenView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GetPlayerNameView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GetDimensionsView;
-import CrazyConnectFourExceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
 import java.awt.Dimension;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 

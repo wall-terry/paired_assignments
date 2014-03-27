@@ -32,7 +32,7 @@ import CIT260.PairedProgramming.CrazyConnectFour.Views.GetPlayerNameView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GetLocationView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GamePreferencesMenuView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.BoardView;
-import CrazyConnectFourExceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.HelpMenuView;
 import java.awt.Point;
 import java.util.ArrayList;

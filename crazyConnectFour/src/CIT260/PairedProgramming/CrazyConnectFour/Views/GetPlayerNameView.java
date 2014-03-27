@@ -24,7 +24,7 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
-import CrazyConnectFourExceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
 import java.util.Scanner;

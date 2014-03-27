@@ -25,7 +25,7 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
-import CrazyConnectFourExceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.GamePreferencesMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
