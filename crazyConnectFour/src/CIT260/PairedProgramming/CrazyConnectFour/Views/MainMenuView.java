@@ -28,6 +28,7 @@ import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourErro
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.MainMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 /**
  *
  * @author Terry Wall
@@ -51,14 +52,20 @@ public class MainMenuView extends Menu {
       
 
     @Override
-    public StatusType getInput(Object object) {       
+    public StatusType getInput (Object object) throws MenuException{       
         
         StatusType gameStatus = StatusType.PLAYING;
+        String command = "";
         do {
             this.display();
 
             // get commaned entered
-            String command = this.getCommand();
+            try {
+                command = this.getCommand();
+            } 
+            catch (MenuException ex) {
+                 System.out.println(ex.getMessage());
+            }
             
             switch (command) {
                 case "1":

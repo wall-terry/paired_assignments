@@ -25,9 +25,10 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.GamePreferencesMenuControl;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 
 public class GamePreferencesMenuView extends Menu {
@@ -52,16 +53,21 @@ public class GamePreferencesMenuView extends Menu {
  }
  
     @Override
-    public StatusType getInput(Object object) {       
+    public StatusType getInput(Object object){       
         this.game = (Game) object;
         this.gamePreferenceControl.setGame(game);
         
         StatusType gameStatus = StatusType.PLAYING;
+        String command = "";
         do {
             this.display();
 
             // get commaned entered
-            String command = this.getCommand();
+            try{
+            command = this.getCommand();
+            } catch (MenuException ex){
+                 System.out.println(ex.getMessage());
+            }
             
             switch (command) {
                 case "1":
@@ -83,8 +89,8 @@ public class GamePreferencesMenuView extends Menu {
                     gameStatus = StatusType.QUIT ;
                     break;
                 default: 
-                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
-                    continue;
+                    throw new MenuException (ErrorType.ERROR105.getMessage());
+                    
             }
         } while (!gameStatus.equals(StatusType.QUIT));
 

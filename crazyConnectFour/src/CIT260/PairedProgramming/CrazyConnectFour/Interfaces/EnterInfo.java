@@ -23,11 +23,12 @@
  */
 
 package CIT260.PairedProgramming.CrazyConnectFour.Interfaces;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 
 /**
  *
  * @author Terry Wall
  */
 public interface EnterInfo {
-   Object getInput(Object object ); 
+   Object getInput (Object object ) throws MenuException; 
 }

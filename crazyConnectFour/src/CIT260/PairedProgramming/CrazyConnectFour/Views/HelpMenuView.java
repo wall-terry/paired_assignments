@@ -28,7 +28,7 @@ import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.HelpMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
-
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 
 public class HelpMenuView extends Menu {
         
@@ -53,10 +53,17 @@ public class HelpMenuView extends Menu {
     public StatusType getInput(Object object) {       
               
         StatusType gameStatus = StatusType.PLAYING;
+        String command = "";
         do {
             this.display();
             // get commaned entered
-            String command = this.getCommand();
+            try{
+                command = this.getCommand();
+            } catch (MenuException ex){
+               System.out.println(ex.getMessage());  
+            }
+            
+                
             switch (command) {
                 case "B":
                     this.HelpMenuControl.displayBoardHelp();

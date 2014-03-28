@@ -107,7 +107,7 @@ public class Menu implements DisplayInfo, EnterInfo {
     }
 
     @Override
-    public Object getInput(Object object) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Object getInput(Object object) throws MenuException {
+        throw new MenuException(ErrorType.ERROR105.getMessage());
     }
 }
