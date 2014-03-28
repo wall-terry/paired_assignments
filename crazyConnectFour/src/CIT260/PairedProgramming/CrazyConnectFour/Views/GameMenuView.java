@@ -24,10 +24,11 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.GameMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 
 /**
  *
@@ -57,7 +58,7 @@ public class GameMenuView extends Menu{
     
     
     @Override
-    public StatusType getInput(Object object) {
+    public StatusType getInput(Object object) throws MenuException{
    
         this.game = (Game) object;
 
@@ -91,7 +92,7 @@ public class GameMenuView extends Menu{
                     gameStatus = StatusType.QUIT;
                     break;
                 default: 
-                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
+                    throw new MenuException (ErrorType.ERROR105.getMessage() );
             }
         } while (!gameStatus.equals(StatusType.QUIT));
         

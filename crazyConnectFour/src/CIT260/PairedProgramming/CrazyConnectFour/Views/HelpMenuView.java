@@ -29,7 +29,8 @@ import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourErro
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.HelpMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
-
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
+        
 public class HelpMenuView extends Menu {
         
     private final static String[][] menuItems = {
@@ -50,7 +51,7 @@ public class HelpMenuView extends Menu {
     
 
     @Override
-    public StatusType getInput(Object object) {       
+    public StatusType getInput(Object object) throws MenuException {       
               
         StatusType gameStatus = StatusType.PLAYING;
         String command = "";
@@ -60,7 +61,7 @@ public class HelpMenuView extends Menu {
             try{
                 command = this.getCommand();
             } catch (MenuException ex){
-               System.out.println(ex.getMessage());  
+                throw ex;  
             }
             
                 
@@ -87,7 +88,7 @@ public class HelpMenuView extends Menu {
                     gameStatus = StatusType.QUIT;
                     break;
                 default: 
-                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
+                    throw new MenuException (ErrorType.ERROR105.getMessage());
                                    }
         } while (!gameStatus.equals(StatusType.QUIT));  
         
