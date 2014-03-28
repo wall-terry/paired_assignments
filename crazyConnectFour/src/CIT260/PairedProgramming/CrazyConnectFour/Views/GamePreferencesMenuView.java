@@ -43,17 +43,14 @@ public class GamePreferencesMenuView extends Menu {
         {"D", "Change the dimensions of the board"},
         {"Q", "Return to game menu"}
    
-    };
-
-    
+    }; 
  public GamePreferencesMenuView() {
      
         super(GamePreferencesMenuView.menuItems);
         gamePreferenceControl = new GamePreferencesMenuControl();
  }
- 
     @Override
-    public StatusType getInput(Object object){       
+    public StatusType getInput(Object object) throws MenuException{       
         this.game = (Game) object;
         this.gamePreferenceControl.setGame(game);
         
@@ -66,7 +63,7 @@ public class GamePreferencesMenuView extends Menu {
             try{
             command = this.getCommand();
             } catch (MenuException ex){
-                 System.out.println(ex.getMessage());
+                 throw ex;
             }
             
             switch (command) {
@@ -85,9 +82,11 @@ public class GamePreferencesMenuView extends Menu {
                     break;
                 case "N":
                     this.gamePreferenceControl.getPlayerNames();
+                    break;
                 case "Q":
                     gameStatus = StatusType.QUIT ;
                     break;
+                    
                 default: 
                     throw new MenuException (ErrorType.ERROR105.getMessage());
                     
