@@ -40,6 +40,7 @@ import java.util.Random;
 import java.util.Scanner;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.GameType;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 
 /**
  *
@@ -129,8 +130,12 @@ public class GameMenuControl {
             return;}
        
         GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView();
+        try {
         gamePreferencesMenu.getInput(this.game);
-   
+    
+        }catch (MenuException ex) {
+       System.out.println(ex.getMessage());
+        }
     }
     
     
@@ -187,7 +192,12 @@ public class GameMenuControl {
     
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.getInput(null);
+        try {
+      
+            helpMenu.getInput(null);
+             } catch (MenuException ex) {
+       System.out.println(ex.getMessage());
+        }
     } 
       private boolean gameOver(Player player) {
         

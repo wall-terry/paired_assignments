@@ -33,6 +33,8 @@ import java.util.Scanner;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.PlayerType;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.GameType;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
+
 /**
  *
  * @author Terry Wall
@@ -56,7 +58,13 @@ public class MainMenuControl {
         }
 
         GameMenuView gameMenu = new GameMenuView(game);
+        try { 
         gameMenu.getInput(game);
+        
+            } catch (MenuException ex) {
+               System.out.println(ex.getMessage());
+            }
+            
     }
 
     
@@ -116,7 +124,15 @@ public class MainMenuControl {
     
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
+        try {
+       
         helpMenu.getInput(null);
-    }
+    } catch (MenuException ex) {
+       System.out.println(ex.getMessage());
+        }
         
+    }
 }
+    
+        
+
