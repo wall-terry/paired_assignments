@@ -53,7 +53,7 @@ public class GamePreferencesMenuView extends Menu {
  }
  
     @Override
-    public StatusType getInput(Object object){       
+    public StatusType getInput(Object object) throws MenuException {       
         this.game = (Game) object;
         this.gamePreferenceControl.setGame(game);
         
@@ -66,7 +66,7 @@ public class GamePreferencesMenuView extends Menu {
             try{
             command = this.getCommand();
             } catch (MenuException ex){
-                 System.out.println(ex.getMessage());
+              throw ex;
             }
             
             switch (command) {
