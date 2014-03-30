@@ -24,7 +24,8 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.PlayerException;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
 import java.util.Scanner;
@@ -72,24 +73,34 @@ import java.util.Scanner;
             }
             
             // Check to see if name is between 3 and 12 charcters. 
+           try {
             if (newName.length() < 3) {
-               new CrazyConnectFourError().displayError(
-                        "The name needs to have atleast three characters. Try again");
-               continue; 
-            }
+               throw new PlayerException (ErrorType.Error301.getMessage());
             
+            }
+           } catch (PlayerException ex) {
+               ErrorType.displayErrorMsg(ex.getMessage());
+               continue;
+           } 
+           
+           try {
             if (newName.length() > 12) {
-               new CrazyConnectFourError().displayError(
-                        "The name needs to have no more than twelve characters. Try again");
-               continue; 
+              throw new PlayerException (ErrorType.Error302.getMessage());
+   
             }
-            
+           } catch (PlayerException ex){
+               ErrorType.displayErrorMsg(ex.getMessage());
+               continue;
+               
+           }
             valid = true; // signal that a valid token was entered
         }
         
         return newName;
+        }
     }
+   
     
-}
+
  
     

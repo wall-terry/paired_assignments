@@ -26,6 +26,8 @@
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.BoardException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.PlayerException;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.GamePreferencesMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
@@ -78,10 +80,14 @@ public class GamePreferencesMenuView extends Menu {
                     System.out.println("\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
                     break;
                 case "D":
+                    try {
                     this.gamePreferenceControl.getDimensions();
+                    } catch(BoardException ex){
+                        ErrorType.displayErrorMsg(ex.getMessage());
+                    }
                     break;
                 case "N":
-                    this.gamePreferenceControl.getPlayerNames();
+                     this.gamePreferenceControl.getPlayerNames();
                     break;
                 case "Q":
                     gameStatus = StatusType.QUIT ;

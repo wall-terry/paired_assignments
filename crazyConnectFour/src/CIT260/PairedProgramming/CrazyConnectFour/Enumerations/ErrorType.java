@@ -66,9 +66,13 @@ public enum ErrorType {
     ERROR207 ("The number of rows must be between 6 - 15 and the "
               + "number of columns must be between 6 - 15 "),
     
-    ERROR209 ("GameCommands - takeTurn: invalidPlayerTYpe");
-
+    ERROR209 ("GameCommands - takeTurn: invalidPlayerTYpe"),
     
+    Error301 ("The name needs to have atleast three characters. Try again"),
+    
+    Error302  ("The name needs to have no more than twelve characters. Try again");
+  
+            
     String message;
     
     ErrorType(String message) {
