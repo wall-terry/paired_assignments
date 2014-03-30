@@ -27,6 +27,7 @@ package CIT260.PairedProgramming.CrazyConnectFour.Views;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.MainMenuControl;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 /**
@@ -64,7 +65,7 @@ public class MainMenuView extends Menu {
                 command = this.getCommand();
             } 
             catch (MenuException ex) {
-                 System.out.println(ex.getMessage());
+                 ErrorType.displayErorrMsg(ex.getMessage());
             }
             
             switch (command) {

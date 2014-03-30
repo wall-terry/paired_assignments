@@ -63,7 +63,7 @@ public class GamePreferencesMenuView extends Menu {
             try{
             command = this.getCommand();
             } catch (MenuException ex){
-                 throw ex;
+                 ErrorType.displayErorrMsg(ex.getMessage());
             }
             
             switch (command) {
