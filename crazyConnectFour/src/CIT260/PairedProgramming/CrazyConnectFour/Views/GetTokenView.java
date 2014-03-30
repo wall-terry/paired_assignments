@@ -60,9 +60,10 @@ public class GetTokenView {
      *
      * @param player
      * @return
+     * @throws CIT260.PairedProgramming.CrazyConnectFour.Exceptions.TokenException
      */
     
-    public String getInput(Player player) {
+    public String getInput(Player player) throws TokenException {
 
         String newToken = null;
         Scanner in = new Scanner(System.in);
@@ -102,7 +103,7 @@ public class GetTokenView {
            
             if (i == tokenOptions.length){
                 throw new TokenException(ErrorType.ERROR105.getMessage());
-                continue;
+
             }
             
             // Check to see if the token is already in use
@@ -110,7 +111,6 @@ public class GetTokenView {
                 this.game.getPlayerB().getToken().equals(newToken) ) {
                throw new TokenException(ErrorType.ERROR104.getMessage());
      
-               continue; 
             }
             
             valid = true; // signal that a valid token was entered

@@ -26,13 +26,15 @@
 
 */
 package CIT260.PairedProgramming.CrazyConnectFour.Controls;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Location;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GetTokenView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GetPlayerNameView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GetDimensionsView;
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.TokenException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.BoardException;
 import java.awt.Dimension;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 
@@ -58,8 +60,12 @@ public class GamePreferencesMenuControl {
     public void getToken(Player player) { 
         
         GetTokenView getTokenView = new GetTokenView(this.game);
-        String token = getTokenView.getInput(player);
-        
+        String token = "";
+        try{
+            token = getTokenView.getInput(player);
+        }catch (TokenException ex){
+            ErrorType.displayErrorMsg(ex.getMessage());
+        }
         if (token == null) { // user changed there mind and quit??
             return;
         }
@@ -86,15 +92,12 @@ public class GamePreferencesMenuControl {
         if (name != null) this.game.getPlayerB().setName(name);
     }
 
-        public void getDimensions()  {
+        public void getDimensions() throws BoardException {
         
         // Check to see if a game is already in progress
         if (this.game.getStatus().equals(StatusType.PLAYING)) {
-            new CrazyConnectFourError().displayError("You can not change the dimensions "
-              + "of the board once the game has been started. "
-              + "\n\tStart a new game and then change the dimensions "
-              + "of the board. ");
-            return;
+            throw new BoardException(ErrorType.ERROR101.getMessage());
+            
         }
          GetDimensionsView getDimensionsView = new GetDimensionsView(this.game);
         Dimension dimension = getDimensionsView.getInput();
