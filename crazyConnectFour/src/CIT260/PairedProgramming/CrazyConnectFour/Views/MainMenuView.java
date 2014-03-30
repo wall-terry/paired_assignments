@@ -65,7 +65,7 @@ public class MainMenuView extends Menu {
                 command = this.getCommand();
             } 
             catch (MenuException ex) {
-                 ErrorType.displayErorrMsg(ex.getMessage());
+                 ErrorType.displayErrorMsg(ex.getMessage());
             }
             
             switch (command) {

@@ -61,7 +61,8 @@ public class HelpMenuView extends Menu {
             try{
                 command = this.getCommand();
             } catch (MenuException ex){
-                throw ex;  
+                
+                ErrorType.displayErrorMsg(ex.getMessage());  
             }
             
                 

@@ -24,7 +24,8 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.TokenException;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
 import java.util.Scanner;
@@ -100,16 +101,15 @@ public class GetTokenView {
             } while (tokenOptions.length != i && !breakout) ;
            
             if (i == tokenOptions.length){
-                new CrazyConnectFourError().displayError("\n\t Invalid Entry Try Again");
+                throw new TokenException(ErrorType.ERROR105.getMessage());
                 continue;
             }
             
             // Check to see if the token is already in use
             if (this.game.getPlayerA().getToken().equals(newToken) ||
                 this.game.getPlayerB().getToken().equals(newToken) ) {
-               new CrazyConnectFourError().displayError(
-                        "This token is currently in use. " +
-                        "Select a different token");
+               throw new TokenException(ErrorType.ERROR104.getMessage());
+     
                continue; 
             }
             
