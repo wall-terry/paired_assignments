@@ -80,7 +80,7 @@ public enum ErrorType {
     }
 
     
-    public static void displayErorrMsg(String errorMessage) {
+    public static void displayErrorMsg(String errorMessage) {
         String fullMessage = "\t+ ERROR: " + errorMessage + " +";
         int dividerLineLength = fullMessage.length();
         StringBuilder dividerLine = new StringBuilder(dividerLineLength);

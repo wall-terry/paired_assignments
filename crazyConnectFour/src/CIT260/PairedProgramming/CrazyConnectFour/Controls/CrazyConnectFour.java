@@ -10,6 +10,7 @@ import CIT260.PairedProgramming.CrazyConnectFour.Views.MainMenuView;
 import java.util.Scanner;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourException;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 /**
  *
  * @author Terry Wall and Crystal Coatney
@@ -54,7 +55,7 @@ public class CrazyConnectFour {
         try {
             mainMenu.getInput(null);
         } catch (MenuException ex) {
-            System.out.println(ex.getMessage());
+            ErrorType.displayErrorMsg(ex.getMessage());
         }
         finally {
         CrazyConnectFour.inFile.close();
