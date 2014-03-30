@@ -74,7 +74,7 @@ import java.util.Scanner;
             // Check to see if name is between 3 and 12 charcters. 
             if (newName.length() < 3) {
                new CrazyConnectFourError().displayError(
-                        "The name needs to have atleast three characters. Try again");
+                        "The name needs to have at least three characters. Try again");
                continue; 
             }
             
