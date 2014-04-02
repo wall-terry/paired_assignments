@@ -24,6 +24,10 @@
 package CIT260.PairedProgramming.CrazyConnectFour.Frames;
 
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.MainMenuControl;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.GameType;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
+import crazyconnectfour.Game;
 
 
 
@@ -217,14 +221,16 @@ private MainMenuControl mainCommands = new MainMenuControl();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        Game game = this.mainCommands.create(GameType.ONE_PLAYER);
+        try{
+
+                    this.mainCommands.startGame(1);
+                    }catch (MenuException ex){
+                        ErrorType.displayErrorMsg(ex.getMessage());
+                    }
+         GameFrame gamePlayFrame = new GameFrame(game);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    
-        
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
