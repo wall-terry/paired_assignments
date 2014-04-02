@@ -63,7 +63,7 @@ public class GetTokenView {
      * @throws CIT260.PairedProgramming.CrazyConnectFour.Exceptions.TokenException
      */
     
-    public String getInput(Player player) throws TokenException {
+    public String getInput(Player player) {
 
         String newToken = null;
         Scanner in = new Scanner(System.in);
@@ -100,19 +100,23 @@ public class GetTokenView {
 
                 
             } while (tokenOptions.length != i && !breakout) ;
-           
-            if (i == tokenOptions.length){
-                throw new TokenException(ErrorType.ERROR105.getMessage());
-
+            try{
+                if (i == tokenOptions.length){
+                    throw new TokenException(ErrorType.ERROR105.getMessage());
+                }   
+            }catch (TokenException ex){
+                ErrorType.displayErrorMsg(ex.getMessage());
             }
             
             // Check to see if the token is already in use
-            if (this.game.getPlayerA().getToken().equals(newToken) ||
-                this.game.getPlayerB().getToken().equals(newToken) ) {
-               throw new TokenException(ErrorType.ERROR104.getMessage());
-     
+            try{
+                if (this.game.getPlayerA().getToken().equals(newToken) ||
+                    this.game.getPlayerB().getToken().equals(newToken) ) {
+                    throw new TokenException(ErrorType.ERROR104.getMessage());
+                }
+            } catch (TokenException ex){
+                ErrorType.displayErrorMsg(ex.getMessage());
             }
-            
             valid = true; // signal that a valid token was entered
         }
         

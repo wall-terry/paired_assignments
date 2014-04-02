@@ -48,8 +48,15 @@ public class CrazyConnectFour {
      }
     
     public static void main(String[] args) {
-         
-        CrazyConnectFour currentGame = new CrazyConnectFour();
+        CrazyConnectFour currentGame = null;
+        try {
+         currentGame = new CrazyConnectFour();
+        } catch (Throwable ex){
+            ErrorType.displayErrorMsg("Unexpected Error: " + ex.getMessage());
+            ErrorType.displayErrorMsg(ex.getStackTrace().toString());
+        } 
+            
+        
         currentGame.display();
         MainMenuView mainMenu = new MainMenuView();
         try {

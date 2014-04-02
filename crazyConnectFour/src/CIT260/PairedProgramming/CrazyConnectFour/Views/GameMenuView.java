@@ -80,7 +80,11 @@ public class GameMenuView extends Menu{
                     gameMenuControl.startNewGame();
                     break;
                 case "R":
+                    try{
                     gameMenuControl.displayTopScores();
+                    }catch(MenuException ex){
+                            ErrorType.displayErrorMsg(ex.getMessage());
+                            }
                     break;
                 case "P":
                     gameMenuControl.displayPreferencesMenu();

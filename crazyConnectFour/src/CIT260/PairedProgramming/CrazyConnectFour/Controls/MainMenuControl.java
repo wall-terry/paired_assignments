@@ -24,6 +24,7 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Controls;
 
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.GameMenuView;
@@ -42,21 +43,23 @@ import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 public class MainMenuControl {
 
      
-      public void startGame(long noPlayers) {
+      public void startGame(long noPlayers) throws MenuException {
                 
         if (noPlayers != 1  &&  noPlayers != 2) {
-            new CrazyConnectFourError().displayError("startGame - invalid number of players specified.");
-            return;
+            throw new MenuException(ErrorType.ERROR105.getMessage());
         }
         
         Game game;
+        try{
         if (noPlayers == 1) {
             game = this.createGame(GameType.ONE_PLAYER);
         }
         else {
             game = this.createGame(GameType.TWO_PLAYER);
         }
-
+        }catch(MenuException ex){
+            throw ex;
+        }
         GameMenuView gameMenu = new GameMenuView(game);
         try { 
         gameMenu.getInput(game);
@@ -69,14 +72,13 @@ public class MainMenuControl {
 
     
     
-    private Game createGame(GameType gameType) {
+    private Game createGame(GameType gameType) throws MenuException{
         Game game = null;
         Player playerA = null;
         Player playerB = null;
         
         if (gameType == null) {
-            new CrazyConnectFourError().displayError("MainCommands - create: gameType is null");
-            return null;
+            throw new MenuException(ErrorType.ERROR108.getMessage());
         }
         
         if (gameType.equals(GameType.ONE_PLAYER)) {
@@ -128,7 +130,7 @@ public class MainMenuControl {
        
         helpMenu.getInput(null);
     } catch (MenuException ex) {
-       System.out.println(ex.getMessage());
+       ErrorType.displayErrorMsg(ex.getMessage());
         }
         
     }

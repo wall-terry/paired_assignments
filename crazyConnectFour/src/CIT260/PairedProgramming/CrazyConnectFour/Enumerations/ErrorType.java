@@ -48,10 +48,10 @@ public enum ErrorType {
     
     ERROR108 ("The game parameter is null."),
     
-    ERROR109 ("You must enter two numbers, a row and the column, "
+    ERROR109 ("You must enter a valid column number, "
               + "or a \"Q\" to quit. Try again."),
     
-    ERROR201 ("No empty locations found on the board"),
+    ERROR201 ("No empty locations found in that column try again"),
     
     ERROR203 ("This location is already occupied. Try a different "
               + "location."),
