@@ -61,11 +61,9 @@ public class GamePreferencesMenuControl {
         
         GetTokenView getTokenView = new GetTokenView(this.game);
         String token = "";
-        try{
-            token = getTokenView.getInput(player);
-        }catch (TokenException ex){
-            ErrorType.displayErrorMsg(ex.getMessage());
-        }
+        
+        token = getTokenView.getInput(player);
+        
         if (token == null) { // user changed there mind and quit??
             return;
         }

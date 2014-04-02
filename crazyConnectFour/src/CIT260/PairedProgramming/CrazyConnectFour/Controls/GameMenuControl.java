@@ -24,6 +24,7 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Controls;
 
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Location;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
@@ -63,13 +64,13 @@ public class GameMenuControl {
     }
     
     
-  public void takeTurn() {
+  public void takeTurn() throws MenuException {
        
         int returnValue = 1;
         
         if (!this.game.getStatus().equals(StatusType.NEW_GAME)  && 
             !this.game.getStatus().equals(StatusType.PLAYING)) {
-            new CrazyConnectFourError().displayError("You must start a new game first.");
+            throw new MenuException(ErrorType.ERROR106.getMessage());
          
         }
          if (this.game.getGameType().equals(GameType.TWO_PLAYER)) { //two player game 
@@ -121,13 +122,11 @@ public class GameMenuControl {
     
     
             
-    public void displayPreferencesMenu() {
+    public void displayPreferencesMenu() throws MenuException{
         
        if (this.game.getStatus().equals(StatusType.PLAYING)) {
-            new CrazyConnectFourError().displayError("You can not change the preferences "
-              + "of the game once the game has been started. "
-              + "\n\tStart select a new game and then change then preferences ");
-            return;}
+            throw new MenuException(ErrorType.ERROR105.getMessage());
+            }
        
         GamePreferencesMenuView gamePreferencesMenu = new GamePreferencesMenuView();
         try {
@@ -139,7 +138,7 @@ public class GameMenuControl {
     }
     
     
-    public void displayTopScores() {
+    public void displayTopScores() throws MenuException {
         
         boolean status;
         String command;
@@ -176,7 +175,7 @@ public class GameMenuControl {
                 case "Q":                   
                     break;
                 default: 
-                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
+                    throw new MenuException(ErrorType.ERROR105.getMessage());
             }
         } while (!command.equals("Q"));
         
@@ -215,14 +214,12 @@ public class GameMenuControl {
      * A regular player takes a turn
      * @parameter player The player taking the turn
      */
-    private int regularPlayerTurn(Player player) {
+    private int regularPlayerTurn(Player player) throws MenuException{
         
         if (!this.game.getStatus().equals(StatusType.NEW_GAME)  &&
             !this.game.getStatus().equals(StatusType.PLAYING)) {
-            new CrazyConnectFourError().displayError(
-                    "There is no active game. You must start a new game before "
-                    + "you can take a turn");
-            return -1;
+            throw new MenuException (ErrorType.ERROR106.getMessage());
+            
         } 
         
         this.game.setStatus(StatusType.PLAYING);

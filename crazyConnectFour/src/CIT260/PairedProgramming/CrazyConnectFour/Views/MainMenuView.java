@@ -40,7 +40,8 @@ public class MainMenuView extends Menu {
         {"1", "One player game"},
         {"2", "Two player game"},
         {"H", "Help"},
-        {"X", "Exit CrazyConnectFour"}
+        {"X", "Exit CrazyConnectFour"},
+        {"Z", "Arithmetic Error"}
     }; 
   
     MainMenuControl mainMenuControl = new MainMenuControl();
@@ -70,10 +71,18 @@ public class MainMenuView extends Menu {
             
             switch (command) {
                 case "1":
+                    try{
                     this.mainMenuControl.startGame(1);
+                    }catch (MenuException ex){
+                        ErrorType.displayErrorMsg(ex.getMessage());
+                    };
                     break;
                 case "2":
+                    try{
                     this.mainMenuControl.startGame(2);
+                    }catch (MenuException ex){
+                        ErrorType.displayErrorMsg(ex.getMessage());
+                    }
                     break;
                 case "H":
                     this.mainMenuControl.displayHelpMenu();            
@@ -81,8 +90,17 @@ public class MainMenuView extends Menu {
                 case "X":
                     gameStatus = StatusType.EXIT;
                     break;
+                case "Z":
+                    try{
+                       int dividend = 194;
+                       int divisor = 0;
+                       int bogus = dividend / divisor;
+                    } catch (ArithmeticException ex){
+                        ErrorType.displayErrorMsg("Arithmetic exception: " + ex.getMessage());
+                        ErrorType.displayErrorMsg(ex.getStackTrace().toString());
+                    }
                 default: 
-                    new CrazyConnectFourError().displayError("Invalid command. Please enter a valid command.");
+                    throw new MenuException(ErrorType.ERROR105.getMessage());
             }
         } while (!gameStatus.equals(StatusType.EXIT));
         

@@ -25,7 +25,8 @@
 package CIT260.PairedProgramming.CrazyConnectFour.Views;
 
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Board;
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.LocationException;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import java.awt.Point;
 import java.util.Scanner;
@@ -80,12 +81,14 @@ public class GetLocationView {
             // user java regular expression to check for valid integer number 
             // for both numbers
             String regExpressionPattern = ".*\\d.*";
+            try {
             if (!strColumn.matches(regExpressionPattern)) {
-                new CrazyConnectFourError().displayError(
-                        "You must enter one number, the number of the column you want to play, "
-                        + "or a \"Q\" to quit. Try again.");
-                continue;
+                throw new LocationException(ErrorType.ERROR109.getMessage());
             }
+            }catch(LocationException ex){
+                ErrorType.displayErrorMsg(ex.getMessage());
+                }          
+         
             
             // convert the column number from a String type to 
             // an integer type
@@ -96,28 +99,31 @@ public class GetLocationView {
         
             
             // Check for invalid column entered
-          
-                if (column < 1  ||  column > board.getColumnCount()) {
-                new CrazyConnectFourError().displayError(
-                        "Enter a valid column number from 1 to " + board.getColumnCount() + ". Try again.");
-                continue;
-            }
+                try{
+                    if (column < 1  ||  column > board.getColumnCount()) {
+                        throw new LocationException(ErrorType.ERROR109.getMessage());
+                    }      
+                } catch (LocationException ex ){
+                    ErrorType.displayErrorMsg(ex.getMessage());
+                }  
             
             // create a Point object to store the row and column coordinates in
             
             
-            // check to see if the location entered is already occupied
+            // check to see column is already full
             while ( row > 0  && board.getBoardLocations()[row-1][column-1].getPlayer() != null ){
                row -= 1; 
             }
-
-                if (row != 0) {
-                    valid = true;
-                    location = new Point(row-1, column-1); 
-                } // a valid location was entered
-                else {
-                    new CrazyConnectFourError().displayError(
-                        "The column you entered is full.  Try again.");
+                try{
+                    if (row != 0) {
+                        valid = true;
+                        location = new Point(row-1, column-1); 
+                    } // a valid location was entered
+                    else {
+                        throw new LocationException(ErrorType.ERROR201.getMessage());
+                    }
+                }catch(LocationException ex){
+                    ErrorType.displayErrorMsg(ex.getMessage());
                 }
              }
        
