@@ -11,6 +11,7 @@ import java.util.Scanner;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourException;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
+import CIT260.PairedProgramming.CrazyConnectFour.Frames.MainFrame;
 /**
  *
  * @author Terry Wall and Crystal Coatney
@@ -50,6 +51,14 @@ public class CrazyConnectFour {
     public static void main(String[] args) {
          
         CrazyConnectFour currentGame = new CrazyConnectFour();
+        
+           java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    CrazyConnectFour.mainFrame = new MainFrame();
+                   CrazyConnectFour.mainFrame.setVisible(true);
+                }
+            });
+       
         currentGame.display();
         MainMenuView mainMenu = new MainMenuView();
         try {
