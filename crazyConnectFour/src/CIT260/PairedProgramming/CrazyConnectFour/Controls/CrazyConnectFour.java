@@ -12,11 +12,13 @@ import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourException;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Frames.MainFrame;
+
 /**
  *
  * @author Terry Wall and Crystal Coatney
  */
 public class CrazyConnectFour {
+    public static MainFrame mainFrame = null;
     
     private static final Scanner inFile = new Scanner(System.in);
   
@@ -55,9 +57,9 @@ public class CrazyConnectFour {
     
            java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                   CrazyConnectFour.MainFrame = new MainFrame();
+                   CrazyConnectFour.mainFrame = new MainFrame();
                     
-                   CrazyConnectFour.MainFrame.setVisible(true);
+                   CrazyConnectFour.mainFrame.setVisible(true);
                 }
             });
         } catch (Throwable ex){
@@ -65,8 +67,8 @@ public class CrazyConnectFour {
             ErrorType.displayErrorMsg(ex.getStackTrace().toString());
             
         } finally {
-            if (CrazyConnectFour.MainFrame !=null) {
-                CrazyConnectFour.MainFrame.dispose();
+            if (CrazyConnectFour.mainFrame !=null) {
+                CrazyConnectFour.mainFrame.dispose();
             }
         }
     
