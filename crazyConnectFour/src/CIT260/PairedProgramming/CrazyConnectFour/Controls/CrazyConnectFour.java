@@ -52,12 +52,24 @@ public class CrazyConnectFour {
         CrazyConnectFour currentGame = null;
         try {
          currentGame = new CrazyConnectFour();
+    
+           java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                   CrazyConnectFour.MainFrame = new MainFrame();
+                    
+                   CrazyConnectFour.MainFrame.setVisible(true);
+                }
+            });
         } catch (Throwable ex){
             ErrorType.displayErrorMsg("Unexpected Error: " + ex.getMessage());
             ErrorType.displayErrorMsg(ex.getStackTrace().toString());
-        } 
             
-        
+        } finally {
+            if (CrazyConnectFour.MainFrame !=null) {
+                CrazyConnectFour.MainFrame.dispose();
+            }
+        }
+    
         currentGame.display();
         MainMenuView mainMenu = new MainMenuView();
         try {
