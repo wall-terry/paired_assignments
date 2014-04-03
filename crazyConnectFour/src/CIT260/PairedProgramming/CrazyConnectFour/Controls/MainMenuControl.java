@@ -25,16 +25,17 @@
 package CIT260.PairedProgramming.CrazyConnectFour.Controls;
 
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
-import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
-import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
-import CIT260.PairedProgramming.CrazyConnectFour.Views.GameMenuView;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.GameType;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.PlayerType;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
+import CIT260.PairedProgramming.CrazyConnectFour.Frames.GameFrame;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
+import CIT260.PairedProgramming.CrazyConnectFour.Views.GameMenuView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.HelpMenuView;
 import java.util.Scanner;
-import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
-import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.PlayerType;
-import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.GameType;
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 
 /**
  *
@@ -60,6 +61,7 @@ public class MainMenuControl {
         }catch(MenuException ex){
             throw ex;
         }
+/*
         GameMenuView gameMenu = new GameMenuView(game);
         try { 
         gameMenu.getInput(game);
@@ -67,7 +69,9 @@ public class MainMenuControl {
             } catch (MenuException ex) {
                System.out.println(ex.getMessage());
             }
-            
+*/
+        GameFrame gamePlayFrame = new GameFrame(game);
+        gamePlayFrame.setVisible(true);
     }
 
     
@@ -135,9 +139,7 @@ public class MainMenuControl {
         
     }
 
-    public crazyconnectfour.Game create(GameType gameType) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
     
         

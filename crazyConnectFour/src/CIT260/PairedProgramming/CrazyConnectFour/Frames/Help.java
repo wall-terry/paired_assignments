@@ -57,7 +57,7 @@ public class Help extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextMessageArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Help");
@@ -73,7 +73,6 @@ public class Help extends javax.swing.JFrame {
         jpMenuItems.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         jButton1.setText("Crazy Connect Four");
-        jButton1.setActionCommand("Crazy Connect Four");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -81,16 +80,46 @@ public class Help extends javax.swing.JFrame {
         });
 
         jButton2.setText("Board");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Regular Player");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Computer Player");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Column");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Token");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Quit Help");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpMenuItemsLayout = new javax.swing.GroupLayout(jpMenuItems);
         jpMenuItems.setLayout(jpMenuItemsLayout);
@@ -128,11 +157,13 @@ public class Help extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Press a topic button for detailed help. ");
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextMessageArea.setColumns(20);
+        jTextMessageArea.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jTextMessageArea.setLineWrap(true);
+        jTextMessageArea.setRows(5);
+        jTextMessageArea.setText("Press a topic button for detailed help. ");
+        jTextMessageArea.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(jTextMessageArea);
 
         javax.swing.GroupLayout jPBodyLayout = new javax.swing.GroupLayout(jPBody);
         jPBody.setLayout(jPBodyLayout);
@@ -180,8 +211,50 @@ public class Help extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.jTextMessageArea.setText(" The objective of the game is to get four tokens in a row "
+                + " vertically, horizontally or diagonally. Each player takes "
+                + " turns placing their token in one of the columns on the "
+                + " top of the board. When a player gets four tokens in a row"
+                + " the tokens disappear and the tokens above will slide down to"
+                + " to fill the empty spaces.  This may result in additional "
+                + " combinations of 4 or more in a row which will also disappear"
+                + " creating a cascade effect until no more combinations of four"
+                + " are created. Points are scored for each token that disappears"
+                + " and play continues until all the tokens are gone or no more"
+                + " plays can be made.");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.jTextMessageArea.setText(" The game board for CrazyConnectFour. The default board consists of 8 columns that can be stacked 8 positions"
+                + " high. Players place their tokens in one of the 8 columns and it drops to the lowest empty position"
+                + " on the board in an effort to get 4 tokens in a row horizontally, vertically or diagonally");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.jTextMessageArea.setText(" A real player manually takes their turn by placing their token "
+                + " in a column with empty spaces in it. The token drops to the lowest empty position in the column. This becomes a two player"
+                + " version of the game with each player taking their turn.");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.jTextMessageArea.setText(" A computer based player automatically takes its turn "
+                + "immediatly after a real player in a single player game.");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        this.jTextMessageArea.setText("A Column on the board where a player can place their token and"
+                + " it will drop to the lowest unoccupied space. Each player takes there turn by entering a column number.");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.jTextMessageArea.setText("A color name that \"marks\" the locations in the board that are occupied "
+                + "by each player. The default token are  \"Red\" and \"Black\". Players may select their token color"
+                + "in the game preferences menu.");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,7 +302,7 @@ public class Help extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPBody;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextMessageArea;
     private javax.swing.JPanel jpMenuItems;
     // End of variables declaration//GEN-END:variables
 }
