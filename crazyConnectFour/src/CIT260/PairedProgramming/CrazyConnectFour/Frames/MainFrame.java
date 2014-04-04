@@ -32,6 +32,7 @@ import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 /**
  *
  * @author dccoatney
+ * created for week 12 paired programming assignment.
  */
 public class MainFrame extends javax.swing.JFrame {
 private MainMenuControl mainCommands = new MainMenuControl();
