@@ -24,16 +24,24 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Frames;
 
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
+
 /**
  *
  * @author dccoatney
  */
 public class EnterPlayerNames extends javax.swing.JFrame {
 
+   private Game game = null;
     /**
-     * Creates new form EnterPlayerNames
+     * Creates new form GameFrame
      */
     public EnterPlayerNames() {
+        initComponents();
+    }
+    public EnterPlayerNames(Object object) {
+     
+        this.game =(Game)object;
         initComponents();
     }
 
