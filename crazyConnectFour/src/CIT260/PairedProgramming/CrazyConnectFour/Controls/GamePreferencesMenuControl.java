@@ -70,8 +70,7 @@ public class GamePreferencesMenuControl {
       
         player.setToken (token); // update the players markers
     }
-  
-    public void getPlayerNames(){
+ public void getPlayerNames(){
         
         GetPlayerNameView getPlayerNameView = new GetPlayerNameView(this.game);
         System.out.println("\n\t" 
