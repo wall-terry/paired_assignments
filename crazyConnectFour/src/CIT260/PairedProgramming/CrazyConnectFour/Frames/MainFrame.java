@@ -93,7 +93,7 @@ private MainMenuControl mainCommands = new MainMenuControl();
                 .addGap(20, 20, 20))
         );
 
-        jpMenuItems.setBackground(new java.awt.Color(204, 255, 204));
+        jpMenuItems.setBackground(new java.awt.Color(255, 255, 255));
         jpMenuItems.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         jButton2.setText("One Player Game");
@@ -157,7 +157,7 @@ private MainMenuControl mainCommands = new MainMenuControl();
         jtWelcome.setRows(5);
         jtWelcome.setText("            Welcome to the game of Crazy Connect Four !                         \n                                                                                \n            The object of the game is to get four in a row vertically,         \n            horizontally, or diagonally.  Then the fun starts. The four aligned \n            align tokens will be removed and the tokens above will drop done.   \n            This will result in new combinations of four or more in a row which \n            will also be removed resulting in a cascading effect.  This will    \n            continue until no more combination of four or more are made.  Point \n            will be scored for every token removed from the board for each      \n            player.  Play continues until all tokens are used.   \n               \n            Good Luck!!! \n");
         jtWelcome.setWrapStyleWord(true);
-        jtWelcome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtWelcome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtWelcome.setMargin(new java.awt.Insets(5, 5, 5, 5));
         jScrollPane1.setViewportView(jtWelcome);
 

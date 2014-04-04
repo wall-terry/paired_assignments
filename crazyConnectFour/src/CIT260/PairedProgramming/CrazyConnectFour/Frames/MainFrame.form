@@ -129,7 +129,7 @@
         <Container class="javax.swing.JPanel" name="jpMenuItems">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -220,8 +220,8 @@
                 <Property name="text" type="java.lang.String" value="            Welcome to the game of Crazy Connect Four !                         &#xa;                                                                                &#xa;            The object of the game is to get four in a row vertically,         &#xa;            horizontally, or diagonally.  Then the fun starts. The four aligned &#xa;            align tokens will be removed and the tokens above will drop done.   &#xa;            This will result in new combinations of four or more in a row which &#xa;            will also be removed resulting in a cascading effect.  This will    &#xa;            continue until no more combination of four or more are made.  Point &#xa;            will be scored for every token removed from the board for each      &#xa;            player.  Play continues until all tokens are used.   &#xa;               &#xa;            Good Luck!!! &#xa;"/>
                 <Property name="wrapStyleWord" type="boolean" value="true"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder/>
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder/>
                   </Border>
                 </Property>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
