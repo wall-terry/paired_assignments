@@ -99,10 +99,13 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
         );
 
         jTextField3.setBackground(new java.awt.Color(204, 255, 204));
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(102, 153, 255));
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Change Token Colors");
+        jTextField3.setBorder(null);
+        jTextField3.setSelectedTextColor(new java.awt.Color(51, 153, 255));
+        jTextField3.setSelectionColor(new java.awt.Color(204, 255, 204));
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -307,13 +310,12 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(53, 53, 53)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(jButton13)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jButton13)))
+                .addGap(129, 129, 129))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +331,7 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton13)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -341,22 +343,23 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(570, 570, 570))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(233, 233, 233)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(386, 386, 386)
+                .addGap(286, 286, 286)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -367,14 +370,14 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1077, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(743, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(175, Short.MAX_VALUE))
         );
 
@@ -420,7 +423,7 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
          else {  
-            this.game.getPlayerA().setToken("  GREEN");
+           this.game.getPlayerA().setToken("  GREEN");
            this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
             + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
         }    
@@ -431,7 +434,7 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
          else {  
-            this.game.getPlayerA().setToken(" BLACK");
+           this.game.getPlayerA().setToken(" BLACK");
            this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
             + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
         }    
@@ -442,7 +445,7 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
         else {  
-            this.game.getPlayerA().setToken("  RED ");
+           this.game.getPlayerA().setToken("  RED ");
            this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
             + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
         }    
@@ -452,7 +455,11 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
         if(this.game.getPlayerA().getToken()== "  RED ")
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
-        else  this.game.getPlayerB().setToken("  RED ");
+        else {
+           this.game.getPlayerA().setToken("  RED ");
+           this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
+            + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
+        }
         
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -461,7 +468,7 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
          else {  
-            this.game.getPlayerA().setToken(" BLACK");
+           this.game.getPlayerB().setToken(" BLACK");
            this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
             + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
         }    
@@ -471,15 +478,18 @@ public class EnterTokenColorFrame extends javax.swing.JFrame {
 if(this.game.getPlayerA().getToken()== " GREEN")
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
-        else  this.game.getPlayerB().setToken(" GREEN");        // TODO add your handling code here:
+        else {
+     this.game.getPlayerB().setToken(" Green");
+     this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
+            + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
     }//GEN-LAST:event_jButton9ActionPerformed
-
+    }
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 if(this.game.getPlayerA().getToken()== " PINK ")
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
         else {  
-            this.game.getPlayerA().setToken(" PINK ");
+            this.game.getPlayerB().setToken(" PINK ");
            this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
             + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
         }    
@@ -490,7 +500,7 @@ if(this.game.getPlayerA().getToken()== "YELLOW")
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
          else {  
-            this.game.getPlayerA().setToken("YELLOW");
+            this.game.getPlayerB().setToken("YELLOW");
            this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
             + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
         }    
@@ -501,7 +511,7 @@ if(this.game.getPlayerA().getToken()== "ORANGE")
         this.jTextMessageArea.setText ("Token color already in use choose A different color");
 
         else {  
-            this.game.getPlayerA().setToken("ORANGE");
+            this.game.getPlayerB().setToken("ORANGE");
            this.jTextMessageArea.setText ("\n\t Player 1 is using "+ this.game.getPlayerA().getToken() + " as a token"
             + "\n\t Player 2 is using "+ this.game.getPlayerB().getToken() + " as a token");
         }    
