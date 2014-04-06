@@ -687,7 +687,8 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    
+    
   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
