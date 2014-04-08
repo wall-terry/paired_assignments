@@ -712,8 +712,12 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
             this.jTextMessageArea.setText(ex.getMessage());
         }
         this.game.getPlayerA().setName(playerOneName);
-        this.game.getPlayerA().setName(playerOneName);
+        this.game.getPlayerB().setName(playerTwoName);
         this.game.getBoard().getBoardDimensions().setLocation(Integer.parseInt(rows), Integer.parseInt(columns));
+        this.jLabelRows.setText ("Current number of rows:" + this.game.getBoard().getRowCount());
+        this.jLabelColumns.setText ("Current number of columns:" + this.game.getBoard().getColumnCount());
+        this.jLabelPlayerOne.setText ("Current player name:" + this.game.getPlayerA().getName());
+        this.jLabelPlayerTwo.setText ("Current player name:" + this.game.getPlayerB().getName());
     }//GEN-LAST:event_jButtonSavePreferencesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
