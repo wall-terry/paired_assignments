@@ -24,30 +24,35 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Frames;
 
-import CIT260.PairedProgramming.CrazyConnectFour.Controls.MainMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.GamePreferencesMenuControl;
+import CIT260.PairedProgramming.CrazyConnectFour.Controls.MainMenuControl;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.DimensionException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.PlayerException;
+import CIT260.PairedProgramming.CrazyConnectFour.Frames.GameFrame;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
-
+import java.awt.Dimension;
+import java.awt.Point;
 /**
  *
  * @author dccoatney
  */
 public class GamePreferencesFrame extends javax.swing.JFrame {
-    
+    private Game game = null;
+    private GamePreferencesMenuControl preferencesCommands = new GamePreferencesMenuControl();
+    private GameFrame gameFrame = null;
 
- private GamePreferencesMenuControl preferencesCommands = new GamePreferencesMenuControl();
- 
-   private Game game = null;
     /**
      * Creates new form GameFrame
      */
     public GamePreferencesFrame() {
         initComponents();
     }
-    public GamePreferencesFrame(Object object) {
-     
-        this.game =(Game)object;
-        initComponents();
+
+    public GamePreferencesFrame(Game game) {
+        this();
+        this.game = game;
+        this.preferencesCommands = new GamePreferencesMenuControl();
     }
 
     /**
@@ -83,14 +88,14 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         jButton18 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        jTextPlayerTwo = new javax.swing.JTextField();
+        jTextPlayerOne = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jText1 = new javax.swing.JTextField();
+        jTextRows = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextColumns = new javax.swing.JTextField();
         jLabelPlayerOne = new javax.swing.JLabel();
         jLabelPlayerTwo = new javax.swing.JLabel();
         jLabelRows = new javax.swing.JLabel();
@@ -98,14 +103,19 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonReturn = new javax.swing.JButton();
+        jButtonSavePreferences = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
         jButton4.setText("jButton4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -311,15 +321,15 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(204, 255, 204));
 
-        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextPlayerTwo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField7FocusGained(evt);
+                jTextPlayerTwoFocusGained(evt);
             }
         });
 
-        jTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextPlayerOne.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField8FocusGained(evt);
+                jTextPlayerOneFocusGained(evt);
             }
         });
 
@@ -327,9 +337,9 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Player Two:");
 
-        jText1.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextRows.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jText1FocusGained(evt);
+                jTextRowsFocusGained(evt);
             }
         });
 
@@ -337,9 +347,9 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
 
         jLabel9.setText("Columns:");
 
-        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextColumns.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField3FocusGained(evt);
+                jTextColumnsFocusGained(evt);
             }
         });
 
@@ -360,13 +370,13 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextPlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelPlayerOne)
                     .addComponent(jLabelRows)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(39, 39, 39)
-                        .addComponent(jText1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextRows, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelColumns)
@@ -374,19 +384,19 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextPlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextColumns, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextPlayerTwo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextPlayerOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -395,9 +405,9 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
                     .addComponent(jLabelPlayerOne))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextRows, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextColumns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -415,17 +425,17 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Change the Dimensions of the Board:");
 
-        jButton7.setText("Return to Game Menu");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButtonReturn.setText("Return to Game Menu");
+        jButtonReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButtonReturnActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Save Changes");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSavePreferences.setText("Save Changes");
+        jButtonSavePreferences.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonSavePreferencesActionPerformed(evt);
             }
         });
 
@@ -459,10 +469,10 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(208, 208, 208)
-                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jButtonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(241, 241, 241)
-                                        .addComponent(jButton2)))
+                                        .addComponent(jButtonSavePreferences)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -498,9 +508,9 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addComponent(jButton2)
+                        .addComponent(jButtonSavePreferences)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7)))
+                        .addComponent(jButtonReturn)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
@@ -523,9 +533,9 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButtonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReturnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jButtonReturnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(this.game.getPlayerB().getToken()== "  RED ")
@@ -660,35 +670,59 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton18ActionPerformed
 
-    private void jTextField8FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField8FocusGained
+    private void jTextPlayerOneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextPlayerOneFocusGained
         this.jTextMessageArea.setText ("Player names should be at least 3 but no more than 12 characters. ");
         this.jLabelPlayerOne.setText ("Current player name:" + this.game.getPlayerA().getName());
         this.jLabelPlayerTwo.setText ("Current player name:" + this.game.getPlayerB().getName());
-    }//GEN-LAST:event_jTextField8FocusGained
+    }//GEN-LAST:event_jTextPlayerOneFocusGained
 
-    private void jTextField7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusGained
+    private void jTextPlayerTwoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextPlayerTwoFocusGained
         this.jTextMessageArea.setText ("Player names should be at least 3 but no more than 12 characters. ");
         this.jLabelPlayerOne.setText ("Current player name:" + this.game.getPlayerA().getName());
         this.jLabelPlayerTwo.setText ("Current player name:" + this.game.getPlayerB().getName());
-    }//GEN-LAST:event_jTextField7FocusGained
+    }//GEN-LAST:event_jTextPlayerTwoFocusGained
 
-    private void jText1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jText1FocusGained
+    private void jTextRowsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextRowsFocusGained
         this.jTextMessageArea.setText ("Enter a number between 6 and 15. ");   
         this.jLabelRows.setText ("Current number of rows:" + this.game.getBoard().getRowCount());
         this.jLabelColumns.setText ("Current number of columns:" + this.game.getBoard().getColumnCount());
-    }//GEN-LAST:event_jText1FocusGained
+    }//GEN-LAST:event_jTextRowsFocusGained
 
-    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+    private void jTextColumnsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextColumnsFocusGained
         this.jTextMessageArea.setText ("Enter a number between 6 and 15. ");   
         this.jLabelRows.setText ("Current number of rows:" + this.game.getBoard().getRowCount());
         this.jLabelColumns.setText ("Current number of columns:" + this.game.getBoard().getColumnCount());
-    }//GEN-LAST:event_jTextField3FocusGained
+    }//GEN-LAST:event_jTextColumnsFocusGained
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButtonSavePreferencesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSavePreferencesActionPerformed
+       String playerOneName = this.jTextPlayerOne.getText();
+        String playerTwoName = this.jTextPlayerTwo.getText();
+        String rows  = this.jTextRows.getText();
+        String columns = this.jTextColumns.getText();
+        Point boardDimensions = new Point();
+        try{
+        this.verifyPlayerName(playerOneName);
+        this.verifyPlayerName(playerTwoName);
+        }catch(PlayerException ex){
+          this.jTextMessageArea.setText(ex.getMessage());
+        }
+        try{
+            verifyRowsAndColumns(rows, columns);
+        }catch(DimensionException ex){
+            this.jTextMessageArea.setText(ex.getMessage());
+        }
+        this.game.getPlayerA().setName(playerOneName);
+        this.game.getPlayerA().setName(playerOneName);
+        this.game.getBoard().getBoardDimensions().setLocation(Integer.parseInt(rows), Integer.parseInt(columns));
+    }//GEN-LAST:event_jButtonSavePreferencesActionPerformed
 
-  
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.jLabelRows.setText ("Current number of rows:" + this.game.getBoard().getRowCount());
+        this.jLabelColumns.setText ("Current number of columns:" + this.game.getBoard().getColumnCount());
+        this.jLabelPlayerOne.setText ("Current player name:" + this.game.getPlayerA().getName());
+        this.jLabelPlayerTwo.setText ("Current player name:" + this.game.getPlayerB().getName());
+    }//GEN-LAST:event_formWindowOpened
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -720,7 +754,54 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void verifyPlayerName(String playerName)throws PlayerException{
+        
+        
+         try {
+            if (playerName.length() < 3) {
+               throw new PlayerException (ErrorType.Error301.getMessage());
+            }
+            if (playerName.length() > 12) {
+              throw new PlayerException (ErrorType.Error302.getMessage());
+            }
+           } catch (PlayerException ex){
+               throw ex;
+           }             
+    }
+    private void verifyRowsAndColumns(String rows, String columns)throws DimensionException {
+        String[] valuesEntered = new String [2];
+      
+           valuesEntered[0] = rows;
+           valuesEntered[1] = columns;
+            
 
+           // user java regular expression to check for valid integer number 
+           // for both numbers
+           String regExpressionPattern = ".*\\d.*";
+           try{
+                if (!valuesEntered[0].matches(regExpressionPattern) ||
+                    !valuesEntered[1].matches(regExpressionPattern)) {
+                    throw new DimensionException(ErrorType.ERROR102.getMessage());
+                }
+
+           int rowsEntered = Integer.parseInt(valuesEntered[0]);
+           int columnsEntered = Integer.parseInt(valuesEntered[1]);
+           
+           if (rowsEntered < 6 || rowsEntered > 15) {
+           throw new DimensionException(ErrorType.ERROR207.getMessage());
+           }
+
+           if (columnsEntered < 6 || columnsEntered > 15) {
+               throw new DimensionException(ErrorType.ERROR207.getMessage());
+           }
+           }catch(DimensionException ex) {
+               throw ex;
+           }
+
+
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -732,12 +813,12 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonReturn;
+    private javax.swing.JButton jButtonSavePreferences;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -757,11 +838,11 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jText1;
+    private javax.swing.JTextField jTextColumns;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextArea jTextMessageArea;
+    private javax.swing.JTextField jTextPlayerOne;
+    private javax.swing.JTextField jTextPlayerTwo;
+    private javax.swing.JTextField jTextRows;
     // End of variables declaration//GEN-END:variables
 }
