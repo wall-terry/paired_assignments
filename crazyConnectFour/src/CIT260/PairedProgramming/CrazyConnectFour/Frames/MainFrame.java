@@ -57,12 +57,12 @@ private MainMenuControl mainCommands = new MainMenuControl();
         jlTitle = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jpMenuItems = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonOnePlayer = new javax.swing.JButton();
+        jButtonTwoPlayer = new javax.swing.JButton();
+        jButtonHelp = new javax.swing.JButton();
+        jButtonExit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtWelcome = new javax.swing.JTextArea();
+        jTextMessageArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crazy Connect Four");
@@ -96,31 +96,31 @@ private MainMenuControl mainCommands = new MainMenuControl();
         jpMenuItems.setBackground(new java.awt.Color(255, 255, 255));
         jpMenuItems.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
-        jButton2.setText("One Player Game");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonOnePlayer.setText("One Player Game");
+        jButtonOnePlayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonOnePlayerActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Two Player Game");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonTwoPlayer.setText("Two Player Game");
+        jButtonTwoPlayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonTwoPlayerActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Help");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHelp.setText("Help");
+        jButtonHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonHelpActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Exit");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExit.setText("Exit");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonExitActionPerformed(evt);
             }
         });
 
@@ -131,35 +131,35 @@ private MainMenuControl mainCommands = new MainMenuControl();
             .addGroup(jpMenuItemsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpMenuItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonTwoPlayer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButtonOnePlayer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpMenuItemsLayout.setVerticalGroup(
             jpMenuItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpMenuItemsLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jButton2)
+                .addComponent(jButtonOnePlayer)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jButtonTwoPlayer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(jButtonExit)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jtWelcome.setEditable(false);
-        jtWelcome.setColumns(20);
-        jtWelcome.setLineWrap(true);
-        jtWelcome.setRows(5);
-        jtWelcome.setText("            Welcome to the game of Crazy Connect Four !                         \n                                                                                \n            The object of the game is to get four in a row vertically,         \n            horizontally, or diagonally.  Then the fun starts. The four aligned \n            align tokens will be removed and the tokens above will drop done.   \n            This will result in new combinations of four or more in a row which \n            will also be removed resulting in a cascading effect.  This will    \n            continue until no more combination of four or more are made.  Point \n            will be scored for every token removed from the board for each      \n            player.  Play continues until all tokens are used.   \n               \n            Good Luck!!! \n");
-        jtWelcome.setWrapStyleWord(true);
-        jtWelcome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtWelcome.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jScrollPane1.setViewportView(jtWelcome);
+        jTextMessageArea.setEditable(false);
+        jTextMessageArea.setColumns(20);
+        jTextMessageArea.setLineWrap(true);
+        jTextMessageArea.setRows(5);
+        jTextMessageArea.setText("            Welcome to the game of Crazy Connect Four !                         \n                                                                                \n            The object of the game is to get four in a row vertically,         \n            horizontally, or diagonally.  Then the fun starts. The four aligned \n            align tokens will be removed and the tokens above will drop done.   \n            This will result in new combinations of four or more in a row which \n            will also be removed resulting in a cascading effect.  This will    \n            continue until no more combination of four or more are made.  Point \n            will be scored for every token removed from the board for each      \n            player.  Play continues until all tokens are used.   \n               \n            Good Luck!!! \n");
+        jTextMessageArea.setWrapStyleWord(true);
+        jTextMessageArea.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTextMessageArea.setMargin(new java.awt.Insets(5, 5, 5, 5));
+        jScrollPane1.setViewportView(jTextMessageArea);
 
         javax.swing.GroupLayout jpBodyLayout = new javax.swing.GroupLayout(jpBody);
         jpBody.setLayout(jpBodyLayout);
@@ -206,45 +206,45 @@ private MainMenuControl mainCommands = new MainMenuControl();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonExitActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
         Help helpFrame = new Help();  
         helpFrame.setVisible(true);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonHelpActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonTwoPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTwoPlayerActionPerformed
         try {
             this.mainCommands.startGame(2);
         } catch (MenuException ex) {
             ErrorType.displayErrorMsg(ex.getMessage());
         }
                          
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonTwoPlayerActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonOnePlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOnePlayerActionPerformed
       
         try {
             this.mainCommands.startGame(1);
         } catch (MenuException ex) {
             ErrorType.displayErrorMsg(ex.getMessage());
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonOnePlayerActionPerformed
 
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonHelp;
+    private javax.swing.JButton jButtonOnePlayer;
+    private javax.swing.JButton jButtonTwoPlayer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextMessageArea;
     private javax.swing.JPanel jlTitle;
     private javax.swing.JPanel jpBody;
     private javax.swing.JPanel jpMenuItems;
-    private javax.swing.JTextArea jtWelcome;
     // End of variables declaration//GEN-END:variables
 }
