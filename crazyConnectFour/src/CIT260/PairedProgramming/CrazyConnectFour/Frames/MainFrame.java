@@ -212,7 +212,7 @@ private MainMenuControl mainCommands = new MainMenuControl();
 
     private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
         Help helpFrame = new Help();  
-        helpFrame.setVisible(true);// TODO add your handling code here:
+        helpFrame.setVisible(true);
     }//GEN-LAST:event_jButtonHelpActionPerformed
 
     private void jButtonTwoPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTwoPlayerActionPerformed
