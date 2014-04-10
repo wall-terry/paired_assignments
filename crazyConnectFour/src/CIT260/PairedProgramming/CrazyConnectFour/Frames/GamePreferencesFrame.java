@@ -124,7 +124,7 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         jTextField1.setBackground(new java.awt.Color(204, 255, 204));
         jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(51, 153, 255));
-        jTextField1.setText("Game Preferences");
+        jTextField1.setText("Game Settings");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
