@@ -213,15 +213,25 @@ public class GameFrame extends javax.swing.JFrame {
             new String [] {
                 "1", "2", "3", "4", "5", "6", "7", "8"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableCrazyConnectFour.setToolTipText("");
         jTableCrazyConnectFour.setAlignmentX(1.0F);
         jTableCrazyConnectFour.setAlignmentY(1.0F);
-        jTableCrazyConnectFour.setCellSelectionEnabled(true);
+        jTableCrazyConnectFour.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTableCrazyConnectFour.setDropMode(javax.swing.DropMode.ON);
         jTableCrazyConnectFour.setGridColor(new java.awt.Color(0, 0, 0));
         jTableCrazyConnectFour.setRowHeight(50);
-        jTableCrazyConnectFour.setShowHorizontalLines(true);
-        jTableCrazyConnectFour.setShowVerticalLines(true);
+        jTableCrazyConnectFour.setSelectionBackground(new java.awt.Color(0, 102, 204));
+        jTableCrazyConnectFour.setSelectionForeground(new java.awt.Color(102, 153, 255));
+        jTableCrazyConnectFour.setSurrendersFocusOnKeystroke(true);
         jTableCrazyConnectFour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableCrazyConnectFourMouseClicked(evt);
