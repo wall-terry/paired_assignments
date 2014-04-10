@@ -35,6 +35,10 @@ import CIT260.PairedProgramming.CrazyConnectFour.Models.Location;
  */
 public class BoardView {
     
+    public  BoardView(){
+        
+    }
+    
     Board board;
     
     public void displayBoard(Object object) {

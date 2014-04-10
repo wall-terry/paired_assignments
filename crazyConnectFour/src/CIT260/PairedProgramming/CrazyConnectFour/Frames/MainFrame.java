@@ -25,6 +25,7 @@ package CIT260.PairedProgramming.CrazyConnectFour.Frames;
 
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.MainMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.GameException;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 
 
@@ -227,9 +228,9 @@ private MainMenuControl mainCommands = new MainMenuControl();
     private void jButtonOnePlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOnePlayerActionPerformed
       
         try {
-            this.mainCommands.startGame(1);
-        } catch (MenuException ex) {
-            ErrorType.displayErrorMsg(ex.getMessage());
+            throw new GameException("This feature has not been implemented yet.");
+        } catch (GameException ex) {
+            this.jTextMessageArea.setText(ex.getMessage());
         }
     }//GEN-LAST:event_jButtonOnePlayerActionPerformed
 

@@ -25,23 +25,25 @@
 package CIT260.PairedProgramming.CrazyConnectFour.Controls;
 
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
-import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
-import CIT260.PairedProgramming.CrazyConnectFour.Models.Location;
-import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
-import CIT260.PairedProgramming.CrazyConnectFour.Models.Board;
-import CIT260.PairedProgramming.CrazyConnectFour.Views.GetPlayerNameView;
-import CIT260.PairedProgramming.CrazyConnectFour.Views.GetLocationView;
-import CIT260.PairedProgramming.CrazyConnectFour.Views.GamePreferencesMenuView;
-import CIT260.PairedProgramming.CrazyConnectFour.Views.BoardView;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.GameType;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.CrazyConnectFourError;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.LocationException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
+import CIT260.PairedProgramming.CrazyConnectFour.Frames.GameFrame;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Board;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Location;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
+import CIT260.PairedProgramming.CrazyConnectFour.Views.BoardView;
+import CIT260.PairedProgramming.CrazyConnectFour.Views.GamePreferencesMenuView;
+import CIT260.PairedProgramming.CrazyConnectFour.Views.GetLocationView;
+import CIT260.PairedProgramming.CrazyConnectFour.Views.GetPlayerNameView;
 import CIT260.PairedProgramming.CrazyConnectFour.Views.HelpMenuView;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
-import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.GameType;
-import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
 
 /**
  *
@@ -56,11 +58,13 @@ public class GameMenuControl {
     private GetLocationView getLocationView;
     private GetPlayerNameView getPlayerName;
     private BoardView boardView = new BoardView();
+    private GameFrame gameFrame = null;
 
     
-    public GameMenuControl(Game game) {
+    public GameMenuControl(Game game, GameFrame gameFrame) {
         this.game = game;
         this.board = game.getBoard();
+        this.gameFrame = gameFrame;
     }
     
     
@@ -246,8 +250,7 @@ public class GameMenuControl {
         return;
     }
     
-
-
+   
     /*
      * Alternate players
      */

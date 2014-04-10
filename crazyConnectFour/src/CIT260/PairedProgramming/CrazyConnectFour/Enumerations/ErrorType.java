@@ -29,9 +29,9 @@ package CIT260.PairedProgramming.CrazyConnectFour.Enumerations;
  * @author dccoatney
  */
 public enum ErrorType {
-    ERROR101 ("You can not change the dimensions "
-              + "of the board once the game has been started. "
-              + "\n\tStart a new game and then change the dimensions "
+    ERROR101 ("You can not change the settings "
+              + "of the game once the game has been started. "
+              + "\n\tExit the game and then change the Settings "
               + "of the board. "),
     
     ERROR102 ("You must enter two numbers, the number rows and columns, "

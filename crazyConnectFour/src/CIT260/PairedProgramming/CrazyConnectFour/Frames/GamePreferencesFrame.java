@@ -31,6 +31,7 @@ import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.DimensionException;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.PlayerException;
 import CIT260.PairedProgramming.CrazyConnectFour.Frames.GameFrame;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Location;
 import java.awt.Dimension;
 import java.awt.Point;
 /**
@@ -124,6 +125,11 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(51, 153, 255));
         jTextField1.setText("Game Preferences");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTextMessageArea.setColumns(20);
         jTextMessageArea.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
@@ -695,11 +701,13 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextColumnsFocusGained
 
     private void jButtonSavePreferencesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSavePreferencesActionPerformed
-       String playerOneName = this.jTextPlayerOne.getText();
+        String playerOneName = this.jTextPlayerOne.getText();
         String playerTwoName = this.jTextPlayerTwo.getText();
         String rows  = this.jTextRows.getText();
         String columns = this.jTextColumns.getText();
         Point boardDimensions = new Point();
+        Location[][] boardLocations;
+        
         try{
         this.verifyPlayerName(playerOneName);
         this.verifyPlayerName(playerTwoName);
@@ -714,6 +722,8 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         this.game.getPlayerA().setName(playerOneName);
         this.game.getPlayerB().setName(playerTwoName);
         this.game.getBoard().getBoardDimensions().setLocation(Integer.parseInt(rows), Integer.parseInt(columns));
+        boardLocations = new Location [Integer.parseInt(rows)][Integer.parseInt(columns)];
+        this.game.getBoard().setBoardLocations(boardLocations);
         this.jLabelRows.setText ("Current number of rows:" + this.game.getBoard().getRowCount());
         this.jLabelColumns.setText ("Current number of columns:" + this.game.getBoard().getColumnCount());
         this.jLabelPlayerOne.setText ("Current player name:" + this.game.getPlayerA().getName());
@@ -726,6 +736,10 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         this.jLabelPlayerOne.setText ("Current player name:" + this.game.getPlayerA().getName());
         this.jLabelPlayerTwo.setText ("Current player name:" + this.game.getPlayerB().getName());
     }//GEN-LAST:event_formWindowOpened
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

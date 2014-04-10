@@ -52,7 +52,7 @@ public class GameMenuView extends Menu{
 
     public GameMenuView(Game game) {
         super(GameMenuView.menuItems);
-        this.gameMenuControl = new GameMenuControl(game);
+        this.gameMenuControl = new GameMenuControl(game, null);
     }
 
     

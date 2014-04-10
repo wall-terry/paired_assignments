@@ -40,8 +40,10 @@ public class Board extends AbstractTableModel implements Serializable {
     private Location[][] boardLocations;
 
     public Board() {
+        if(this.getRowCount() == 0 || this.getColumnCount() == 0){
         this.boardDimensions.setLocation(rowCount,columnCount);
         this.boardLocations = new Location[rowCount][columnCount];
+        }
     }
 
     public Board(int noRows, int noColumns) {

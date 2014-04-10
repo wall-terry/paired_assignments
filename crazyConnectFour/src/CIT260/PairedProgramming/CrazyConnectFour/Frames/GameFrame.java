@@ -24,14 +24,24 @@
 
 package CIT260.PairedProgramming.CrazyConnectFour.Frames;
 
-import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.GameMenuControl;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.GameType;
+import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.StatusType;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.GameException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.LocationException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.MenuException;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
+import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Point;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -39,7 +49,7 @@ import javax.swing.table.TableColumnModel;
  */
 public class GameFrame extends javax.swing.JFrame {
 
-    private String currentMarker = null;
+    private String currentToken = null;
     private Game game = null;
     private GameMenuControl gameCommands = null;
 
@@ -54,7 +64,7 @@ public class GameFrame extends javax.swing.JFrame {
     public GameFrame(Game game) {
         this();
         this.game = game;
-        this.gameCommands = new GameMenuControl(game);
+        this.gameCommands = new GameMenuControl(game, this);
         this.initializeFrame();
         setLocationRelativeTo(null);
     }
@@ -65,7 +75,7 @@ public class GameFrame extends javax.swing.JFrame {
         int columns = this.game.getBoard().getColumnCount();
 
         jTableCrazyConnectFour.getTableHeader().setVisible(true);
-        jTableCrazyConnectFour.getTableHeader().setPreferredSize(new Dimension(2, columns));
+        jTableCrazyConnectFour.getTableHeader().setPreferredSize(new Dimension(3, columns));
         jTableCrazyConnectFour.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         Color backgroundColor = jTableCrazyConnectFour.getBackground();
         jTableCrazyConnectFour.setSelectionBackground(backgroundColor);
@@ -91,10 +101,10 @@ public class GameFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jButtonNewGame = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButtonSettings = new javax.swing.JButton();
+        jButtonHighScores = new javax.swing.JButton();
+        jButtonHelp = new javax.swing.JButton();
+        jButtonReturn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextMessagePanel = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -115,31 +125,31 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Game Preferences");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSettings.setText("Game Settings");
+        jButtonSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonSettingsActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Display High Scores");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHighScores.setText("Display High Scores");
+        jButtonHighScores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtonHighScoresActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Help");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHelp.setText("Help");
+        jButtonHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonHelpActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Return to Main Menu");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButtonReturn.setText("Return to Main Menu");
+        jButtonReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButtonReturnActionPerformed(evt);
             }
         });
 
@@ -150,12 +160,12 @@ public class GameFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonReturn, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonHelp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonNewGame, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jButtonSettings, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonHighScores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
@@ -164,13 +174,13 @@ public class GameFrame extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jButtonNewGame)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(jButtonSettings)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(jButtonHighScores)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(jButtonHelp)
                 .addGap(36, 36, 36)
-                .addComponent(jButton7)
+                .addComponent(jButtonReturn)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -207,11 +217,16 @@ public class GameFrame extends javax.swing.JFrame {
         jTableCrazyConnectFour.setToolTipText("");
         jTableCrazyConnectFour.setAlignmentX(1.0F);
         jTableCrazyConnectFour.setAlignmentY(1.0F);
+        jTableCrazyConnectFour.setCellSelectionEnabled(true);
         jTableCrazyConnectFour.setGridColor(new java.awt.Color(0, 0, 0));
         jTableCrazyConnectFour.setRowHeight(50);
-        jTableCrazyConnectFour.setRowSelectionAllowed(false);
         jTableCrazyConnectFour.setShowHorizontalLines(true);
         jTableCrazyConnectFour.setShowVerticalLines(true);
+        jTableCrazyConnectFour.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCrazyConnectFourMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableCrazyConnectFour);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -254,7 +269,7 @@ public class GameFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -269,28 +284,50 @@ public class GameFrame extends javax.swing.JFrame {
         setBounds(0, 0, 1053, 955);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButtonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReturnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jButtonReturnActionPerformed
 
     private void jButtonNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewGameActionPerformed
-        // TODO add your handling code here:
+        initializeFrame();
+        this.gameCommands.startNewGame();
+        clearTokens();
+        this.game.setStatus(StatusType.PLAYING);
+        String nextPlayersMessage = this.game.getCurrentPlayer().getName()
+        + " it is your turn. Click on Any Column.";
+        this.jTextMessagePanel.setText(nextPlayersMessage);
     }//GEN-LAST:event_jButtonNewGameActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        GamePreferencesFrame gamepreferencesFrame = new GamePreferencesFrame(game);  
-        gamepreferencesFrame.setVisible(true);         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void jButtonSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSettingsActionPerformed
+        try{
+            if(this.game.getStatus() == StatusType.PLAYING){
+                throw new GameException(ErrorType.ERROR101.getMessage());
+            }
+            else{
+               GamePreferencesFrame gamepreferencesFrame = new GamePreferencesFrame(game);
+               gamepreferencesFrame.setVisible(true);    
+            }
+        }catch(GameException ex){
+            this.jTextMessagePanel.setText(ex.getMessage());
+        }
+              
+    }//GEN-LAST:event_jButtonSettingsActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButtonHighScoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHighScoresActionPerformed
        DisplayHighScoresFrame displayHighScoresFrame = new DisplayHighScoresFrame();  
         displayHighScoresFrame.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButtonHighScoresActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
         Help helpFrame = new Help();  
         helpFrame.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButtonHelpActionPerformed
+
+    private void jTableCrazyConnectFourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCrazyConnectFourMouseClicked
+       JTable jTable = (JTable) evt.getComponent();
+        this.jTextMessagePanel.setForeground(Color.black);
+        this.takeTurn(jTable);
+    }//GEN-LAST:event_jTableCrazyConnectFourMouseClicked
 
     /**
      * @param args the command line arguments
@@ -298,11 +335,11 @@ public class GameFrame extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButtonHelp;
+    private javax.swing.JButton jButtonHighScores;
     private javax.swing.JButton jButtonNewGame;
+    private javax.swing.JButton jButtonReturn;
+    private javax.swing.JButton jButtonSettings;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -311,11 +348,69 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTableCrazyConnectFour;
     private javax.swing.JTextArea jTextMessagePanel;
     // End of variables declaration//GEN-END:variables
-private class CellRenderer extends DefaultTableCellRenderer {
+ private void clearTokens() {
+        TableModel model = this.jTableCrazyConnectFour.getModel();
+        int rowCount = this.jTableCrazyConnectFour.getRowCount();
+        int colCount = this.jTableCrazyConnectFour.getColumnCount();
+        for (int row = 0; row < rowCount; row++) {
+            for (int col = 0; col < colCount; col++) {
+                model.setValueAt("", row, col);
+            }
+        }   
+    }
+    
+    
+    private String getNextPlayerMessage(Player player) {
+        if (this.game.getGameType() == GameType.ONE_PLAYER) {
+            return "The computer took it's turn. It is now your turn "
+                    + player.getName();
+        } else {
+            return "It is now your turn "
+                    + player.getName();
+        }
+    }
+    private class CellRenderer extends DefaultTableCellRenderer {
 
         public CellRenderer() {
             super();
         }
+        public void setValue(Player player) {
+            setText((player == null) ? "" : player.getToken());
+        }
     }
+private void takeTurn(JTable table) {
+        String playersToken;
+        int selectedRow;
+        int selectedColumn = table.getSelectedColumn();
+        Player currentPlayer = this.game.getCurrentPlayer();
+        Player otherPlayer = this.game.getOtherPlayer();
+        TableModel model = this.jTableCrazyConnectFour.getModel();
+        int rowCount = this.jTableCrazyConnectFour.getRowCount();
+        int colCount = this.jTableCrazyConnectFour.getColumnCount();
+        selectedRow = rowCount-1;
+        while (selectedRow > 0  &&  model.getValueAt(selectedRow, selectedColumn) != "" ){
+               selectedRow -= 1; 
+            }
+                try{
+                    if (selectedRow != 0) {
+                        Point selectedLocation = new Point(selectedRow, selectedColumn);
+                    } // a valid location was entered
+                    else {
+                        throw new LocationException(ErrorType.ERROR201.getMessage());
+                    }
+                }catch(LocationException ex){
+                    this.jTextMessagePanel.setText(ex.getMessage());
+                }
+                
+                table.setCellSelectionEnabled(false);
+                ListSelectionModel selectionModel = table.getSelectionModel();
+                selectionModel.clearSelection();
+                playersToken = currentPlayer.getToken();
+                table.getModel().setValueAt(playersToken, selectedRow, selectedColumn);
+                this.gameCommands.alternatePlayers();
+                String promptNextPlayer = getNextPlayerMessage(this.game.getCurrentPlayer());
+                this.jTextMessagePanel.setText(promptNextPlayer);
 
+
+    }
 }
