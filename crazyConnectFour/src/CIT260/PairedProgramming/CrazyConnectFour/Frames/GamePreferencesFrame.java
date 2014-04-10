@@ -708,6 +708,11 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         Point boardDimensions = new Point();
         Location[][] boardLocations;
         
+        if ("".equals(playerOneName)) playerOneName = this.game.getPlayerA().getName();
+        if ("".equals(playerTwoName)) playerTwoName = this.game.getPlayerB().getName();
+        if ("".equals(rows)) rows = String.valueOf(this.game.getBoard().getRowCount());
+        if ("".equals(columns)) columns = String.valueOf(this.game.getBoard().getColumnCount());
+        
         try{
         this.verifyPlayerName(playerOneName);
         this.verifyPlayerName(playerTwoName);

@@ -58,7 +58,7 @@ public class GameFrame extends javax.swing.JFrame {
      */
     public GameFrame() {
         this.initComponents();
-        
+
     }
 
     public GameFrame(Game game) {
@@ -69,8 +69,8 @@ public class GameFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-   private void initializeFrame() {
-       
+    private void initializeFrame() {
+
         int rows = this.game.getBoard().getRowCount();
         int columns = this.game.getBoard().getColumnCount();
 
@@ -86,7 +86,7 @@ public class GameFrame extends javax.swing.JFrame {
         for (int i = 0; i < jTableCrazyConnectFour.getColumnCount(); i++) {
             columnTableModel.getColumn(i).setCellRenderer(cellRenderer);
         }
-        
+
     }
 
     /**
@@ -217,7 +217,7 @@ public class GameFrame extends javax.swing.JFrame {
         jTableCrazyConnectFour.setToolTipText("");
         jTableCrazyConnectFour.setAlignmentX(1.0F);
         jTableCrazyConnectFour.setAlignmentY(1.0F);
-        jTableCrazyConnectFour.setCellSelectionEnabled(true);
+        jTableCrazyConnectFour.setColumnSelectionAllowed(true);
         jTableCrazyConnectFour.setGridColor(new java.awt.Color(0, 0, 0));
         jTableCrazyConnectFour.setRowHeight(50);
         jTableCrazyConnectFour.setShowHorizontalLines(true);
@@ -294,37 +294,36 @@ public class GameFrame extends javax.swing.JFrame {
         clearTokens();
         this.game.setStatus(StatusType.PLAYING);
         String nextPlayersMessage = this.game.getCurrentPlayer().getName()
-        + " it is your turn. Click on Any Column.";
+                + " it is your turn. Click on Any Column.";
         this.jTextMessagePanel.setText(nextPlayersMessage);
     }//GEN-LAST:event_jButtonNewGameActionPerformed
 
     private void jButtonSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSettingsActionPerformed
-        try{
-            if(this.game.getStatus() == StatusType.PLAYING){
+        try {
+            if (this.game.getStatus() == StatusType.PLAYING) {
                 throw new GameException(ErrorType.ERROR101.getMessage());
+            } else {
+                GamePreferencesFrame gamepreferencesFrame = new GamePreferencesFrame(game);
+                gamepreferencesFrame.setVisible(true);
             }
-            else{
-               GamePreferencesFrame gamepreferencesFrame = new GamePreferencesFrame(game);
-               gamepreferencesFrame.setVisible(true);    
-            }
-        }catch(GameException ex){
+        } catch (GameException ex) {
             this.jTextMessagePanel.setText(ex.getMessage());
         }
-              
+
     }//GEN-LAST:event_jButtonSettingsActionPerformed
 
     private void jButtonHighScoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHighScoresActionPerformed
-       DisplayHighScoresFrame displayHighScoresFrame = new DisplayHighScoresFrame();  
+        DisplayHighScoresFrame displayHighScoresFrame = new DisplayHighScoresFrame();
         displayHighScoresFrame.setVisible(true);
     }//GEN-LAST:event_jButtonHighScoresActionPerformed
 
     private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
-        Help helpFrame = new Help();  
+        Help helpFrame = new Help();
         helpFrame.setVisible(true);
     }//GEN-LAST:event_jButtonHelpActionPerformed
 
     private void jTableCrazyConnectFourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCrazyConnectFourMouseClicked
-       JTable jTable = (JTable) evt.getComponent();
+        JTable jTable = (JTable) evt.getComponent();
         this.jTextMessagePanel.setForeground(Color.black);
         this.takeTurn(jTable);
     }//GEN-LAST:event_jTableCrazyConnectFourMouseClicked
@@ -332,7 +331,6 @@ public class GameFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonHelp;
@@ -356,10 +354,9 @@ public class GameFrame extends javax.swing.JFrame {
             for (int col = 0; col < colCount; col++) {
                 model.setValueAt("", row, col);
             }
-        }   
+        }
     }
-    
-    
+
     private String getNextPlayerMessage(Player player) {
         if (this.game.getGameType() == GameType.ONE_PLAYER) {
             return "The computer took it's turn. It is now your turn "
@@ -369,48 +366,53 @@ public class GameFrame extends javax.swing.JFrame {
                     + player.getName();
         }
     }
+
     private class CellRenderer extends DefaultTableCellRenderer {
 
         public CellRenderer() {
             super();
         }
+
         public void setValue(Player player) {
             setText((player == null) ? "" : player.getToken());
         }
     }
-private void takeTurn(JTable table) {
+
+    private void takeTurn(JTable table) {
         String playersToken;
         int selectedRow;
         int selectedColumn = table.getSelectedColumn();
         Player currentPlayer = this.game.getCurrentPlayer();
         Player otherPlayer = this.game.getOtherPlayer();
         TableModel model = this.jTableCrazyConnectFour.getModel();
-        int rowCount = this.jTableCrazyConnectFour.getRowCount();
+        int rowCount = this.game.getBoard().getRowCount();
         int colCount = this.jTableCrazyConnectFour.getColumnCount();
-        selectedRow = rowCount-1;
-        while (selectedRow > 0  &&  model.getValueAt(selectedRow, selectedColumn) != "" ){
-               selectedRow -= 1; 
+        selectedRow = rowCount - 1;
+        while (selectedRow >= 0 && model.getValueAt(selectedRow, selectedColumn) != "") {
+            selectedRow -= 1;
+        }
+        try {
+            if (selectedRow >= 0) {
+                Point selectedLocation = new Point(selectedRow, selectedColumn);
+            } // a valid location was entered
+            else {
+                throw new LocationException(ErrorType.ERROR201.getMessage());
             }
-                try{
-                    if (selectedRow != 0) {
-                        Point selectedLocation = new Point(selectedRow, selectedColumn);
-                    } // a valid location was entered
-                    else {
-                        throw new LocationException(ErrorType.ERROR201.getMessage());
-                    }
-                }catch(LocationException ex){
-                    this.jTextMessagePanel.setText(ex.getMessage());
-                }
-                
-                table.setCellSelectionEnabled(false);
-                ListSelectionModel selectionModel = table.getSelectionModel();
-                selectionModel.clearSelection();
-                playersToken = currentPlayer.getToken();
-                table.getModel().setValueAt(playersToken, selectedRow, selectedColumn);
-                this.gameCommands.alternatePlayers();
-                String promptNextPlayer = getNextPlayerMessage(this.game.getCurrentPlayer());
-                this.jTextMessagePanel.setText(promptNextPlayer);
-
+        } catch (LocationException ex) {
+            this.jTextMessagePanel.setText(ex.getMessage());
+        }
+        if (selectedRow >= 0)
+        
+        {
+            table.setCellSelectionEnabled(false);
+            ListSelectionModel selectionModel = table.getSelectionModel();
+            selectionModel.clearSelection();
+            playersToken = currentPlayer.getToken();
+            table.getModel().setValueAt(playersToken, selectedRow, selectedColumn);
+            this.gameCommands.alternatePlayers();
+            String promptNextPlayer = getNextPlayerMessage(this.game.getCurrentPlayer());
+            this.jTextMessagePanel.setText(promptNextPlayer);
+        }
 
     }
 }
