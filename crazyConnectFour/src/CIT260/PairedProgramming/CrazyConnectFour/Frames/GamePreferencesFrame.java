@@ -28,12 +28,15 @@ import CIT260.PairedProgramming.CrazyConnectFour.Controls.GamePreferencesMenuCon
 import CIT260.PairedProgramming.CrazyConnectFour.Controls.MainMenuControl;
 import CIT260.PairedProgramming.CrazyConnectFour.Enumerations.ErrorType;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.DimensionException;
+import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.GameException;
 import CIT260.PairedProgramming.CrazyConnectFour.Exceptions.PlayerException;
 import CIT260.PairedProgramming.CrazyConnectFour.Frames.GameFrame;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Game;
 import CIT260.PairedProgramming.CrazyConnectFour.Models.Location;
 import java.awt.Dimension;
 import java.awt.Point;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author dccoatney
@@ -50,9 +53,10 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    public GamePreferencesFrame(Game game) {
+    public GamePreferencesFrame(Game game, GameFrame gameFrame) {
         this();
         this.game = game;
+        this.gameFrame = gameFrame;
         this.preferencesCommands = new GamePreferencesMenuControl();
     }
 
@@ -733,6 +737,30 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
         this.jLabelColumns.setText ("Current number of columns:" + this.game.getBoard().getColumnCount());
         this.jLabelPlayerOne.setText ("Current player name:" + this.game.getPlayerA().getName());
         this.jLabelPlayerTwo.setText ("Current player name:" + this.game.getPlayerB().getName());
+        //resize GameFrame and Board
+       
+
+                
+               
+//                Dimension frameSize = this.gameFrame.getSize();
+                Dimension contentPaneSize = this.gameFrame.getContentPane().getSize();
+           
+                // update board table model
+                DefaultTableModel tableModel = 
+                        new DefaultTableModel(Integer.parseInt(rows), Integer.parseInt(columns));               
+                this.gameFrame.getjTableCrazyConnectFour().setModel(tableModel);
+                this.gameFrame.initializeFrame();
+                
+                Dimension tableSize = this.gameFrame.getjTableCrazyConnectFour().getSize();
+                contentPaneSize.width += tableSize.width;
+                contentPaneSize.height += tableSize.height;   
+                this.gameFrame.pack();
+                this.gameFrame.getContentPane().revalidate();
+               
+               
+           
+        
+        
     }//GEN-LAST:event_jButtonSavePreferencesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

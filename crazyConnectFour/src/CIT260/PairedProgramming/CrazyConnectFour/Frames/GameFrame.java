@@ -36,8 +36,12 @@ import CIT260.PairedProgramming.CrazyConnectFour.Models.Player;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
@@ -69,13 +73,133 @@ public class GameFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    private void initializeFrame() {
+    public String getCurrentToken() {
+        return currentToken;
+    }
+
+    public void setCurrentToken(String currentToken) {
+        this.currentToken = currentToken;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public GameMenuControl getGameCommands() {
+        return gameCommands;
+    }
+
+    public void setGameCommands(GameMenuControl gameCommands) {
+        this.gameCommands = gameCommands;
+    }
+
+    public JButton getjButtonHelp() {
+        return jButtonHelp;
+    }
+
+    public void setjButtonHelp(JButton jButtonHelp) {
+        this.jButtonHelp = jButtonHelp;
+    }
+
+    public JButton getjButtonHighScores() {
+        return jButtonHighScores;
+    }
+
+    public void setjButtonHighScores(JButton jButtonHighScores) {
+        this.jButtonHighScores = jButtonHighScores;
+    }
+
+    public JButton getjButtonNewGame() {
+        return jButtonNewGame;
+    }
+
+    public void setjButtonNewGame(JButton jButtonNewGame) {
+        this.jButtonNewGame = jButtonNewGame;
+    }
+
+    public JButton getjButtonReturn() {
+        return jButtonReturn;
+    }
+
+    public void setjButtonReturn(JButton jButtonReturn) {
+        this.jButtonReturn = jButtonReturn;
+    }
+
+    public JButton getjButtonSettings() {
+        return jButtonSettings;
+    }
+
+    public void setjButtonSettings(JButton jButtonSettings) {
+        this.jButtonSettings = jButtonSettings;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    public void setjPanel3(JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JTable getjTableCrazyConnectFour() {
+        return jTableCrazyConnectFour;
+    }
+
+    public void setjTableCrazyConnectFour(JTable jTableCrazyConnectFour) {
+        this.jTableCrazyConnectFour = jTableCrazyConnectFour;
+    }
+
+    public JTextArea getjTextMessagePanel() {
+        return jTextMessagePanel;
+    }
+
+    public void setjTextMessagePanel(JTextArea jTextMessagePanel) {
+        this.jTextMessagePanel = jTextMessagePanel;
+    }
+
+    public void initializeFrame() {
 
         int rows = this.game.getBoard().getRowCount();
         int columns = this.game.getBoard().getColumnCount();
 
         jTableCrazyConnectFour.getTableHeader().setVisible(true);
-        jTableCrazyConnectFour.getTableHeader().setPreferredSize(new Dimension(3, columns));
+        jTableCrazyConnectFour.getTableHeader().setPreferredSize(new Dimension(1, columns));
         jTableCrazyConnectFour.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         Color backgroundColor = jTableCrazyConnectFour.getBackground();
         jTableCrazyConnectFour.setSelectionBackground(backgroundColor);
@@ -86,6 +210,7 @@ public class GameFrame extends javax.swing.JFrame {
         for (int i = 0; i < jTableCrazyConnectFour.getColumnCount(); i++) {
             columnTableModel.getColumn(i).setCellRenderer(cellRenderer);
         }
+
 
     }
 
@@ -225,13 +350,17 @@ public class GameFrame extends javax.swing.JFrame {
         jTableCrazyConnectFour.setToolTipText("");
         jTableCrazyConnectFour.setAlignmentX(1.0F);
         jTableCrazyConnectFour.setAlignmentY(1.0F);
+        jTableCrazyConnectFour.setColumnSelectionAllowed(true);
         jTableCrazyConnectFour.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTableCrazyConnectFour.setDropMode(javax.swing.DropMode.ON);
-        jTableCrazyConnectFour.setColumnSelectionAllowed(true);
         jTableCrazyConnectFour.setGridColor(new java.awt.Color(0, 0, 0));
+        jTableCrazyConnectFour.setMaximumSize(new java.awt.Dimension(2147483647, 1000));
         jTableCrazyConnectFour.setRowHeight(50);
         jTableCrazyConnectFour.setSelectionBackground(new java.awt.Color(0, 102, 204));
         jTableCrazyConnectFour.setSelectionForeground(new java.awt.Color(102, 153, 255));
+        jTableCrazyConnectFour.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTableCrazyConnectFour.setShowHorizontalLines(true);
+        jTableCrazyConnectFour.setShowVerticalLines(true);
         jTableCrazyConnectFour.setSurrendersFocusOnKeystroke(true);
         jTableCrazyConnectFour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -315,7 +444,7 @@ public class GameFrame extends javax.swing.JFrame {
             if (this.game.getStatus() == StatusType.PLAYING) {
                 throw new GameException(ErrorType.ERROR101.getMessage());
             } else {
-                GamePreferencesFrame gamepreferencesFrame = new GamePreferencesFrame(game);
+                GamePreferencesFrame gamepreferencesFrame = new GamePreferencesFrame(game, this);
                 gamepreferencesFrame.setVisible(true);
             }
         } catch (GameException ex) {
