@@ -199,7 +199,7 @@ public class GameFrame extends javax.swing.JFrame {
         int columns = this.game.getBoard().getColumnCount();
 
         jTableCrazyConnectFour.getTableHeader().setVisible(true);
-        jTableCrazyConnectFour.getTableHeader().setPreferredSize(new Dimension(1, columns));
+        jTableCrazyConnectFour.getTableHeader().setPreferredSize(new Dimension(rows, columns));
         jTableCrazyConnectFour.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         Color backgroundColor = jTableCrazyConnectFour.getBackground();
         jTableCrazyConnectFour.setSelectionBackground(backgroundColor);
