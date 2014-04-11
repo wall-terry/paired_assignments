@@ -487,7 +487,7 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTableCrazyConnectFour;
     private javax.swing.JTextArea jTextMessagePanel;
     // End of variables declaration//GEN-END:variables
- private void clearTokens() {
+ public void clearTokens() {
         TableModel model = this.jTableCrazyConnectFour.getModel();
         int rowCount = this.jTableCrazyConnectFour.getRowCount();
         int colCount = this.jTableCrazyConnectFour.getColumnCount();

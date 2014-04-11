@@ -756,7 +756,7 @@ public class GamePreferencesFrame extends javax.swing.JFrame {
                 contentPaneSize.height += tableSize.height;   
                 this.gameFrame.pack();
                 this.gameFrame.getContentPane().revalidate();
-               
+                this.gameFrame.clearTokens();
                
            
         
