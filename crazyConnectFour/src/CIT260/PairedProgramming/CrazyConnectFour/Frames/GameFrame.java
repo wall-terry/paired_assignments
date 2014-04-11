@@ -350,6 +350,7 @@ public class GameFrame extends javax.swing.JFrame {
         jTableCrazyConnectFour.setToolTipText("");
         jTableCrazyConnectFour.setAlignmentX(1.0F);
         jTableCrazyConnectFour.setAlignmentY(1.0F);
+        jTableCrazyConnectFour.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTableCrazyConnectFour.setColumnSelectionAllowed(true);
         jTableCrazyConnectFour.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTableCrazyConnectFour.setDropMode(javax.swing.DropMode.ON);
@@ -418,7 +419,7 @@ public class GameFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 1053, 955);
