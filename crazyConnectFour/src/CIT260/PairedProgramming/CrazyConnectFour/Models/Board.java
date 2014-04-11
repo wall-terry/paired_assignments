@@ -90,8 +90,7 @@ public class Board extends AbstractTableModel implements Serializable {
 
   public void makeTheBoard() {
         
-        for (int i = 0; i < this.boardLocations.length; i++) {
-            Location[] rowlocations = this.boardLocations[i];
+        for (Location[] rowlocations : this.boardLocations) {
             for (int j = 0; j < rowlocations.length; j++) {
                 rowlocations[j] = new Location();
                 rowlocations[j].setPlayer(null);
@@ -101,11 +100,10 @@ public class Board extends AbstractTableModel implements Serializable {
     }  
   
   public void clearTheBoard() {
-        for (int i = 0; i < this.boardLocations.length; i++) {
-            Location[] rowlocations = this.boardLocations[i];
-            for (int j = 0; j < rowlocations.length; j++) {
-                rowlocations[j].setPlayer(null);
-                rowlocations[j].clearDeleteFlag();
+        for (Location[] rowlocations : this.boardLocations) {
+            for (Location rowlocation : rowlocations) {
+                rowlocation.setPlayer(null);
+                rowlocation.clearDeleteFlag();
             }
         }
     }

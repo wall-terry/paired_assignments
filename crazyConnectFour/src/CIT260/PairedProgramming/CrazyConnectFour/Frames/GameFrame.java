@@ -301,6 +301,7 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void jButtonNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewGameActionPerformed
         initializeFrame();
+        this.game.getBoard().makeTheBoard();
         this.gameCommands.startNewGame();
         clearTokens();
         this.game.setStatus(StatusType.PLAYING);
