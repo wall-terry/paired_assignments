@@ -76,6 +76,7 @@ public class Game implements Serializable {
         this.board = new Board(Game.NUMBER_OF_ROWS_DEFAULT, Game.NUMBER_OF_COLUMNS_DEFAULT);
         this.board.makeTheBoard();
         
+        
     }
 
     public GameType getGameType() {
