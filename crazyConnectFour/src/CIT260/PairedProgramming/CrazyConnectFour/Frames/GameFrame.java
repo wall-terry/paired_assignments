@@ -357,6 +357,7 @@ public class GameFrame extends javax.swing.JFrame {
         jTableCrazyConnectFour.setGridColor(new java.awt.Color(0, 0, 0));
         jTableCrazyConnectFour.setMaximumSize(new java.awt.Dimension(2147483647, 1000));
         jTableCrazyConnectFour.setRowHeight(50);
+        jTableCrazyConnectFour.setRowSelectionAllowed(false);
         jTableCrazyConnectFour.setSelectionBackground(new java.awt.Color(0, 102, 204));
         jTableCrazyConnectFour.setSelectionForeground(new java.awt.Color(102, 153, 255));
         jTableCrazyConnectFour.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
