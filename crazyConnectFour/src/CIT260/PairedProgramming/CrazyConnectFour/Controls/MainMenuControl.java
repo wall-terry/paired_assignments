@@ -80,6 +80,9 @@ public class MainMenuControl {
         Game game = null;
         Player playerA = null;
         Player playerB = null;
+        String namearray [] = {"Lindsey", "Bonnie", "Trevor", "Josh", "Katie", "Gavin", "Audrey", "Allison", "Michael", "Jeremy"};
+        long scorearray [] = { 112,232,400,350,157,671,422,351,325,100};
+          
         
         if (gameType == null) {
             throw new MenuException(ErrorType.ERROR108.getMessage());
@@ -112,9 +115,12 @@ public class MainMenuControl {
         // set the game status to game not yet in playing mode
         game.setStatus(StatusType.NEW_GAME);
         
+        game.getScoreBoard().nameArray = namearray;
+        game.getScoreBoard().scoreArray = scorearray;
+        
         return game;
     } 
-    
+
     
     private StatusType quitGame() {
         System.out.println("\n\tAre you sure you want to quit? (Y or N)");

@@ -42,6 +42,13 @@ public class DisplayHighScoresFrame extends javax.swing.JFrame {
     public DisplayHighScoresFrame(Game game) {
         this();
         this.game = game;
+        
+         String output = "";
+       int i;
+       for (i = 0; i < 10; i++){
+           output += "\n\t " +this.game.getScoreBoard().nameArray[i] + "\t" + this.game.getScoreBoard().scoreArray[i];
+       }
+       this.jTextHighScores.setText(output);
     }
 
     /**
@@ -152,7 +159,7 @@ public class DisplayHighScoresFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jPanel1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel1ComponentShown
-       
+      
     }//GEN-LAST:event_jPanel1ComponentShown
 
     /**
