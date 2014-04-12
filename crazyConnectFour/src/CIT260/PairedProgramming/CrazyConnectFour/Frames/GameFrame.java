@@ -357,6 +357,7 @@ public class GameFrame extends javax.swing.JFrame {
         jTableCrazyConnectFour.setGridColor(new java.awt.Color(0, 0, 0));
         jTableCrazyConnectFour.setMaximumSize(new java.awt.Dimension(2147483647, 1000));
         jTableCrazyConnectFour.setRowHeight(50);
+        jTableCrazyConnectFour.setRowSelectionAllowed(false);
         jTableCrazyConnectFour.setSelectionBackground(new java.awt.Color(0, 102, 204));
         jTableCrazyConnectFour.setSelectionForeground(new java.awt.Color(102, 153, 255));
         jTableCrazyConnectFour.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -398,11 +399,11 @@ public class GameFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addGap(209, 209, 209))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
