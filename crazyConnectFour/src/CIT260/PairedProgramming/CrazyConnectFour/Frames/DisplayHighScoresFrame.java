@@ -43,12 +43,12 @@ public class DisplayHighScoresFrame extends javax.swing.JFrame {
         this();
         this.game = game;
         
-         String output = "";
-       int i;
-       for (i = 0; i < 10; i++){
-           output += "\n\t " +this.game.getScoreBoard().nameArray[i] + "\t" + this.game.getScoreBoard().scoreArray[i];
-       }
-       this.jTextHighScores.setText(output);
+        String output = "\n\t PLAYER\tSCORE\n\n";
+        int i;
+        for (i = 0; i < 10; i++){
+           output += "\n\t " + this.game.getScoreBoard().nameArray[i] + "\t" + this.game.getScoreBoard().scoreArray[i];
+        }
+        this.jTextHighScores.setText(output);
     }
 
     /**
@@ -107,6 +107,7 @@ public class DisplayHighScoresFrame extends javax.swing.JFrame {
         );
 
         jTextHighScores.setColumns(20);
+        jTextHighScores.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jTextHighScores.setRows(5);
         jScrollPane2.setViewportView(jTextHighScores);
 

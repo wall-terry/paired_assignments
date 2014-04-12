@@ -457,7 +457,7 @@ public class GameFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSettingsActionPerformed
 
     private void jButtonHighScoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHighScoresActionPerformed
-        DisplayHighScoresFrame displayHighScoresFrame = new DisplayHighScoresFrame();
+        DisplayHighScoresFrame displayHighScoresFrame = new DisplayHighScoresFrame(this.game);
         displayHighScoresFrame.setVisible(true);
     }//GEN-LAST:event_jButtonHighScoresActionPerformed
 
